@@ -70,16 +70,24 @@ const portfolioData = {
     ],
     "projects": [
         {
-            "title": "D&D Campaign Manager",
-            "description": "Real-time initiative tracking and monster stat manager for tabletop sessions.",
-            "tech": ["SignalR", "React", ".NET"],
-            "status": "public"
+            "title": "Simple.Interpreter",
+            "description": "A lightweight C# library providing a straightforward interpreter for a simple, custom expression language. This NuGet package enables developers to empower their customers or clients to define dynamic expressions for various purposes, such as business rules, conditional logic, and data filtering, without requiring code recompilation.",
+            "tech": ["C#", ".NET"],
+            "status": "public",
+            "url": "https://github.com/matthewclaw/Simple.Interpreter"
         },
         {
-            "title": "API Framework Boilerplate",
-            "description": "Multi-tenant architectural template for rapid secure API development.",
-            "tech": ["EF Core", "Docker", "Swagger"],
-            "status": "public"
+            "title": "Query",
+            "description": "This is a simple library I wrote, before EF was 'big', that is used to run MySql Commands. It uses reflection in order to map the results to the specified Data type.",
+            "tech": ["C#", "Reflection", "SQL"],
+            "status": "public",
+            "url": "https://github.com/matthewclaw/Query"
+        },
+        {
+            "title": "Simple.Office.Excel",
+            "description": "This project aims to simplify the interaction with Microsoft Excel files by abstracting underlying libraries such as NPOI. It provides an easy-to-use API for creating, manipulating, and reading data from Excel files.",
+            "tech": ["C#", "OpenXml", "Excel", "NPOI"],
+            "status": "private"
         }
     ],
     "hobbies": [
@@ -128,7 +136,7 @@ function populateClients() {
     clientsContainer.innerHTML = portfolioData.clients.map(client => `
                 <div class="section-fade p-6 bg-[#252526] border border-[#333] flex items-center gap-4 hover:bg-[#2a2d2e] transition-colors">
                     <div class="w-12 h-12 bg-white rounded flex items-center justify-center p-1 shrink-0 opacity-80 grayscale hover:grayscale-0">
-                        <img src="${client.logoUrl}" alt="${client.name}" style="object-fit:cover" class="max-h-full object-fit" onerror="this.src='https://via.placeholder.com/50?text=Logo'">
+                        <img src="${client.logoUrl}" alt="${client.name}" style="object-fit:cover" onerror="this.src='https://via.placeholder.com/50?text=Logo'">
                     </div>
                     <div>
                         <h4 class="font-bold text-white text-sm">${client.name}</h4>
@@ -155,19 +163,22 @@ function populateSkills() {
 
 function populateProjects() {
     const projectsContainer = document.getElementById('projects-container');
-    projectsContainer.innerHTML = portfolioData.projects.map(proj => `
-                <div class="section-fade p-6 bg-[#252526] border border-[#333] hover:border-blue-500/50 transition-all duration-300">
+    projectsContainer.innerHTML = portfolioData.projects.map(proj => {
+        let isPublic = proj.status === 'public';
+        let tag = isPublic ? 'a' : 'div';
+        return `
+                <${tag} ${isPublic ? 'href="' + proj.url + '" target="_blank"' : ''} class="section-fade p-6 bg-[#252526] border border-[#333] ${isPublic ? 'hover:border-blue-500/50' : ''} transition-all duration-300">
                     <div class="flex justify-between items-start mb-4">
                         <i class="fas fa-folder text-yellow-500 text-2xl"></i>
                         <span class="text-[10px] bg-blue-500/10 text-blue-400 px-2 py-1 rounded">${proj.status}</span>
                     </div>
-                    <h4 class="font-bold text-white mb-2">${proj.title}</h4>
+                    <h4 class="font-bold text-white mb-2">${proj.title}${isPublic ? '<i class="fas fa-external-link-alt text-blue-400 ml-2"></i>' : ''}</h4>
                     <p class="text-xs text-slate-500 leading-relaxed mb-4">${proj.description}</p>
                     <div class="text-[10px] opacity-60 flex gap-4">
                         ${proj.tech.map(t => `<span>${t}</span>`).join('')}
                     </div>
-                </div>
-            `).join('');
+                </${tag}>
+            `}).join('');
 }
 
 function populateHobbies() {
@@ -207,15 +218,16 @@ function setupObserver() {
 
     document.querySelectorAll('.section-fade').forEach(el => observer.observe(el));
 }
-
-document.querySelectorAll('aside a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelectorAll('aside a').forEach(a => a.classList.remove('sidebar-active'));
-        this.classList.add('sidebar-active');
-        const targetId = this.getAttribute('href');
-        const target = document.querySelector(targetId);
-        if (target) window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('aside a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelectorAll('aside div a').forEach(a => a.classList.remove('sidebar-active'));
+            this.classList.add('sidebar-active');
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            if (target) window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+        });
     });
 });
 
