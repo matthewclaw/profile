@@ -100,25 +100,9 @@ function renderPortfolio() {
     populateExperience();
     populateClients();
     populateSkills();
-    // Projects
-
-    // Hobbies
-    const hobbiesContainer = document.getElementById('hobbies-container');
-    hobbiesContainer.innerHTML = portfolioData.hobbies.map(hobby => `
-                <div class="section-fade flex flex-col items-center justify-center p-4 bg-[#252526] border border-[#333] rounded hover:border-cyan-500/50 transition-all group">
-                    <i class="fas ${hobby.icon} text-2xl mb-3 text-cyan-400 group-hover:scale-110 transition-transform"></i>
-                    <span class="text-[10px] uppercase tracking-wider text-slate-400 group-hover:text-white transition-colors text-center">${hobby.name}</span>
-                </div>
-            `).join('');
-
-    // Contact Links
-    const contactContainer = document.getElementById('contact-container');
-    contactContainer.innerHTML = portfolioData.contact_links.map(item => `
-                <a href="${item.link}" target="_blank" class="section-fade flex items-center gap-3 px-6 py-3 bg-[#252526] border border-[#333] rounded hover:border-blue-500 transition-all group">
-                    <i class="fab fa-light ${item.icon} text-xl text-blue-400 group-hover:scale-110 transition-transform"></i>
-                    <span class="text-sm font-medium text-slate-400 group-hover:text-white transition-colors">${item.name}</span>
-                </a>
-            `).join('');
+    populateProjects();
+    populateHobbies();
+    populateContactLinks();
     setupObserver();
 }
 
@@ -183,6 +167,26 @@ function populateProjects() {
                         ${proj.tech.map(t => `<span>${t}</span>`).join('')}
                     </div>
                 </div>
+            `).join('');
+}
+
+function populateHobbies() {
+    const hobbiesContainer = document.getElementById('hobbies-container');
+    hobbiesContainer.innerHTML = portfolioData.hobbies.map(hobby => `
+                <div class="section-fade flex flex-col items-center justify-center p-4 bg-[#252526] border border-[#333] rounded hover:border-cyan-500/50 transition-all group">
+                    <i class="fas ${hobby.icon} text-2xl mb-3 text-cyan-400 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-[10px] uppercase tracking-wider text-slate-400 group-hover:text-white transition-colors text-center">${hobby.name}</span>
+                </div>
+            `).join('');
+}
+
+function populateContactLinks() {
+    const contactContainer = document.getElementById('contact-container');
+    contactContainer.innerHTML = portfolioData.contact_links.map(item => `
+                <a href="${item.link}" target="_blank" class="section-fade flex items-center gap-3 px-6 py-3 bg-[#252526] border border-[#333] rounded hover:border-blue-500 transition-all group">
+                    <i class="fab fa-light ${item.icon} text-xl text-blue-400 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm font-medium text-slate-400 group-hover:text-white transition-colors">${item.name}</span>
+                </a>
             `).join('');
 }
 
