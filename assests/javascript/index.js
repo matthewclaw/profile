@@ -35,6 +35,35 @@ const portfolioData = {
             "workDescription": "Was part of the modernization team, focusing on improving performance, security and improving CI/CD."
         },
     ],
+    "education": [
+        {
+            "period": "2015.01 - 2015.11",
+            "course": "Microsoft Certified Software Development Professional (MCSD)",
+            "institution": "CTU",
+            "description": [
+                "Software development using C#, SQL Server.",
+                "Learnt to use tools such as Visual Studio, Expression Blend 4, SQL Server and Unity.",
+            ]
+        },
+        {
+            "period": "2011.01 - 2014.12",
+            "course": "Computer Software Engineering",
+            "institution": "SSir Online School",
+            "description": [
+                "ICT Theory",
+                "Software Engineering in HTML, Java and MS SQL.",
+            ]
+        },
+        {
+            "period": "2001.01 - 2014.12",
+            "course": "IEB National Senior Certificate",
+            "institution": "St. Dunstan's College",
+            "description": [
+                "Grades 1 => 12",
+                "Activities and societies including Extra Art, Rowing Club and Advanced Mathematics.",
+            ]
+        }
+    ],
     "experience": [
         {
             "period": "2022.06 — Present",
@@ -106,6 +135,7 @@ const portfolioData = {
 
 function renderPortfolio() {
     populateExperience();
+    populateEducation();
     populateClients();
     populateSkills();
     populateProjects();
@@ -127,6 +157,20 @@ function populateExperience() {
                     <div class="flex flex-wrap gap-2 mt-4">
                         ${item.tech.map(t => `<span class="text-[10px] px-2 py-0.5 bg-[#333] rounded text-blue-400">${t}</span>`).join('')}
                     </div>
+                </div>
+            `).join('');
+}
+
+function populateEducation() {
+    const expContainer = document.getElementById('education-container');
+    expContainer.innerHTML = portfolioData.education.map(item => `
+                <div class="section-fade border-l-2 border-[#333] pl-6 relative">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-[#1a1a1a]"></div>
+                    <span class="token-comment text-xs">${item.period}</span>
+                    <h4 class="text-lg font-bold text-white mt-1">${item.course} <span class="text-[#444]">@</span> ${item.institution}</h4>
+                    <ul class="mt-4 space-y-2 text-sm text-slate-400">
+                        ${item.description.map(line => `<li>- ${line}</li>`).join('')}
+                    </ul>
                 </div>
             `).join('');
 }
