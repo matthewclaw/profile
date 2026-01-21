@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthew Law | Senior Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assests/javascript/index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <link href="assests/css/style.css" rel="stylesheet">
+</head>
+
+<body class="antialiased">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="hidden md:flex flex-col w-48 bg-[#252526] border-r border-[#333] fixed h-full">
+            <div class="p-3 uppercase text-[10px] font-bold tracking-widest text-white/40 mb-2">Explorer</div>
+            <div class="flex flex-col text-xs" id="sidebar-nav">
+                <a href="#about" class="sidebar-active px-4 py-2 flex items-center gap-2"><i
+                        class="fas fa-user-circle text-blue-400"></i> About</a>
+                <a href="#experience" class="px-4 py-2 flex items-center gap-2 hover:bg-[#2a2d2e]"><i
+                        class="fas fa-history text-orange-400"></i> Experience</a>
+                <a href="#clients" class="px-4 py-2 flex items-center gap-2 hover:bg-[#2a2d2e]"><i
+                        class="fas fa-handshake text-pink-400"></i> Clients</a>
+                <a href="#skills" class="px-4 py-2 flex items-center gap-2 hover:bg-[#2a2d2e]"><i
+                        class="fas fa-tools text-emerald-400"></i> Skills</a>
+                <a href="#projects" class="px-4 py-2 flex items-center gap-2 hover:bg-[#2a2d2e]"><i
+                        class="fas fa-project-diagram text-purple-400"></i>Side_Projects</a>
+                <a href="#hobbies" class="px-4 py-2 flex items-center gap-2 hover:bg-[#2a2d2e]"><i
+                        class="fas fa-gamepad text-cyan-400"></i> Hobbies</a>
+                <a href="#contact" class="px-4 py-2 flex items-center gap-2 hover:bg-[#2a2d2e]"><i
+                        class="fas fa-envelope text-yellow-400"></i> Contact</a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1">
+            <!-- Hero Section -->
+            <header id="about" class="py-20 px-8 max-w-4xl">
+                <div class="section-fade visible">
+                    <p class="token-comment mb-4">// Senior Software Engineer Portfolio</p>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        <span class="token-type">Matthew_Law</span>
+                    </h1>
+                    <div class="space-y-4 text-base md:text-lg">
+                        <p><span class="token-keyword">readonly</span> <span class="token-type">Experience</span> <span
+                                class="token-func">Years</span> = <span class="token-string">"10+"</span>;</p>
+                        <p class="text-slate-400">Senior software engineer with 10+ years of experience
+                            building backend-heavy
+                            systems in C# and .NET, with a strong focus on architecture, extensibility, and
+                            system quality. Regularly trusted with technical ownership, cross-cutting
+                            decisions, and mentoring responsibilities. Comfortable operating as a senior
+                            individual contributor or stepping into technical leadership roles where
+                            direction, clarity, and judgement are required.</p>
+                    </div>
+                    <div class="mt-10 flex flex-wrap gap-4">
+                        <a href="#contact"
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded text-sm font-bold transition">Contact_Me()</a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Experience Section -->
+            <section id="experience" class="py-16 px-8 bg-[#1a1a1a] border-y border-[#333]">
+                <div class="max-w-4xl">
+                    <h3 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
+                                class="token-func">Experience</span>()</h3>
+                    <div id="experience-container" class="space-y-12 ml-4"></div>
+                </div>
+            </section>
+
+            <!-- Clients Section -->
+            <section id="clients" class="py-16 px-8 bg-[#1a1a1a] border-y border-[#333]">
+                <div class="max-w-4xl">
+                    <h3 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
+                                class="token-func">Past_Clients</span>()</h3>
+                    <div id="clients-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="py-16 px-8 bg-[#1a1a1a] border-y border-[#333]">
+                <div class="max-w-4xl">
+                    <h3 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
+                                class="token-func">Top_Skills</span>()</h3>
+                    <div id="skills-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="py-16 px-8 bg-[#1a1a1a] border-y border-[#333]">
+                <div class="max-w-4xl">
+                    <h3 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
+                                class="token-func">Side_Projects</span>()</h3>
+                    <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+                </div>
+            </section>
+
+            <!-- Hobbies Section -->
+            <section id="hobbies" class="py-16 px-8 bg-[#1a1a1a] border-y border-[#333]">
+                <div class="max-w-4xl">
+                    <h3 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
+                                class="token-func">Hobbies</span>()</h3>
+                    <div id="hobbies-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <footer id="contact" class="py-20 px-8 bg-[#1a1a1a] border-t border-[#333]">
+                <h3 class="token-func text-xl font-bold mb-8">Contact()</h3>
+                <div id="contact-container" class="flex flex-wrap gap-8 max-w-2xl"></div>
+                <p class="text-[10px] text-slate-600 mt-16 uppercase font-mono">Process finished with exit code 0</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- IDE Status Bar -->
+    <footer
+        class="fixed bottom-0 w-full h-6 bg-blue-600 text-white text-[10px] flex items-center justify-between px-3 z-50">
+        <div class="flex items-center gap-4"><span><i class="fas fa-code-branch"></i> main*</span></div>
+        <div class="flex items-center gap-4"><span>UTF-8</span><span>C#</span></div>
+    </footer>
+</body>
+
+</html>

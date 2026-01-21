@@ -1,0 +1,75 @@
+
+        :root {
+            --bg-dark: #1e1e1e;
+            --sidebar-dark: #252526;
+            --accent-blue: #007acc;
+            --syntax-keyword: #c586c0;
+            --syntax-func: #dcdcaa;
+            --syntax-string: #ce9178;
+            --syntax-type: #4ec9b0;
+            --syntax-comment: #6a9955;
+            --text-main: #d4d4d4;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            scroll-behavior: smooth;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+            padding-bottom: 24px;
+        }
+
+        .section-fade {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease-out;
+        }
+
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .token-keyword { color: var(--syntax-keyword); }
+        .token-func { color: var(--syntax-func); }
+        .token-string { color: var(--syntax-string); }
+        .token-type { color: var(--syntax-type); }
+        .token-comment { color: var(--syntax-comment); font-style: italic; }
+
+        .progress-container {
+            height: 12px;
+            background: #333;
+            border-radius: 2px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 2px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--syntax-type);
+            width: 0;
+            transition: width 1.5s cubic-bezier(0.1, 0.5, 0.2, 1);
+            border-radius: 1px;
+        }
+
+        .sidebar-active {
+            background-color: #37373d;
+            border-left: 2px solid var(--accent-blue);
+        }
+
+        nav a:hover { background-color: #2a2d2e; }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: #424242; }
+        ::-webkit-scrollbar-thumb:hover { background: #4f4f4f; }
+
+        @media screen and (min-width: 768px) {
+            main {
+                margin-left: 12rem;
+            }
+        }
+    
