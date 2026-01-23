@@ -43,5 +43,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 100)
 });
 function loadPortfolioData() {
-    return fetch('../assets/data/data.json').then(res => res.json());
+    return fetch('./assets/data/data.json').then(res => res.json());
 }

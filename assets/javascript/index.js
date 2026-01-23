@@ -5,7 +5,7 @@ import {
 } from './renderers.js'
 
 async function renderPortfolio() {
-    let portfolioData = await fetch('../assets/data/data.json').then(res => res.json());
+    let portfolioData = await fetch('./assets/data/data.json').then(res => res.json());
     renderExperience(document.getElementById('experience-container'), portfolioData);
     renderEducation(document.getElementById('education-container'), portfolioData);
     renderClients(document.getElementById('clients-container'), portfolioData);
