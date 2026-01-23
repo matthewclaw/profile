@@ -1,0 +1,133 @@
+{
+    "skills": [
+        { "name": "C# / .NET", "percentage": 100 },
+        { "name": "System Architecture", "percentage": 95 },
+        { "name": "API & Web Security", "percentage": 80 },
+        { "name": "Multi-Tenant Design", "percentage": 75 },
+        { "name": "TypeScript / Node.js", "percentage": 65 },
+        { "name": "Unit Testing", "percentage": 90 }
+    ],
+    "clients": [
+        {
+            "name": "JSE",
+            "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFvHZNpU5vKMA/company-logo_200_200/company-logo_200_200/0/1688365299951/jse_limited_logo?e=1770854400&v=beta&t=UiAYKz7bDWzxAHbLAh6uuW_kxoNAz4c8XYiOuF0nvQM",
+            "workDescription": "Assisted with improving integrations into Custodial and Broker-Back Offices."
+        },
+        {
+            "name": "Absa",
+            "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHA1Ml0Wm71KA/company-logo_200_200/company-logo_200_200/0/1726123010716/absa_logo?e=1770854400&v=beta&t=WaRvRv9d8TwBAypCom2298-FYpglLUjYnCi_pnHBYN8",
+            "workDescription": "Collaborated within the Corporate and Investment Banking (CIB) space, focusing on corporate client UX and integration."
+        },
+        {
+            "name": "Computicket",
+            "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQE6gXgVBoBJGg/company-logo_200_200/company-logo_200_200/0/1630554922808/computicket_logo?e=1770854400&v=beta&t=IPTO8z2Pm1-SQsNpOhJ9B6Daykyvk0Ib9NRbYoMIP4w",
+            "workDescription": "Collaborated with their own development team to introduce the microservice architecture to the company."
+        },
+        {
+            "name": "Standard Bank",
+            "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQEMo-EgURgpnA/company-logo_200_200/company-logo_200_200/0/1630561374295/standard_bank_group_logo?e=1770854400&v=beta&t=RjSX0pdRRjn_aki6-IG3Hnp7HIT0RJj0TbocF0UZXnI",
+            "workDescription": "Collaborated within the Corporate and Investment Banking (CIB) space, focusing on high-performance financial service integration."
+        },
+        {
+            "name": "LibFin/Liberty",
+            "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGI7Dwsb5RGHA/company-logo_200_200/company-logo_200_200/0/1630522470672?e=1770854400&v=beta&t=-bUQVA3rAURspdzG99g5aN_4WAnZ5S-K5iyXodKnW-E",
+            "workDescription": "Was part of the modernization team, focusing on improving performance, security and improving CI/CD."
+        }
+    ],
+    "education": [
+        {
+            "period": "2015.01 - 2015.11",
+            "course": "Microsoft Certified Software Development Professional (MCSD)",
+            "institution": "CTU",
+            "description": [
+                "Software development using C#, SQL Server.",
+                "Learnt to use tools such as Visual Studio, Expression Blend 4, SQL Server and Unity."
+            ]
+        },
+        {
+            "period": "2011.01 - 2014.12",
+            "course": "Computer Software Engineering",
+            "institution": "SSir Online School",
+            "description": [
+                "ICT Theory",
+                "Software Engineering in HTML, Java and MS SQL."
+            ]
+        },
+        {
+            "period": "2001.01 - 2014.12",
+            "course": "IEB National Senior Certificate",
+            "institution": "St. Dunstan's College",
+            "description": [
+                "Grades 1 => 12",
+                "Activities and societies including Extra Art, Rowing Club and Advanced Mathematics."
+            ]
+        }
+    ],
+    "experience": [
+        {
+            "period": "2022.06 — Present",
+            "title": "Senior Software Engineer",
+            "company": "Entelect",
+            "tech": ["C#", ".NET 8", "Architecture", "Mentorship"],
+            "description": [
+                "Ownership of C#/.NET backend systems and APIs for enterprise clients.",
+                "Designed multi-tenant, extensible architectures and modernised legacy platforms.",
+                "Mentoring engineers on code quality and best practices."
+            ]
+        },
+        {
+            "period": "2020.03 — 2022.05",
+            "title": "Software Engineer + Mentor",
+            "company": "Dariel",
+            "tech": [".NET", "React", "Fullstack"],
+            "description": [
+                "Delivered full-stack solutions across multiple client projects.",
+                "Provided one-on-one mentorship to junior engineers via formal programmes."
+            ]
+        },
+        {
+            "period": "2015.12 — 2020.02",
+            "title": "Junior to Intermediate Developer",
+            "company": "STT Software",
+            "tech": ["Financial Systems", "C#", "SQL"],
+            "description": [
+                "Built production financial systems in regulated, high-reliability environments.",
+                "Supported live market and custodial platforms."
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "title": "Simple.Interpreter",
+            "description": "A lightweight C# library providing a straightforward interpreter for a simple, custom expression language. This NuGet package enables developers to empower their customers or clients to define dynamic expressions for various purposes, such as business rules, conditional logic, and data filtering, without requiring code recompilation.",
+            "tech": ["C#", ".NET"],
+            "status": "public",
+            "url": "https://github.com/matthewclaw/Simple.Interpreter"
+        },
+        {
+            "title": "Query",
+            "description": "This is a simple library I wrote, before EF was 'big', that is used to run MySql Commands. It uses reflection in order to map the results to the specified Data type.",
+            "tech": ["C#", "Reflection", "SQL"],
+            "status": "public",
+            "url": "https://github.com/matthewclaw/Query"
+        },
+        {
+            "title": "Simple.Office.Excel",
+            "description": "This project aims to simplify the interaction with Microsoft Excel files by abstracting underlying libraries such as NPOI. It provides an easy-to-use API for creating, manipulating, and reading data from Excel files.",
+            "tech": ["C#", "OpenXml", "Excel", "NPOI"],
+            "status": "private"
+        }
+    ],
+    "hobbies": [
+        { "name": "Dungeons & Dragons", "icon": "fa-dice-d20" },
+        { "name": "Side Projects", "icon": "fa-code" },
+        { "name": "Video Games", "icon": "fa-gamepad" },
+        { "name": "Reading", "icon": "fa-book-open" }
+    ],
+    "contact_links": [
+        { "name": "Email", "icon": "fa-at", "link": "Matthew.mcsd@gmail.com" , "type": "email" },
+        { "name": "LinkedIn", "icon": "fa-linkedin", "link": "https://www.linkedin.com/in/matthew-c-law/", "type": "url" },
+        { "name": "GitHub", "icon": "fa-github", "link": "https://github.com/matthewclaw", "type": "url" },
+        { "name": "Phone", "icon": "fa-whatsapp", "link": "+27 76 387 9572", "type": "phone" }
+    ]
+}
