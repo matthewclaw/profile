@@ -11,27 +11,32 @@
         {
             "name": "JSE",
             "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFvHZNpU5vKMA/company-logo_200_200/company-logo_200_200/0/1688365299951/jse_limited_logo?e=1770854400&v=beta&t=UiAYKz7bDWzxAHbLAh6uuW_kxoNAz4c8XYiOuF0nvQM",
-            "workDescription": "Assisted with improving integrations into Custodial and Broker-Back Offices."
+            "workDescription": "Improved and maintained integrations with custodial and broker back-office systems, supporting reliable and secure market operations."
         },
         {
             "name": "Absa",
             "logoUrl": "https://media.licdn.com/dms/image/v2/D4E0BAQHA1Ml0Wm71KA/company-logo_200_200/company-logo_200_200/0/1726123010716/absa_logo?e=1770854400&v=beta&t=WaRvRv9d8TwBAypCom2298-FYpglLUjYnCi_pnHBYN8",
-            "workDescription": "Collaborated within the Corporate and Investment Banking (CIB) space, focusing on corporate client UX and integration."
+            "workDescription": "Worked within Corporate and Investment Banking to build and enhance integrations, with a strong focus on corporate client experience."
         },
         {
             "name": "Computicket",
             "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQE6gXgVBoBJGg/company-logo_200_200/company-logo_200_200/0/1630554922808/computicket_logo?e=1770854400&v=beta&t=IPTO8z2Pm1-SQsNpOhJ9B6Daykyvk0Ib9NRbYoMIP4w",
-            "workDescription": "Collaborated with their own development team to introduce the microservice architecture to the company."
+            "workDescription": "Collaborated with internal teams to introduce and guide adoption of a microservices architecture, improving scalability and delivery."
         },
         {
             "name": "Standard Bank",
             "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQEMo-EgURgpnA/company-logo_200_200/company-logo_200_200/0/1630561374295/standard_bank_group_logo?e=1770854400&v=beta&t=RjSX0pdRRjn_aki6-IG3Hnp7HIT0RJj0TbocF0UZXnI",
-            "workDescription": "Collaborated within the Corporate and Investment Banking (CIB) space, focusing on high-performance financial service integration."
+            "workDescription": "Delivered high-performance, scalable integrations within the CIB space, supporting complex financial workflows."
         },
         {
             "name": "LibFin/Liberty",
             "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQGI7Dwsb5RGHA/company-logo_200_200/company-logo_200_200/0/1630522470672?e=1770854400&v=beta&t=-bUQVA3rAURspdzG99g5aN_4WAnZ5S-K5iyXodKnW-E",
-            "workDescription": "Was part of the modernization team, focusing on improving performance, security and improving CI/CD."
+            "workDescription": "Part of a modernisation team improving system performance, security posture, and CI/CD pipelines across core platforms."
+        },
+        {
+            "name": "Motus",
+            "logoUrl": "https://media.licdn.com/dms/image/v2/C4D0BAQF45dUoSDfhZA/company-logo_200_200/company-logo_200_200/0/1630560564544/motus_sa_logo?e=1770854400&v=beta&t=YYH-5vofNoubUZ8P5mzBwBoAqlqM4aXsSI1Dg4xFFMI",
+            "workDescription": "Contributed to enterprise platform evolution through system integration, performance improvements, and close collaboration with business teams."
         }
     ],
     "education": [
