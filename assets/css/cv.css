@@ -31,7 +31,9 @@ body {
     font-size: 12px;
     line-height: 1.4;
 }
-
+.cv-item .tl-desc {
+    color: darkslategray;
+}
 @media print {
     .no-print {
         display: none;

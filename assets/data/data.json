@@ -125,9 +125,10 @@
         { "name": "Reading", "icon": "fa-book-open" }
     ],
     "contact_links": [
+        { "name": "Full Profile", "icon": "", "link": "https://matthewclaw.github.io/profile/" , "type": "profile" },
         { "name": "Email", "icon": "fa-at", "link": "Matthew.mcsd@gmail.com" , "type": "email" },
         { "name": "LinkedIn", "icon": "fa-linkedin", "link": "https://www.linkedin.com/in/matthew-c-law/", "type": "url" },
-        { "name": "GitHub", "icon": "fa-github", "link": "https://github.com/matthewclaw", "type": "url" },
-        { "name": "Phone", "icon": "fa-whatsapp", "link": "+27 76 387 9572", "type": "phone" }
+        { "name": "Phone", "icon": "fa-whatsapp", "link": "+27 76 387 9572", "type": "phone" },
+        { "name": "GitHub", "icon": "fa-github", "link": "https://github.com/matthewclaw", "type": "url" }
     ]
 }

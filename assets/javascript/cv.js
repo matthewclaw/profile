@@ -36,12 +36,7 @@ async function initCV() {
 }
 
 window.onload = initCV;
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
 
-        window.print();
-    }, 100)
-});
 function loadPortfolioData() {
     return fetch('./assets/data/data.json').then(res => res.json());
 }

@@ -18,10 +18,10 @@ export function renderTimeline(container, data, forCv) {
         }
         return `
                 <div class="${forCv ? 'cv-item' : 'section-fade'} border-l-2 border-gray-500/20 pl-6 relative no-break ${forCv ? 'pb-5' : ''}">
-                    <div class="absolute -left-[5px] ${forCv ? 'top-[37px]' : 'top-0'} w-2 h-2 rounded-full bg-blue-600 border-blue-600 border-2"></div>
+                    <div class="absolute -left-[5px] ${forCv ? 'top-[33px]' : 'top-0'} w-2 h-2 rounded-full bg-blue-600 border-blue-600 border-2"></div>
                     <span class="token-comment text-xs">// ${item.period}</span>
                     <h4 class="${forCv ? '' : 'text-lg mt-1'} font-bold">${item.what} <span class="opacity-30">@</span> ${item.at}</h4>
-                    <ul class="mt-4 space-y-2 text-sm text-slate-400">
+                    <ul class="mt-4 space-y-2 tl-desc text-sm text-slate-400">
                         ${item.description.map(line => `<li>- ${line}</li>`).join('')}
                     </ul>
                     ${tech}
@@ -86,14 +86,16 @@ export function renderHobbies(container, portfolioData) {
 }
 
 export function renderContactLinks(container, portfolioData) {
-    container.innerHTML = portfolioData.contact_links.map(item => {
-        let link = item.link;
-        if (item.type === 'email') {
-            link = `mailto:${link}`;
-        } else if (item.type === 'phone') {
-            link = `tel:${link.replace(/\s/g, '')}`;
-        }
-        return `
+    container.innerHTML = portfolioData.contact_links
+        .filter(item => item.type !== 'profile')
+        .map(item => {
+            let link = item.link;
+            if (item.type === 'email') {
+                link = `mailto:${link}`;
+            } else if (item.type === 'phone') {
+                link = `tel:${link.replace(/\s/g, '')}`;
+            }
+            return `
                 <a href="${link}" target="_blank" style="width:140px" class="section-fade flex items-center gap-3 px-6 py-3 ide-card border rounded hover:border-blue-500 transition-all group">
                     <i class="fab ${item.icon} text-xl text-blue-400"></i>
                     <span class="text-sm font-medium opacity-70 group-hover:opacity-100">${item.name}</span>
@@ -123,7 +125,7 @@ export function renderHobbiesCV(container, hobbies) {
 
 export function renderContactsCV(container, contact_links) {
     container.innerHTML = contact_links
-        .map(h => `<div><span class="text-xs token-comment">// ${h.name}</span><br>
-        <span class="text-xs">${h.link}</span></div>`)
+        .map(h => `<div class="mb-1"><p class="text-xs token-comment">// ${h.name}</p>
+        <p class="text-xs">${h.link}</p></div>`)
         .join('');
 }
