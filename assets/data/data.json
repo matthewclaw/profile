@@ -1,11 +1,29 @@
 {
     "skills": [
-        { "name": "C# / .NET", "percentage": 100 },
-        { "name": "System Architecture", "percentage": 95 },
-        { "name": "API & Web Security", "percentage": 80 },
-        { "name": "Multi-Tenant Design", "percentage": 75 },
-        { "name": "TypeScript / Node.js", "percentage": 65 },
-        { "name": "Unit Testing", "percentage": 90 }
+        {
+            "name": "C# / .NET",
+            "percentage": 100
+        },
+        {
+            "name": "System Architecture",
+            "percentage": 95
+        },
+        {
+            "name": "API & Web Security",
+            "percentage": 80
+        },
+        {
+            "name": "Multi-Tenant Design",
+            "percentage": 75
+        },
+        {
+            "name": "TypeScript / Node.js",
+            "percentage": 65
+        },
+        {
+            "name": "Unit Testing",
+            "percentage": 90
+        }
     ],
     "clients": [
         {
@@ -70,34 +88,158 @@
     ],
     "experience": [
         {
-            "period": "2022.06 — Present",
-            "title": "Senior Software Engineer",
             "company": "Entelect",
-            "tech": ["C#", ".NET 8", "Architecture", "Mentorship"],
-            "description": [
-                "Ownership of C#/.NET backend systems and APIs for enterprise clients.",
-                "Designed multi-tenant, extensible architectures and modernised legacy platforms.",
-                "Mentoring engineers on code quality and best practices."
+            "role": "Senior Software Engineer",
+            "period": "Jan 2024 – Present",
+            "summary": [
+                "Own backend systems and APIs for client-facing and internal platforms.",
+                "Lead multi-tenant, plugin-based architecture design and legacy modernisation.",
+                "Implement secure auth patterns (OAuth2/JWT) and reusable libraries.",
+                "Mentor engineers and guide architectural decisions in client engagements."
+            ],
+            "details": [
+                "Design and implement backend systems and APIs using C#, .NET, and ASP.NET Core.",
+                "Make architectural decisions with a focus on multi-tenant and plugin-based systems that enable extensibility without tight coupling or frequent rewrites.",
+                "Lead and contribute to the modernisation of legacy platforms, improving structure, test coverage, and long-term sustainability while reducing technical debt.",
+                "Define and implement secure authentication and authorisation patterns, including OAuth2 and JWT.",
+                "Build reusable shared libraries (NuGet and npm) to promote consistency and reduce duplication across teams.",
+                "Collaborate across the stack using TypeScript and Angular when required.",
+                "Mentor engineers through code reviews and technical guidance, and act as a senior technical contributor in client engagements."
+            ],
+            "tech": [
+                "C#",
+                ".NET",
+                "ASP.NET Core",
+                "OAuth2",
+                "JWT",
+                "Entity Framework",
+                "TypeScript",
+                "Angular"
             ]
         },
         {
-            "period": "2020.03 — 2022.05",
-            "title": "Software Engineer + Mentor",
+            "company": "Entelect",
+            "role": "Intermediate Software Engineer",
+            "period": "Jun 2022 – Jan 2024",
+            "summary": [
+                "Built reliable backend systems and APIs in C#/.NET.",
+                "Contributed to multi-tenant and plugin-based architecture evolution.",
+                "Refactored legacy systems to improve maintainability and reduce technical debt.",
+                "Worked across the stack using TypeScript and Angular when needed."
+            ],
+            "details": [
+                "Designed and implemented backend services using C# and .NET.",
+                "Worked within multi-disciplinary teams to translate business requirements into well-structured technical solutions.",
+                "Contributed to multi-tenant system development and early iterations of extensible, plugin-based architectures.",
+                "Participated in modernising legacy systems by refactoring existing codebases to improve maintainability and reduce technical debt.",
+                "Worked with authentication and authorisation mechanisms, including JWT-based security.",
+                "Collaborated across the stack using TypeScript and Angular when required."
+            ],
+            "tech": [
+                "C#",
+                ".NET",
+                "JWT",
+                "TypeScript",
+                "Angular"
+            ]
+        },
+        {
             "company": "Dariel",
-            "tech": [".NET", "React", "Fullstack"],
-            "description": [
-                "Delivered full-stack solutions across multiple client projects.",
-                "Provided one-on-one mentorship to junior engineers via formal programmes."
+            "role": "Mentor",
+            "period": "Dec 2021 – May 2022",
+            "summary": [
+                "Mentored junior engineers through code reviews and technical guidance.",
+                "Focused on improving code quality and problem-solving skills.",
+                "Helped navigate real project challenges and understand architectures.",
+                "Developed skills in constructive feedback and team leadership."
+            ],
+            "details": [
+                "Supported junior engineers through regular check-ins, code reviews, and guidance on software development best practices.",
+                "Focused on improving code quality, problem-solving skills, and confidence when working in production codebases.",
+                "Helped navigate real project challenges such as understanding existing architectures and breaking down requirements.",
+                "Developed skills in communicating complex concepts clearly and providing constructive feedback without removing ownership."
+            ],
+            "tech": [
+                "C#",
+                "ASP.NET",
+                "MVC",
+                "Angular",
+                "Azure",
+                "Apache NiFi",
+                "gRPC"
             ]
         },
         {
-            "period": "2015.12 — 2020.02",
-            "title": "Junior to Intermediate Developer",
-            "company": "STT Software",
-            "tech": ["Financial Systems", "C#", "SQL"],
-            "description": [
-                "Built production financial systems in regulated, high-reliability environments.",
-                "Supported live market and custodial platforms."
+            "company": "Dariel",
+            "role": "Software Developer",
+            "period": "Mar 2020 – May 2022",
+            "summary": [
+                "Delivered backend and full-stack solutions across multiple client projects.",
+                "Implemented APIs and integrated external systems.",
+                "Worked with REST, gRPC, cloud services, Firebase, and Apache NiFi.",
+                "Adapted quickly to new codebases and delivered maintainable solutions."
+            ],
+            "details": [
+                "Delivered backend and full-stack solutions using C#, .NET, ASP.NET, and Angular.",
+                "Implemented APIs, integrated with external systems, and contributed to both new feature development and platform enhancements.",
+                "Worked with REST APIs, gRPC, cloud services (Azure), Firebase, and Apache NiFi.",
+                "Adapted quickly to unfamiliar codebases and delivered maintainable solutions under time constraints."
+            ],
+            "tech": [
+                "C#",
+                ".NET",
+                "ASP.NET",
+                "JavaScript",
+                "SQL",
+                "Angular",
+                "Azure",
+                "Firebase",
+                "Apache NiFi",
+                "gRPC"
+            ]
+        },
+        {
+            "company": "Securities & Trading Technology",
+            "role": "Intermediate Software Developer",
+            "period": "Jan 2019 – Feb 2020",
+            "summary": [
+                "Developed and maintained production financial systems in high-reliability environments.",
+                "Implemented new features and improved internal frameworks.",
+                "Worked across backend and frontend with C#, SQL, JavaScript, and Angular.",
+                "Collaborated with stakeholders to deliver robust domain-specific solutions."
+            ],
+            "details": [
+                "Contributed to the development and support of market data and custodial platforms used in live financial operations.",
+                "Implemented new features, maintained existing functionality, and improved internal frameworks.",
+                "Worked across backend and frontend components using C#, SQL, JavaScript, and Angular.",
+                "Collaborated with senior developers and business stakeholders to translate domain-specific requirements into technical solutions."
+            ],
+            "tech": [
+                "C#",
+                "SQL",
+                "JavaScript",
+                "Angular"
+            ]
+        },
+        {
+            "company": "Securities & Trading Technology",
+            "role": "Junior Software Developer",
+            "period": "Dec 2015 – Dec 2018",
+            "summary": [
+                "Developed new financial solutions and contributed to internal frameworks.",
+                "Worked with C#, SQL, JavaScript, and Angular on financial systems.",
+                "Delivered BBO and Custodial solutions for the ZAR X environment.",
+                "Gained experience in production system delivery under live constraints."
+            ],
+            "details": [
+                "Worked with C#, SQL, JavaScript, and Angular on financial systems.",
+                "Contributed to the development of BBO and Custodial solutions for the ZAR X environment, which went live in February 2017."
+            ],
+            "tech": [
+                "C#",
+                "SQL",
+                "JavaScript",
+                "Angular"
             ]
         }
     ],
@@ -105,35 +247,84 @@
         {
             "title": "Simple.Interpreter",
             "description": "A lightweight C# library providing a straightforward interpreter for a simple, custom expression language. This NuGet package enables developers to empower their customers or clients to define dynamic expressions for various purposes, such as business rules, conditional logic, and data filtering, without requiring code recompilation.",
-            "tech": ["C#", ".NET"],
+            "tech": [
+                "C#",
+                ".NET"
+            ],
             "status": "public",
             "url": "https://github.com/matthewclaw/Simple.Interpreter"
         },
         {
             "title": "Query",
             "description": "This is a simple library I wrote, before EF was 'big', that is used to run MySql Commands. It uses reflection in order to map the results to the specified Data type.",
-            "tech": ["C#", "Reflection", "SQL"],
+            "tech": [
+                "C#",
+                "Reflection",
+                "SQL"
+            ],
             "status": "public",
             "url": "https://github.com/matthewclaw/Query"
         },
         {
             "title": "Simple.Office.Excel",
             "description": "This project aims to simplify the interaction with Microsoft Excel files by abstracting underlying libraries such as NPOI. It provides an easy-to-use API for creating, manipulating, and reading data from Excel files.",
-            "tech": ["C#", "OpenXml", "Excel", "NPOI"],
+            "tech": [
+                "C#",
+                "OpenXml",
+                "Excel",
+                "NPOI"
+            ],
             "status": "private"
         }
     ],
     "hobbies": [
-        { "name": "Dungeons & Dragons", "icon": "fa-dice-d20" },
-        { "name": "Side Projects", "icon": "fa-code" },
-        { "name": "Video Games", "icon": "fa-gamepad" },
-        { "name": "Reading", "icon": "fa-book-open" }
+        {
+            "name": "Dungeons & Dragons",
+            "icon": "fa-dice-d20"
+        },
+        {
+            "name": "Side Projects",
+            "icon": "fa-code"
+        },
+        {
+            "name": "Video Games",
+            "icon": "fa-gamepad"
+        },
+        {
+            "name": "Reading",
+            "icon": "fa-book-open"
+        }
     ],
     "contact_links": [
-        { "name": "Full Profile", "icon": "", "link": "https://matthewclaw.github.io/profile/" , "type": "profile" },
-        { "name": "Email", "icon": "fa-at", "link": "Matthew.mcsd@gmail.com" , "type": "email" },
-        { "name": "LinkedIn", "icon": "fa-linkedin", "link": "https://www.linkedin.com/in/matthew-c-law/", "type": "url" },
-        { "name": "Phone", "icon": "fa-whatsapp", "link": "+27 76 387 9572", "type": "phone" },
-        { "name": "GitHub", "icon": "fa-github", "link": "https://github.com/matthewclaw", "type": "url" }
+        {
+            "name": "Full Profile",
+            "icon": "",
+            "link": "https://matthewclaw.github.io/profile/",
+            "type": "profile"
+        },
+        {
+            "name": "Email",
+            "icon": "fa-at",
+            "link": "Matthew.mcsd@gmail.com",
+            "type": "email"
+        },
+        {
+            "name": "LinkedIn",
+            "icon": "fa-linkedin",
+            "link": "https://www.linkedin.com/in/matthew-c-law/",
+            "type": "url"
+        },
+        {
+            "name": "Phone",
+            "icon": "fa-whatsapp",
+            "link": "+27 76 387 9572",
+            "type": "phone"
+        },
+        {
+            "name": "GitHub",
+            "icon": "fa-github",
+            "link": "https://github.com/matthewclaw",
+            "type": "url"
+        }
     ]
 }
