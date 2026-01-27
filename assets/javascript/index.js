@@ -1,7 +1,8 @@
 import {
     renderExperience, renderEducation, renderClients,
     renderSkills, renderProjects, renderHobbies,
-    renderContactLinks
+    renderContactLinks,
+    renderExperienceGit
 } from './renderers.js'
 
 async function renderPortfolio() {
@@ -13,6 +14,9 @@ async function renderPortfolio() {
     renderProjects(document.getElementById('projects-container'), portfolioData);
     renderHobbies(document.getElementById('hobbies-container'), portfolioData);
     renderContactLinks(document.getElementById('contact-container'), portfolioData);
+    // TEMP
+    renderExperienceGit(document.getElementById('experience-git-container'), portfolioData.experience);
+    // TEMP
     setupObserver();
 }
 

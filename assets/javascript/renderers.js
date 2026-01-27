@@ -129,3 +129,29 @@ export function renderContactsCV(container, contact_links) {
         <p class="text-xs">${h.link}</p></div>`)
         .join('');
 }
+
+export function renderExperienceGit(container, experience) {
+    const groupedExperience = Map.groupBy(experience, item => item.company);
+    let html = ``;
+    const mainMergeHtml = `<div class="experience-git-main git-merge"></div>`;
+    const mainBaseHtml = `<div class="experience-git-main git-branch-base">BASE</div>`;
+    const mainBranchForkHtml = `<div class="experience-git-main git-fork"></div>`;
+    let count = 0;
+    let maxCount = groupedExperience.size;
+    for (const [company, roles] of groupedExperience) {
+        html += `<div class="experience-git-main git-branch">`;
+        html += `<h1 class="text-lg font-bold">${company}</h1>`;
+        if (count > 0) {
+            html += mainMergeHtml;
+        }
+        for (const role of roles) {
+            html += `<div class="experience-git-main git-commit text-s">${role.role}</div>`;
+        }
+        count++;
+        html += mainBranchForkHtml;
+        html += `</div>`;
+    }
+    html += mainBaseHtml;
+    container.innerHTML += html;
+
+}

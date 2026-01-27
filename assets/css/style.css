@@ -187,6 +187,93 @@
             }
         }
 
+        .experience-git-main::before {
+            content: "";
+            anchor-name: --git-main-anchor;
+            anchor-scope: --git-main-anchor;
+            position: absolute;
+            z-index: 40;
+        }
+
+        .experience-git-main.git-branch {
+            anchor-name: --git-branch-anchor;
+            anchor-scope: --git-branch-anchor;
+            padding-left: 1rem;
+            border: 1px solid rgb(255, 0, 0);
+        }
+
+        .experience-git-main.git-merge {
+            position: absolute;
+            anchor-name: --git-merge-anchor;
+            top: anchor(top --git-branch-anchor);
+            left: calc(anchor(left --git-branch-anchor) - 1rem);
+            border: 5px solid rgb(30, 255, 0);
+            border-radius: 50%;
+        }
+
+        .experience-git-main.git-commit {
+            anchor-name: --git-commit-anchor;
+            anchor-scope: --git-commit-anchor;
+        }
+
+        .experience-git-main.git-fork {
+            position: absolute;
+            anchor-name: --git-fork-anchor;
+            top: anchor(bottom --git-branch-anchor);
+            left: calc(anchor(left --git-branch-anchor) - 1rem);
+            border: 5px solid rgb(255, 0, 221);
+            border-radius: 50%;
+        }
+
+        .experience-git-main.git-commit::before {
+            position: absolute;
+            top: calc(anchor(top --git-commit-anchor) + 0.5rem);
+            left: calc(anchor(left --git-commit-anchor) - 1rem);
+            border: 5px solid rgb(255, 255, 255);
+            border-radius: 50%;
+        }
+
+        .experience-git-main.git-fork::after {
+            content: "";
+            position: absolute;
+            top: anchor(top --git-commit-anchor);
+            left: anchor(left --git-fork-anchor);
+            right: calc(anchor(left --git-commit-anchor) + 0.5rem);
+            bottom: anchor(bottom --git-fork-anchor);
+            border: 1px solid rgb(200, 255, 0);
+            z-index: 99;
+        }
+
+        .experience-git-main.git-head {
+            anchor-name: --git-head-element;
+        }
+
+        .experience-git-main.git-head::before {
+            content: "";
+            anchor-name: --git-head-anchor;
+            top: anchor(top --git-head-element);
+            left: calc(anchor(left --git-head-element) - 1rem);
+            border: 5px solid rgb(255, 0, 0);
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .experience-git-main.git-branch-base {
+            anchor-name: --git-base-anchor;
+        }
+
+        .experience-git-main.git-branch-base::before {
+            content: "";
+            border: 2px solid green;
+            position: absolute;
+            top: anchor(center --git-head-anchor);
+            left: calc(anchor(center --git-head-anchor) - 2px);
+            bottom: anchor(bottom --git-base-anchor);
+            border-radius: 0%;
+            z-index: 0;
+
+        }
+
         @media print {
             .no-print {
                 display: none !important;
