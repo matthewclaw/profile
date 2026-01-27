@@ -1,4 +1,3 @@
-
 body {
     font-family: 'Roboto Mono', monospace;
     color: var(--text-main);
@@ -31,10 +30,22 @@ body {
     font-size: 12px;
     line-height: 1.4;
 }
+
 .cv-item .tl-desc {
     color: darkslategray;
 }
+
 @media print {
+    @page {
+        margin: 20mm;
+
+        @bottom-right {
+            content: "Matthew Law - matthewclaw.github.io/profile - Page " counter(page) " of " counter(pages);
+            font-size: 10px;
+            color: #666;
+        }
+    }
+
     .no-print {
         display: none;
     }
@@ -47,8 +58,10 @@ body {
         break-inside: avoid;
         page-break-inside: avoid;
     }
+
     body {
         padding: 0;
         margin: 0;
+        counter-reset: page;
     }
 }

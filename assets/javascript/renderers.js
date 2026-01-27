@@ -129,3 +129,8 @@ export function renderContactsCV(container, contact_links) {
         <p class="text-xs">${h.link}</p></div>`)
         .join('');
 }
+
+export function renderTechnologies(container, experience) {
+    let techHash = new Set(experience.flatMap(item => item.tech));
+    container.innerHTML = Array.from(techHash).map(t => `<span class="inline-block text-xs px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2 mr-2 mb-1">${t}</span>`).join('');
+}
