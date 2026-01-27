@@ -3,7 +3,8 @@ import {
     renderEducationCV,
     renderSkillsCV,
     renderHobbiesCV,
-    renderContactsCV
+    renderContactsCV,
+    renderTechnologiesCv
 } from './renderers.js';
 
 async function initCV() {
@@ -16,6 +17,11 @@ async function initCV() {
 
     renderExperienceCV(
         document.getElementById('cv-experience'),
+        data.experience
+    );
+
+    renderTechnologiesCv(
+        document.getElementById('cv-tech'),
         data.experience
     );
 
