@@ -4,7 +4,7 @@ import {
     renderSkillsCV,
     renderHobbiesCV,
     renderContactsCV,
-    renderTechnologies
+    renderTechnologiesCv
 } from './renderers.js';
 
 async function initCV() {
@@ -20,7 +20,7 @@ async function initCV() {
         data.experience
     );
 
-    renderTechnologies(
+    renderTechnologiesCv(
         document.getElementById('cv-tech'),
         data.experience
     );
