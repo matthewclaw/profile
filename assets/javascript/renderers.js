@@ -1,5 +1,5 @@
 export function renderExperience(container, portfolioData, animate = true) {
-    renderTimeline(container, portfolioData.experience.map(item => { return { ...item, at: item.company, what: item.title } }));
+    renderTimeline(container, portfolioData.experience.map(item => { return { ...item, description: item.details, at: item.company, what: item.role } }));
 }
 
 export function renderEducation(container, portfolioData) {
@@ -104,7 +104,7 @@ export function renderContactLinks(container, portfolioData) {
 }
 
 export function renderExperienceCV(container, experience) {
-    renderTimeline(container, experience.map(item => { return { ...item, at: item.company, what: item.title } }), true);
+    renderTimeline(container, experience.map(item => { return { ...item, description: item.summary, at: item.company, what: item.role } }), true);
 }
 
 export function renderEducationCV(container, education) {
