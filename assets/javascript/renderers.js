@@ -1,12 +1,15 @@
 export function renderExperience(container, portfolioData, animate = true) {
-    renderTimeline(container, portfolioData.experience.map(item => { return { ...item, description: item.details, at: item.company, what: item.role } }));
+    renderTimeline(container, portfolioData.experience.map(item => {
+        return { ...item, description: item.details, at: item.company, what: item.role }
+    }), false, animate);
 }
 
-export function renderEducation(container, portfolioData) {
-    renderTimeline(container, portfolioData.education.map(item => { return { ...item, at: item.institution, what: item.course } }));
+export function renderEducation(container, portfolioData, animate = true) {
+    renderTimeline(container, portfolioData.education.map(item => { return { ...item, at: item.institution, what: item.course } })
+        , false, animate);
 }
 
-export function renderTimeline(container, data, forCv) {
+export function renderTimeline(container, data, forCv, animate) {
     container.innerHTML = data.map(item => {
         let tech = '';
         if (item.tech) {
@@ -16,8 +19,9 @@ export function renderTimeline(container, data, forCv) {
                     </div>
                     `;
         }
+        const mainClass = forCv ? 'cv-item' : animate ? 'section-fade' : '';
         return `
-                <div class="${forCv ? 'cv-item' : 'section-fade'} border-l-2 border-gray-500/20 pl-6 relative no-break ${forCv ? 'pb-5' : ''}">
+                <div class="${mainClass} border-l-2 border-gray-500/20 pl-6 relative no-break ${forCv ? 'pb-5' : ''}">
                     <div class="absolute -left-[5px] ${forCv ? 'top-[33px]' : 'top-0'} w-2 h-2 rounded-full bg-blue-600 border-blue-600 border-2"></div>
                     <span class="token-comment text-xs">// ${item.period}</span>
                     <h4 class="${forCv ? '' : 'text-lg mt-1'} font-bold">${item.what} <span class="opacity-30">@</span> ${item.at}</h4>
@@ -29,9 +33,9 @@ export function renderTimeline(container, data, forCv) {
             `}).join('');
 }
 
-export function renderClients(container, portfolioData) {
+export function renderClients(container, portfolioData, animate = true) {
     container.innerHTML = portfolioData.clients.map(client => `
-                <div class="section-fade p-6 ide-card border flex items-center gap-4 hover:border-blue-500/50">
+                <div class="${animate ? 'section-fade' : ''} p-6 ide-card border flex items-center gap-4 hover:border-blue-500/50">
                     <div class="w-12 h-12 bg-white rounded flex items-center justify-center p-1 shrink-0">
                         <img src="${client.logoUrl}" alt="${client.name}" class="max-w-full max-h-full object-contain">
                     </div>
@@ -44,25 +48,35 @@ export function renderClients(container, portfolioData) {
 
 }
 
-export function renderSkills(container, portfolioData) {
-    container.innerHTML = portfolioData.skills.map(skill => `
-                <div class="section-fade">
+export function renderSkills(container, portfolioData, animate = true) {
+    container.innerHTML = portfolioData.skills.map(skill => {
+        let indicator ='';
+        if(animate){
+            indicator = `<div class="progress-container">
+                        <div class="progress-fill" data-width="${skill.percentage}%"></div>
+                    </div>`;
+        }
+        else {
+            const outOfTen = skill.percentage / 10;
+            indicator = `<span class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">${outOfTen}/10</span>`;
+        }
+        return `
+                <div class="${animate ? 'section-fade' : ''}">
                     <div class="flex justify-between text-xs mb-2">
                         <span class="token-type">${skill.name}</span>
                     </div>
-                    <div class="progress-container">
-                        <div class="progress-fill" data-width="${skill.percentage}%"></div>
-                    </div>
+                    ${indicator}
                 </div>
-            `).join('');
+            `;
+    }).join('');
 }
 
-export function renderProjects(container, portfolioData) {
+export function renderProjects(container, portfolioData, animate = true) {
     container.innerHTML = portfolioData.projects.map(proj => {
         let isPublic = proj.status === 'public';
         let tag = isPublic ? 'a' : 'div';
         return `
-                <${tag} ${isPublic ? 'href="' + proj.url + '" target="_blank"' : ''} class="section-fade p-6 ide-card border ${isPublic ? 'hover:border-blue-500/50' : ''} transition-all duration-300">
+                <${tag} ${isPublic ? 'href="' + proj.url + '" target="_blank"' : ''} class="${animate ? 'section-fade' : ''} p-6 ide-card border ${isPublic ? 'hover:border-blue-500/50' : ''} transition-all duration-300">
                     <div class="flex justify-between items-start mb-4">
                         <i class="fas fa-folder text-yellow-500 text-2xl"></i>
                         <span class="text-[10px] bg-blue-500/10 text-blue-400 px-2 py-1 rounded">${proj.status}</span>
@@ -76,16 +90,16 @@ export function renderProjects(container, portfolioData) {
             `}).join('');
 }
 
-export function renderHobbies(container, portfolioData) {
+export function renderHobbies(container, portfolioData, animate = true) {
     container.innerHTML = portfolioData.hobbies.map(hobby => `
-                <div class="section-fade flex flex-col items-center justify-center p-4 ide-card border rounded hover:border-blue-500/50 transition-all group">
+                <div class="${animate ? 'section-fade' : ''} flex flex-col items-center justify-center p-4 ide-card border rounded hover:border-blue-500/50 transition-all group">
                     <i class="fas ${hobby.icon} text-2xl mb-3 token-type group-hover:scale-110 transition-transform"></i>
                     <span class="text-[10px] uppercase tracking-wider opacity-60 text-center">${hobby.name}</span>
                 </div>
             `).join('');
 }
 
-export function renderContactLinks(container, portfolioData) {
+export function renderContactLinks(container, portfolioData, animate = true) {
     container.innerHTML = portfolioData.contact_links
         .filter(item => item.type !== 'profile')
         .map(item => {
@@ -96,7 +110,7 @@ export function renderContactLinks(container, portfolioData) {
                 link = `tel:${link.replace(/\s/g, '')}`;
             }
             return `
-                <a href="${link}" target="_blank" style="width:140px" class="section-fade flex items-center gap-3 px-6 py-3 ide-card border rounded hover:border-blue-500 transition-all group">
+                <a href="${link}" target="_blank" style="width:140px" class="${animate ? 'section-fade' : ''} flex items-center gap-3 px-6 py-3 ide-card border rounded hover:border-blue-500 transition-all group">
                     <i class="fab ${item.icon} text-xl text-blue-400"></i>
                     <span class="text-sm font-medium opacity-70 group-hover:opacity-100">${item.name}</span>
                 </a>

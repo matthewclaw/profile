@@ -5,14 +5,16 @@ import {
 } from './renderers.js'
 
 async function renderPortfolio() {
+    const params = new URLSearchParams(window.location.search);
+    const animate = params.get('animate') !== 'false';
     let portfolioData = await fetch('./assets/data/data.json').then(res => res.json());
-    renderExperience(document.getElementById('experience-container'), portfolioData);
-    renderEducation(document.getElementById('education-container'), portfolioData);
-    renderClients(document.getElementById('clients-container'), portfolioData);
-    renderSkills(document.getElementById('skills-container'), portfolioData);
-    renderProjects(document.getElementById('projects-container'), portfolioData);
-    renderHobbies(document.getElementById('hobbies-container'), portfolioData);
-    renderContactLinks(document.getElementById('contact-container'), portfolioData);
+    renderExperience(document.getElementById('experience-container'), portfolioData, animate);
+    renderEducation(document.getElementById('education-container'), portfolioData, animate);
+    renderClients(document.getElementById('clients-container'), portfolioData, animate);
+    renderSkills(document.getElementById('skills-container'), portfolioData, animate);
+    renderProjects(document.getElementById('projects-container'), portfolioData, animate);
+    renderHobbies(document.getElementById('hobbies-container'), portfolioData, animate);
+    renderContactLinks(document.getElementById('contact-container'), portfolioData, animate);
     setupObserver();
 }
 
