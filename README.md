@@ -7,6 +7,10 @@ This repository is the home of my interactive online portfolio. It's a creative 
 ## 🚀 [Explore my Interactive Portfolio](https://matthewclaw.github.io/profile/)
 
 The live site is the main attraction, but feel free to browse the code in this repository. You'll see how I've used Vanilla JavaScript to create a data-driven site that's easy to update.
+### Other options
+
+- [Explore the Interactive Portfolio without animations](https://matthewclaw.github.io/profile/?animate=false)
+- [Jump straight to my downloadable CV](https://matthewclaw.github.io/profile/assets/docs/cv.pdf)
 
 ## 💬 Let's Connect
 
