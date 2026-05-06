@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Matthew Law",
+  "jobTitle": "Senior Software Engineer",
+  "email": "Matthew.mcsd@gmail.com",
+  "telephone": "+27 76 387 9572",
+  "sameAs": [
+    "https://matthewclaw.github.io/profile/",
+    "https://www.linkedin.com/in/matthew-c-law/",
+    "https://github.com/matthewclaw"
+  ],
+  "knowsAbout": [
+    "C# / .NET",
+    "System Architecture",
+    "API & Web Security",
+    "Multi-Tenant Design",
+    "TypeScript / Node.js",
+    "Unit Testing"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Entelect"
+  }
+}
