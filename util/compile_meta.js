@@ -23,6 +23,16 @@ function generateNoScript() {
     <p>${edu.period}</p>
   `).join("");
 
+  const blogPosts = data.scratchpad?.blog || [];
+  const linkedinPosts = data.scratchpad?.linkedin || [];
+  const scratchpad = (blogPosts.length || linkedinPosts.length) ? `
+<h2>Scratchpad</h2>
+${blogPosts.length ? `<h3>Blog</h3>
+<ul>${blogPosts.map(p => `<li><a href="${p.url}">${p.title}</a> — ${p.tagline}</li>`).join("")}</ul>` : ""}
+${linkedinPosts.length ? `<h3>LinkedIn</h3>
+<ul>${linkedinPosts.map(p => `<li><a href="${p.url}">${p.title}</a> — ${p.tagline}</li>`).join("")}</ul>` : ""}
+` : "";
+
   return `
 <h1>${name}</h1>
 <p>${title}</p>
@@ -35,6 +45,7 @@ ${experience}
 
 <h2>Education</h2>
 ${education}
+${scratchpad}
 `;
 }
 

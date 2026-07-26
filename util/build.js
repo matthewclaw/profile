@@ -47,14 +47,27 @@ function writeRobotsTxt() {
 
 function writeSitemap() {
   const today = new Date().toISOString().slice(0, 10);
+  const data = JSON.parse(fs.readFileSync(path.join(root, "assets", "data", "data.json"), "utf8"));
+
+  const pages = [
+    { path: "", lastmod: today, priority: "1.0" },
+    ...(data.scratchpad?.blog || []).map(post => ({
+      path: post.url,
+      lastmod: post.date,
+      priority: "0.6",
+    })),
+  ];
+
+  const urls = pages.map(p => `  <url>
+    <loc>${SITE_URL}${p.path}</loc>
+    <lastmod>${p.lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>${p.priority}</priority>
+  </url>`).join("\n");
+
   const content = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${SITE_URL}</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+${urls}
 </urlset>
 `;
   fs.writeFileSync(path.join(root, "sitemap.xml"), content);
