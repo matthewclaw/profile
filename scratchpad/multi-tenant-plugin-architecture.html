@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multi-Tenant, Plugin-Based Architecture: Two Lessons from Production | Matthew Law</title>
-    <meta name="description"
-        content="Allowlisting plugin DLLs per tenant, and the TenantId index nobody added until things started timing out — two lessons from building multi-tenant, plugin-based .NET systems.">
+    <meta name="description" content="Allowlisting plugin DLLs per tenant, and the TenantId index nobody added until things started timing out.">
     <link rel="canonical" href="https://matthewclaw.github.io/profile/scratchpad/multi-tenant-plugin-architecture.html">
     <link rel="icon" href="../assets/img/favicon.png">
 
@@ -14,8 +13,7 @@
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Matthew Law | Senior Software Engineer">
     <meta property="og:title" content="Multi-Tenant, Plugin-Based Architecture: Two Lessons from Production">
-    <meta property="og:description"
-        content="Allowlisting plugin DLLs per tenant, and the TenantId index nobody added until things started timing out.">
+    <meta property="og:description" content="Allowlisting plugin DLLs per tenant, and the TenantId index nobody added until things started timing out.">
     <meta property="og:url" content="https://matthewclaw.github.io/profile/scratchpad/multi-tenant-plugin-architecture.html">
     <meta property="og:image" content="https://matthewclaw.github.io/profile/assets/img/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -24,8 +22,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Multi-Tenant, Plugin-Based Architecture: Two Lessons from Production">
-    <meta name="twitter:description"
-        content="Allowlisting plugin DLLs per tenant, and the TenantId index nobody added until things started timing out.">
+    <meta name="twitter:description" content="Allowlisting plugin DLLs per tenant, and the TenantId index nobody added until things started timing out.">
     <meta name="twitter:image" content="https://matthewclaw.github.io/profile/assets/img/og-image.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,23 +34,23 @@
 
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Multi-Tenant, Plugin-Based Architecture: Two Lessons from Production",
-      "description": "Allowlisting plugin DLLs per tenant, and the TenantId index nobody added until things started timing out.",
-      "datePublished": "2026-07-26",
-      "author": {
-        "@type": "Person",
-        "name": "Matthew Law",
-        "sameAs": [
-          "https://matthewclaw.github.io/profile/",
-          "https://www.linkedin.com/in/matthew-c-law/",
-          "https://github.com/matthewclaw"
-        ]
-      },
-      "image": "https://matthewclaw.github.io/profile/assets/img/og-image.png",
-      "mainEntityOfPage": "https://matthewclaw.github.io/profile/scratchpad/multi-tenant-plugin-architecture.html"
-    }
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Multi-Tenant, Plugin-Based Architecture: Two Lessons from Production",
+  "description": "Allowlisting plugin DLLs per tenant, and the TenantId index nobody added until things started timing out.",
+  "datePublished": "2026-07-26",
+  "author": {
+    "@type": "Person",
+    "name": "Matthew Law",
+    "sameAs": [
+      "https://matthewclaw.github.io/profile/",
+      "https://www.linkedin.com/in/matthew-c-law/",
+      "https://github.com/matthewclaw"
+    ]
+  },
+  "image": "https://matthewclaw.github.io/profile/assets/img/og-image.png",
+  "mainEntityOfPage": "https://matthewclaw.github.io/profile/scratchpad/multi-tenant-plugin-architecture.html"
+}
     </script>
 </head>
 
@@ -62,54 +59,21 @@
         <a href="../index.html#scratchpad" class="text-xs token-comment hover:underline">&larr; back to matthew_law</a>
 
         <p class="token-comment text-xs mt-8 mb-2">// July 26, 2026</p>
-        <h1 class="text-2xl md:text-4xl font-bold mb-8 token-type">Multi-Tenant, Plugin-Based Architecture: Two
-            Lessons from Production</h1>
+        <h1 class="text-2xl md:text-4xl font-bold mb-8 token-type">Multi-Tenant, Plugin-Based Architecture: Two Lessons from Production</h1>
 
-        <div class="space-y-6 text-sm md:text-base leading-relaxed text-slate-300">
-            <p>"Multi-tenant, plugin-based architecture" is a line I've written on more CVs than I can count. It's
-                accurate, but it's also the kind of phrase that means nothing until you've hit the two problems that
-                actually define it: how do you let a system be extended without letting it be broken, and how do you
-                keep tenants from stepping on each other once they're all sharing the same database. Here's what
-                those two problems actually looked like in practice.</p>
+        <div class="article-body space-y-6 text-sm md:text-base leading-relaxed text-slate-300">
+            <p>&quot;Multi-tenant, plugin-based architecture&quot; is a line I&#39;ve written on more CVs than I can count. It&#39;s accurate, but it&#39;s also the kind of phrase that means nothing until you&#39;ve hit the two problems that actually define it: how do you let a system be extended without letting it be broken, and how do you keep tenants from stepping on each other once they&#39;re all sharing the same database. Here&#39;s what those two problems actually looked like in practice.</p>
+<h2>Plugins are an extensibility feature until they&#39;re an attack surface</h2>
+<p>The whole point of a plugin system is letting behavior be added without recompiling the core. In a single-tenant app, that&#39;s mostly a packaging problem. In a multi-tenant one, it&#39;s a security problem: if a plugin is just a DLL sitting in a folder that gets picked up on the next reflection scan, you&#39;ve built a mechanism for arbitrary code execution, and the only thing standing between &quot;extensible&quot; and &quot;exploitable&quot; is trust you can&#39;t actually verify.</p>
+<p>The system I worked on handled this by not trusting the folder. Plugin discovery still worked the way you&#39;d expect — assemblies scanned at startup, types matching a known interface registered into the container — but which DLLs were even eligible to load was gated per tenant. Each tenant had an explicit, registered allowlist of plugin names; a DLL that wasn&#39;t on it was invisible to the loader regardless of what interface it implemented. It moved the trust boundary from &quot;anything reflection can find&quot; to &quot;anything a tenant has been explicitly granted&quot; — a much smaller, much more auditable surface.</p>
+<h2>The index that wasn&#39;t there</h2>
+<p>The second lesson came from a brownfield system I inherited rather than one I designed. It used the most common shared-database multi-tenancy pattern there is: one schema, every table carrying a <code>TenantId</code> column, every query filtered by it. Simple, cheap to build, easy to reason about — right up until it isn&#39;t.</p>
+<p>What I found was that <code>TenantId</code> wasn&#39;t indexed. Not missing an optimization — genuinely absent. For a while that didn&#39;t matter, because table sizes were small enough that a scan was still fast. As tenant count and data volume grew, queries that should have been narrow, indexed lookups became full scans, and things that used to return instantly started timing out.</p>
+<p>It&#39;s an easy column to overlook in review — it looks like metadata, not like the thing your entire query pattern pivots on. But in a shared-schema multi-tenant system, it&#39;s arguably the single most important column to index, since every legitimate query touches it. It&#39;s the first thing I check now in any multi-tenant codebase I inherit.</p>
+<p>The fix, refreshingly, was the easy kind. The client&#39;s schema had no indexes on that table at all — this wasn&#39;t a case of the wrong index or a subtle composite-key problem, just an absent one. Adding it was the whole story. Sometimes the hard part of a lesson isn&#39;t the fix, it&#39;s noticing the column that was never indexed in the first place.</p>
+<h2>The common thread</h2>
+<p>Neither of these is a novel pattern on its own. What connects them is that both lessons came from the same root cause: building something extensible or shared is easy to get <em>working</em>. Building it so it stays correct and fast once real, unpredictable usage shows up is the actual job.</p>
 
-            <h2 class="text-xl font-bold mt-10 mb-2 text-white/80">Plugins are an extensibility feature until they're
-                an attack surface</h2>
-            <p>The whole point of a plugin system is letting behavior be added without recompiling the core. In a
-                single-tenant app, that's mostly a packaging problem. In a multi-tenant one, it's a security problem:
-                if a plugin is just a DLL sitting in a folder that gets picked up on the next reflection scan, you've
-                built a mechanism for arbitrary code execution, and the only thing standing between "extensible" and
-                "exploitable" is trust you can't actually verify.</p>
-            <p>The system I worked on handled this by not trusting the folder. Plugin discovery still worked the way
-                you'd expect — assemblies scanned at startup, types matching a known interface registered into the
-                container — but which DLLs were even eligible to load was gated per tenant. Each tenant had an
-                explicit, registered allowlist of plugin names; a DLL that wasn't on it was invisible to the loader
-                regardless of what interface it implemented. It moved the trust boundary from "anything reflection
-                can find" to "anything a tenant has been explicitly granted" — a much smaller, much more auditable
-                surface.</p>
-
-            <h2 class="text-xl font-bold mt-10 mb-2 text-white/80">The index that wasn't there</h2>
-            <p>The second lesson came from a brownfield system I inherited rather than one I designed. It used the
-                most common shared-database multi-tenancy pattern there is: one schema, every table carrying a
-                <code class="token-string">TenantId</code> column, every query filtered by it. Simple, cheap to
-                build, easy to reason about — right up until it isn't.</p>
-            <p>What I found was that <code class="token-string">TenantId</code> wasn't indexed. Not missing an
-                optimization — genuinely absent. For a while that didn't matter, because table sizes were small
-                enough that a scan was still fast. As tenant count and data volume grew, queries that should have
-                been narrow, indexed lookups became full scans, and things that used to return instantly started
-                timing out.</p>
-            <p>It's an easy column to overlook in review — it looks like metadata, not like the thing your entire
-                query pattern pivots on. But in a shared-schema multi-tenant system, it's arguably the single most
-                important column to index, since every legitimate query touches it. It's the first thing I check now
-                in any multi-tenant codebase I inherit.</p>
-            <p>The fix, refreshingly, was the easy kind. The client's schema had no indexes on that table at all —
-                this wasn't a case of the wrong index or a subtle composite-key problem, just an absent one. Adding
-                it was the whole story. Sometimes the hard part of a lesson isn't the fix, it's noticing the column
-                that was never indexed in the first place.</p>
-
-            <h2 class="text-xl font-bold mt-10 mb-2 text-white/80">The common thread</h2>
-            <p>Neither of these is a novel pattern on its own. What connects them is that both lessons came from the
-                same root cause: building something extensible or shared is easy to get <em>working</em>. Building it
-                so it stays correct and fast once real, unpredictable usage shows up is the actual job.</p>
         </div>
 
         <a href="../index.html#scratchpad" class="inline-block mt-16 text-xs token-comment hover:underline">&larr;

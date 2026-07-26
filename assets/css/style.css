@@ -210,3 +210,44 @@
                 break-inside: avoid;
             }
         }
+
+        .article-body h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body a {
+            color: var(--accent-blue);
+            text-decoration: underline;
+        }
+
+        .article-body code {
+            color: var(--syntax-string);
+            background: rgba(255, 255, 255, 0.06);
+            padding: 0 4px;
+            border-radius: 3px;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin: 0 0 1.5rem 1.5rem;
+        }
+
+        .article-body ul {
+            list-style: disc;
+        }
+
+        .article-body ol {
+            list-style: decimal;
+        }
+
+        .article-body li {
+            margin-bottom: 0.5rem;
+        }

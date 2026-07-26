@@ -30,37 +30,37 @@
             "name": "JSE",
             "logoUrl": "./assets/img/clientele/jse_limited_logo.jpg",
             "workDescription": "Improved and maintained integrations with custodial and broker back-office systems, supporting reliable and secure market operations.",
-            "url":"https://www.jse.co.za/"
+            "url": "https://www.jse.co.za/"
         },
         {
             "name": "Absa",
             "logoUrl": "./assets/img/clientele/absa_logo.jpg",
             "workDescription": "Worked within Corporate and Investment Banking to build and enhance integrations, with a strong focus on corporate client experience.",
-            "url":"https://www.absa.co.za/"
+            "url": "https://www.absa.co.za/"
         },
         {
             "name": "Computicket",
             "logoUrl": "./assets/img/clientele/computicket_logo.jpg",
             "workDescription": "Collaborated with internal teams to introduce and guide adoption of a microservices architecture, improving scalability and delivery.",
-            "url":"https://computicket.com/page/home"
+            "url": "https://computicket.com/page/home"
         },
         {
             "name": "Standard Bank",
             "logoUrl": "./assets/img/clientele/standard_bank_group_logo.jpg",
             "workDescription": "Delivered high-performance, scalable integrations within the CIB space, supporting complex financial workflows.",
-            "url":"https://www.standardbank.co.za/"
+            "url": "https://www.standardbank.co.za/"
         },
         {
             "name": "LibFin/Liberty",
             "logoUrl": "./assets/img/clientele/liberty_logo.jpg",
             "workDescription": "Part of a modernisation team improving system performance, security posture, and CI/CD pipelines across core platforms.",
-            "url":"https://www.liberty.co.za/"
+            "url": "https://www.liberty.co.za/"
         },
         {
             "name": "Motus",
             "logoUrl": "./assets/img/clientele/motus_sa_logo.jpg",
             "workDescription": "Contributed to enterprise platform evolution through system integration, performance improvements, and close collaboration with business teams.",
-            "url":"https://www.motus.co.za/"
+            "url": "https://www.motus.co.za/"
         }
     ],
     "education": [
