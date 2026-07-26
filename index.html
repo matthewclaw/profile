@@ -30,7 +30,10 @@
         content="Senior Software Engineer specialising in C#, .NET, multi-tenant systems, and secure APIs.">
     <meta name="twitter:image" content="https://matthewclaw.github.io/profile/assets/img/og-image.png">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="assets/css/tailwind.css">
     <script type="module" src="assets/javascript/index.js"></script>
     <script type="application/ld+json">
         <!-- JSONLD:START -->
@@ -125,11 +128,11 @@
     <div class="flex min-h-screen">
         <!-- Sidebar -->
         <aside class="hidden md:flex flex-col w-48 ide-sidebar border-r fixed h-full z-40">
-            <div class="p-3 uppercase text-[10px] font-bold tracking-widest opacity-40 mb-2">Explorer</div>
+            <div class="p-3 uppercase text-[10px] font-bold tracking-widest opacity-70 mb-2">Explorer</div>
             <div class="flex flex-col text-xs" id="sidebar-nav">
-                <button onclick="toggleTheme()"
+                <button onclick="toggleTheme()" aria-label="Toggle theme"
                     class="theme-toggle-btn font-bold px-4 py-2 flex items-center gap-2 transition">
-                    <i class="fas fa-sun text-yellow-400"></i><i class="fas text-blue-700 fa-moon"></i> Change Theme
+                    <i class="fas fa-sun text-yellow-400" aria-hidden="true"></i><i class="fas text-blue-700 fa-moon" aria-hidden="true"></i> Change Theme
                 </button>
                 <a href="#about" class="sidebar-active px-4 py-2 flex items-center gap-2"><i
                         class="fas fa-user-circle text-blue-400"></i> About</a>
@@ -183,8 +186,8 @@
             <!-- Experience Section -->
             <section id="experience" class="py-16 px-8 border-y">
                 <div class="max-w-4xl">
-                    <h3 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
-                                class="token-func">Experience</span>()</h3>
+                    <h2 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
+                                class="token-func">Experience</span>()</h2>
                     <div id="experience-container" class="space-y-12 ml-4"></div>
                 </div>
             </section>
@@ -192,8 +195,8 @@
             <!-- Education Section -->
             <section id="education" class="py-16 px-8 border-y">
                 <div class="max-w-4xl">
-                    <h3 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
-                                class="token-func">Education</span>()</h3>
+                    <h2 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
+                                class="token-func">Education</span>()</h2>
                     <div id="education-container" class="space-y-12 ml-4"></div>
                 </div>
             </section>
@@ -201,8 +204,8 @@
             <!-- Skills Section -->
             <section id="skills" class="py-16 px-8 border-y">
                 <div class="max-w-4xl">
-                    <h3 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
-                                class="token-func">Top_Skills</span>()</h3>
+                    <h2 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
+                                class="token-func">Top_Skills</span>()</h2>
                     <div id="skills-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
                 </div>
             </section>
@@ -210,8 +213,8 @@
             <!-- Clients Section -->
             <section id="clients" class="py-16 px-8 border-y">
                 <div class="max-w-4xl">
-                    <h3 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
-                                class="token-func">Clientele</span>()</h3>
+                    <h2 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
+                                class="token-func">Clientele</span>()</h2>
                     <div id="clients-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
                 </div>
             </section>
@@ -219,8 +222,8 @@
             <!-- Hobbies Section -->
             <section id="hobbies" class="py-16 px-8 border-y">
                 <div class="max-w-4xl">
-                    <h3 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
-                                class="token-func">Hobbies</span>()</h3>
+                    <h2 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
+                                class="token-func">Hobbies</span>()</h2>
                     <div id="hobbies-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
                 </div>
             </section>
@@ -228,17 +231,17 @@
             <!-- Projects Section -->
             <section id="projects" class="py-16 px-8 border-y">
                 <div class="max-w-4xl">
-                    <h3 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
-                                class="token-func">Side_Projects</span>()</h3>
+                    <h2 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
+                                class="token-func">Side_Projects</span>()</h2>
                     <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
                 </div>
             </section>
 
             <!-- Contact Section -->
             <footer id="contact" class="py-16 px-8 border-y">
-                <h3 class="token-func text-xl font-bold mb-8">Contact()</h3>
+                <h2 class="token-func text-xl font-bold mb-8">Contact()</h2>
                 <div id="contact-container" class="flex flex-wrap gap-8 max-w-2xl"></div>
-                <p class="text-[10px] text-slate-600 mt-16 uppercase font-mono">Process finished with exit code 0</p>
+                <p class="text-[10px] text-slate-400 mt-16 uppercase font-mono">Process finished with exit code 0</p>
             </footer>
         </main>
     </div>
@@ -246,9 +249,9 @@
 
     <footer
         class="no-print fixed bottom-0 w-full h-6 bg-blue-600 text-white text-[10px] flex items-center justify-between px-3 z-50">
-        <button onclick="toggleTheme()"
+        <button onclick="toggleTheme()" aria-label="Toggle theme"
             class="z-60 fixed bottom-10 right-2 text-2xl font-m rounded-full ide-sidebar border-2 w-10 h-10 flex justify-center items-center theme-toggle-btn-lower transition">
-            <i class="fas fa-sun text-yellow-400"></i><i class="fas text-blue-700 fa-moon"></i>
+            <i class="fas fa-sun text-yellow-400" aria-hidden="true"></i><i class="fas text-blue-700 fa-moon" aria-hidden="true"></i>
         </button>
         <div class="flex items-center gap-4"><span><i class="fas fa-code-branch"></i> main*</span></div>
         <div class="flex items-center gap-4"><span>UTF-8</span><span>C#</span></div>

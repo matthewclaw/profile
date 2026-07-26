@@ -24,7 +24,7 @@ export function renderTimeline(container, data, forCv, animate) {
                 <div class="${mainClass} border-l-2 border-gray-500/20 pl-6 relative no-break ${forCv ? 'pb-5' : ''}">
                     <div class="absolute -left-[5px] ${forCv ? 'top-[33px]' : 'top-0'} w-2 h-2 rounded-full bg-blue-600 border-blue-600 border-2"></div>
                     <span class="token-comment text-xs">// ${item.period}</span>
-                    <h4 class="${forCv ? '' : 'text-lg mt-1'} font-bold">${item.what} <span class="opacity-30">@</span> ${item.at}</h4>
+                    <h3 class="${forCv ? '' : 'text-lg mt-1'} font-bold">${item.what} <span class="opacity-30">@</span> ${item.at}</h3>
                     <ul class="mt-4 space-y-2 tl-desc text-sm text-slate-400">
                         ${item.description.map(line => `<li>- ${line}</li>`).join('')}
                     </ul>
@@ -37,7 +37,7 @@ export function renderClients(container, portfolioData, animate = true) {
     container.innerHTML = portfolioData.clients.map(client => `
                 <a href="${client.url}" target="_blank" class="${animate ? 'section-fade' : ''} p-6 ide-card border flex items-center gap-4 hover:border-blue-500/50">
                     <div class="w-12 h-12 bg-white rounded flex items-center justify-center p-1 shrink-0">
-                        <img src="${client.logoUrl}" alt="${client.name}" class="max-w-full max-h-full object-contain">
+                        <img src="${client.logoUrl}" alt="${client.name}" width="48" height="48" class="max-w-full max-h-full object-contain">
                     </div>
                     <div>
                         <h4 class="font-bold text-sm">${client.name}</h4>
@@ -82,7 +82,7 @@ export function renderProjects(container, portfolioData, animate = true) {
                         <span class="text-[10px] bg-blue-500/10 text-blue-400 px-2 py-1 rounded">${proj.status}</span>
                     </div>
                     <h4 class="font-bold mb-2">${proj.title}${isPublic ? '<i class="fas fa-external-link-alt text-blue-400 ml-2"></i>' : ''}</h4>
-                    <p class="text-xs text-slate-500 leading-relaxed mb-4">${proj.description}</p>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-4">${proj.description}</p>
                     <div class="text-[10px] opacity-60 flex gap-4">
                         ${proj.tech.map(t => `<span>${t}</span>`).join('')}
                     </div>
