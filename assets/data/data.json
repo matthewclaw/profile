@@ -286,13 +286,26 @@
     "scratchpad": {
         "blog": [
             {
-                "title": "Multi-Tenant, Plugin-Based Architecture: Two Lessons from Production",
-                "tagline": "Allowlisting plugin DLLs per tenant, and the TenantId index nobody added until things started timing out.",
+                "title": "The Question My Plugin Loader Couldn't Answer",
+                "tagline": "A plugin loader that would happily load anything implementing the right interface, until someone asked what was actually stopping it from loading the wrong tenant's plugin.",
                 "date": "2026-07-26",
-                "url": "scratchpad/multi-tenant-plugin-architecture.html"
+                "url": "scratchpad/the-question-my-plugin-loader-couldnt-answer.html"
+            },
+            {
+                "title": "The Column That Looked Like Nothing",
+                "tagline": "A TenantId column on every table, filtered on every query, and never once indexed, until scale finally noticed.",
+                "date": "2026-07-26",
+                "url": "scratchpad/the-column-that-looked-like-nothing.html"
             }
         ],
-        "linkedin": []
+        "linkedin": [
+            {
+                "title": "Leadership Doesn't Start With a Title",
+                "tagline": "Ownership scales faster than hierarchy — real leadership shows up in the small, unasked-for moves, not the meetings.",
+                "date": "2025-11-26",
+                "url": "https://www.linkedin.com/posts/matthew-c-law_lawondev-developermindset-leadership-share-7388452070972071936-VLl0/?utm_source=share&utm_medium=member_desktop&rcm=ACoAABQA5VgBkqhSTVnF17gj-ivlY4uO5ENAw94"
+            }
+        ]
     },
     "hobbies": [
         {

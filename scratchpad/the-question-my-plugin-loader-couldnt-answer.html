@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Question My Plugin Loader Couldn't Answer | Matthew Law</title>
+    <meta name="description" content="A plugin loader that would happily load anything implementing the right interface, until someone asked what was actually stopping it from loading the wrong tenant's plugin.">
+    <link rel="canonical" href="https://matthewclaw.github.io/profile/scratchpad/the-question-my-plugin-loader-couldnt-answer.html">
+    <link rel="icon" href="../assets/img/favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Matthew Law | Senior Software Engineer">
+    <meta property="og:title" content="The Question My Plugin Loader Couldn't Answer">
+    <meta property="og:description" content="A plugin loader that would happily load anything implementing the right interface, until someone asked what was actually stopping it from loading the wrong tenant's plugin.">
+    <meta property="og:url" content="https://matthewclaw.github.io/profile/scratchpad/the-question-my-plugin-loader-couldnt-answer.html">
+    <meta property="og:image" content="https://matthewclaw.github.io/profile/assets/img/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Question My Plugin Loader Couldn't Answer">
+    <meta name="twitter:description" content="A plugin loader that would happily load anything implementing the right interface, until someone asked what was actually stopping it from loading the wrong tenant's plugin.">
+    <meta name="twitter:image" content="https://matthewclaw.github.io/profile/assets/img/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../assets/css/tailwind.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Question My Plugin Loader Couldn't Answer",
+  "description": "A plugin loader that would happily load anything implementing the right interface, until someone asked what was actually stopping it from loading the wrong tenant's plugin.",
+  "datePublished": "2026-07-26",
+  "author": {
+    "@type": "Person",
+    "name": "Matthew Law",
+    "sameAs": [
+      "https://matthewclaw.github.io/profile/",
+      "https://www.linkedin.com/in/matthew-c-law/",
+      "https://github.com/matthewclaw"
+    ]
+  },
+  "image": "https://matthewclaw.github.io/profile/assets/img/og-image.png",
+  "mainEntityOfPage": "https://matthewclaw.github.io/profile/scratchpad/the-question-my-plugin-loader-couldnt-answer.html"
+}
+    </script>
+</head>
+
+<body class="antialiased">
+    <main class="max-w-3xl mx-auto px-6 py-16">
+        <a href="../index.html#scratchpad" class="text-xs token-comment hover:underline">&larr; back to matthew_law</a>
+
+        <p class="token-comment text-xs mt-8 mb-2">// July 26, 2026</p>
+        <h1 class="text-2xl md:text-4xl font-bold mb-8 token-type">The Question My Plugin Loader Couldn't Answer</h1>
+
+        <div class="article-body space-y-6 text-sm md:text-base leading-relaxed text-slate-300">
+            <p>&quot;Multi-tenant, plugin-based architecture&quot; is a line I&#39;ve had on more CVs than I can count. For a long time I could say it without being able to explain what actually makes it hard. This is the moment that changed that.</p>
+<h2>Scan the folder, find a match, load it</h2>
+<p>The system had a plugin loader that did roughly what you&#39;d expect. At startup it scanned a folder, looked for anything implementing a known interface, and registered whatever matched. I hadn&#39;t thought about that mechanism much. It just worked. Assemblies went in, plugins came out, tenants got the functionality they were supposed to have.</p>
+<p>Then someone asked a fairly ordinary question: what stops a plugin built for one tenant from loading for a different one?</p>
+<p>I remember answering almost automatically. The interface check already handled that, I said. If the type implements the right contract, it gets loaded, that&#39;s the whole point of the system. I was fairly confident saying it.</p>
+<h2>That explanation stopped fitting the moment I said it out loud</h2>
+<p>Except it didn&#39;t hold up for more than a few seconds. Implementing an interface tells you the shape of a class matches something the loader expects. It says nothing about who wrote that class or which tenant it&#39;s actually supposed to belong to. A DLL that implements the interface will load regardless of who built it or who it was built for. I&#39;d been treating &quot;does this look like a plugin&quot; as though it were the same question as &quot;is this allowed to run here.&quot; They aren&#39;t. They never were.</p>
+<p>I kept turning that over. Somewhere along the way those two questions had quietly merged into one in my head, and I&#39;d never actually checked whether that merge was true. The loader wasn&#39;t careless or badly written, it was doing exactly what it had been built to do. It just had never been built to ask the second question at all.</p>
+<h2>Where the actual difficulty was hiding</h2>
+<p>Once I saw the gap, the fix itself was almost anticlimactic. Assemblies still get scanned the same way they always did. What changed is that each tenant now has an explicit, registered list of plugin names it&#39;s allowed to load, and anything off that list stays invisible to the loader no matter what interface it implements.</p>
+<p>Loading the assemblies was never the hard part. That part was basically solved the day someone wrote the scanning logic. The hard part was deciding, explicitly, what a given tenant was actually allowed to load, and then making that decision the thing the loader checked, instead of an interface match that was never designed to carry that weight.</p>
+<p>That&#39;s a different kind of problem than writing a loader. Writing a loader is a reflection problem. Deciding what belongs to whom is closer to a permissions model, and permissions models don&#39;t fall out of &quot;does the type match,&quot; no matter how good the reflection code is underneath it.</p>
+<h2>What I check for now</h2>
+<p>I don&#39;t assume an interface check covers authorization anymore. When I look at a plugin or extension system now, one of the first questions I ask is who decided what&#39;s allowed to load here, and where that decision actually lives in the code. Sometimes the honest answer is nobody decided. The loader just accepts anything that fits the shape, and that answer is worth sitting with for a minute before moving on to anything else.</p>
+
+        </div>
+        <a href="../index.html#scratchpad" class="inline-block mt-16 text-xs token-comment hover:underline">&larr;
+            back to matthew_law</a>
+    </main>
+</body>
+
+</html>

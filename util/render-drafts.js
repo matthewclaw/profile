@@ -91,7 +91,6 @@ function renderArticleHtml({ title, tagline, date, url }, bodyHtml) {
         <div class="article-body space-y-6 text-sm md:text-base leading-relaxed text-slate-300">
             ${bodyHtml}
         </div>
-
         <a href="../index.html#scratchpad" class="inline-block mt-16 text-xs token-comment hover:underline">&larr;
             back to matthew_law</a>
     </main>

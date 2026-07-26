@@ -14,7 +14,7 @@ async function renderPortfolio() {
     renderSkills(document.getElementById('skills-container'), portfolioData, animate);
     renderProjects(document.getElementById('projects-container'), portfolioData, animate);
     renderHobbies(document.getElementById('hobbies-container'), portfolioData, animate);
-    renderScratchpad(document.getElementById('scratchpad-blog-wrapper'), document.getElementById('scratchpad-linkedin-wrapper'), portfolioData, animate);
+    renderScratchpad(document.getElementById('scratchpad-blog-wrapper'), document.getElementById('scratchpad-linkedin-wrapper'), portfolioData, animate, { limit: 1 });
     renderContactLinks(document.getElementById('contact-container'), portfolioData, animate);
     setupObserver();
 }

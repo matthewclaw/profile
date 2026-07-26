@@ -5,7 +5,8 @@
   "scripts": {
     "build:css": "tailwindcss -i ./assets/css/tailwind-source.css -o ./assets/css/tailwind.css --minify",
     "render:drafts": "node util/render-drafts.js",
-    "build": "npm run build:css && npm run render:drafts && node util/compile_meta.js && node util/build.js"
+    "render:scratchpad-index": "node util/render-scratchpad-index.js",
+    "build": "npm run build:css && npm run render:drafts && npm run render:scratchpad-index && node util/compile_meta.js && node util/build.js"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.3",
