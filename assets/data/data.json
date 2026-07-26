@@ -283,6 +283,17 @@
             "status": "private"
         }
     ],
+    "scratchpad": {
+        "blog": [
+            {
+                "title": "Multi-Tenant, Plugin-Based Architecture: Two Lessons from Production",
+                "tagline": "Allowlisting plugin DLLs per tenant, and the TenantId index nobody added until things started timing out.",
+                "date": "2026-07-26",
+                "url": "scratchpad/multi-tenant-plugin-architecture.html"
+            }
+        ],
+        "linkedin": []
+    },
     "hobbies": [
         {
             "name": "Dungeons & Dragons",

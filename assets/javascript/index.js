@@ -1,7 +1,7 @@
 import {
     renderExperience, renderEducation, renderClients,
     renderSkills, renderProjects, renderHobbies,
-    renderContactLinks
+    renderContactLinks, renderScratchpad
 } from './renderers.js'
 
 async function renderPortfolio() {
@@ -14,6 +14,7 @@ async function renderPortfolio() {
     renderSkills(document.getElementById('skills-container'), portfolioData, animate);
     renderProjects(document.getElementById('projects-container'), portfolioData, animate);
     renderHobbies(document.getElementById('hobbies-container'), portfolioData, animate);
+    renderScratchpad(document.getElementById('scratchpad-blog-wrapper'), document.getElementById('scratchpad-linkedin-wrapper'), portfolioData, animate);
     renderContactLinks(document.getElementById('contact-container'), portfolioData, animate);
     setupObserver();
 }

@@ -40,7 +40,7 @@ export function renderClients(container, portfolioData, animate = true) {
                         <img src="${client.logoUrl}" alt="${client.name}" width="48" height="48" class="max-w-full max-h-full object-contain">
                     </div>
                     <div>
-                        <h4 class="font-bold text-sm">${client.name}</h4>
+                        <h3 class="font-bold text-sm">${client.name}</h3>
                         <p class="text-[11px] opacity-60 mt-1">${client.workDescription}</p>
                     </div>
                 </a>
@@ -81,7 +81,7 @@ export function renderProjects(container, portfolioData, animate = true) {
                         <i class="fas fa-folder text-yellow-500 text-2xl"></i>
                         <span class="text-[10px] bg-blue-500/10 text-blue-400 px-2 py-1 rounded">${proj.status}</span>
                     </div>
-                    <h4 class="font-bold mb-2">${proj.title}${isPublic ? '<i class="fas fa-external-link-alt text-blue-400 ml-2"></i>' : ''}</h4>
+                    <h3 class="font-bold mb-2">${proj.title}${isPublic ? '<i class="fas fa-external-link-alt text-blue-400 ml-2"></i>' : ''}</h3>
                     <p class="text-xs text-slate-400 leading-relaxed mb-4">${proj.description}</p>
                     <div class="text-[10px] opacity-60 flex gap-4">
                         ${proj.tech.map(t => `<span>${t}</span>`).join('')}
@@ -97,6 +97,35 @@ export function renderHobbies(container, portfolioData, animate = true) {
                     <span class="text-[10px] uppercase tracking-wider opacity-60 text-center">${hobby.name}</span>
                 </div>
             `).join('');
+}
+
+export function renderScratchpad(blogWrapper, linkedinWrapper, portfolioData, animate = true) {
+    renderScratchpadGroup(blogWrapper, portfolioData.scratchpad?.blog || [],
+        { label: 'Blog', iconClass: 'fas fa-file-lines', external: false }, animate);
+    renderScratchpadGroup(linkedinWrapper, portfolioData.scratchpad?.linkedin || [],
+        { label: 'LinkedIn', iconClass: 'fab fa-linkedin', external: true }, animate);
+}
+
+function renderScratchpadGroup(wrapper, entries, { label, iconClass, external }, animate) {
+    if (!entries.length) {
+        wrapper.innerHTML = '';
+        return;
+    }
+    wrapper.innerHTML = `
+        <h3 class="text-sm uppercase tracking-widest opacity-60 mb-4">${label}</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            ${entries.map(entry => `
+                <a href="${entry.url}"${external ? ' target="_blank" rel="noopener"' : ''} class="${animate ? 'section-fade' : ''} p-6 ide-card border hover:border-blue-500/50 transition-all duration-300 block">
+                    <div class="flex justify-between items-start mb-3">
+                        <i class="${iconClass} text-blue-400"></i>
+                        <span class="text-[10px] opacity-50 uppercase">${entry.date}</span>
+                    </div>
+                    <h4 class="font-bold mb-2">${entry.title}</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">${entry.tagline}</p>
+                </a>
+            `).join('')}
+        </div>
+    `;
 }
 
 export function renderContactLinks(container, portfolioData, animate = true) {
