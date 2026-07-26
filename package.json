@@ -1,0 +1,8 @@
+{
+  "name": "profile",
+  "private": true,
+  "description": "Matthew Law's interactive developer portfolio",
+  "scripts": {
+    "build": "node util/compile_meta.js && node util/build.js"
+  }
+}
