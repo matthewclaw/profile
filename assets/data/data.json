@@ -272,15 +272,15 @@
             "url": "https://github.com/matthewclaw/Query"
         },
         {
-            "title": "Simple.Office.Excel",
-            "description": "This project aims to simplify the interaction with Microsoft Excel files by abstracting underlying libraries such as NPOI. It provides an easy-to-use API for creating, manipulating, and reading data from Excel files.",
+            "title": "profile",
+            "description": "The source behind matthewclaw.github.io/profile.",
             "tech": [
-                "C#",
-                "OpenXml",
-                "Excel",
-                "NPOI"
+                "Node.js",
+                "HTML",
+                "css"
             ],
-            "status": "private"
+            "status": "public",
+            "url": "https://github.com/matthewclaw/profile"
         }
     ],
     "scratchpad": {
@@ -302,8 +302,26 @@
             {
                 "title": "Leadership Doesn't Start With a Title",
                 "tagline": "Ownership scales faster than hierarchy — real leadership shows up in the small, unasked-for moves, not the meetings.",
-                "date": "2025-11-26",
-                "url": "https://www.linkedin.com/posts/matthew-c-law_lawondev-developermindset-leadership-share-7388452070972071936-VLl0/?utm_source=share&utm_medium=member_desktop&rcm=ACoAABQA5VgBkqhSTVnF17gj-ivlY4uO5ENAw94"
+                "date": "2025-10-27",
+                "url": "https://www.linkedin.com/posts/matthew-c-law_lawondev-developermindset-leadership-share-7388452070972071936-VLl0/"
+            },
+            {
+                "title": "Intent Outlasts Imitation",
+                "tagline": "'Do not seek to follow in the footsteps of those ahead. Seek what they sought.' Growth isn't copying someone's path — it's chasing the intent behind it.",
+                "date": "2025-10-24",
+                "url": "https://www.linkedin.com/posts/matthew-c-law_developermindset-lawondev-careergrowth-share-7387369580853231616-3pTA/"
+            },
+            {
+                "title": "Debugging Our Mindset",
+                "tagline": "We spend so much time debugging code — but how often do we debug our mindset? Introducing #DeveloperMindset: short reflections on the human side of the craft.",
+                "date": "2025-10-21",
+                "url": "https://www.linkedin.com/posts/matthew-c-law_developermindset-lawondev-share-7386307130146045952-XaO1/"
+            },
+            {
+                "title": "How Long Would It Take to Onboard a New Dev?",
+                "tagline": "One simple question exposes a project's real health — code clarity, docs, tests, naming. The faster someone new gets productive, the stronger the project.",
+                "date": "2025-10-20",
+                "url": "https://www.linkedin.com/posts/matthew-c-law_softwareengineering-developerexperience-cleancode-share-7386021977511243776-RLMj/"
             }
         ]
     },

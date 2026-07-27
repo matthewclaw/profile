@@ -21,7 +21,7 @@ function renderCard({ title, tagline, date, url }, { iconClass, external }) {
                         <i class="${iconClass} text-blue-400"></i>
                         <span class="text-[10px] opacity-50 uppercase">${date}</span>
                     </div>
-                    <h3 class="font-bold mb-2">${title}</h3>
+                    <h3 class="font-bold mb-2">${title}<i class="fas fa-external-link-alt text-blue-400 text-xs ml-2"></i></h3>
                     <p class="text-xs text-slate-400 leading-relaxed">${tagline}</p>
                 </a>`;
 }

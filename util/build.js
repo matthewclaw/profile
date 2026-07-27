@@ -40,14 +40,14 @@ function replaceBetweenMarkers(content, marker, replacement, { keepMarkers = tru
 // INJECT GENERATED CONTENT INTO index.html
 // ------------------------
 
-function injectIndexHtml() {
+function injectIndexHtml(keepJsonLdMarkers) {
   const indexPath = path.join(root, "index.html");
   let html = fs.readFileSync(indexPath, "utf8");
 
   const schema = fs.readFileSync(path.join(root, "generated", "schema.jsonld"), "utf8");
   const noscript = fs.readFileSync(path.join(root, "generated", "noscript.html"), "utf8");
 
-  html = replaceBetweenMarkers(html, "JSONLD", schema, { keepMarkers: false });
+  html = replaceBetweenMarkers(html, "JSONLD", schema, { keepMarkers: keepJsonLdMarkers });
   html = replaceBetweenMarkers(html, "NOSCRIPT", noscript);
 
   fs.writeFileSync(indexPath, html);
@@ -97,7 +97,7 @@ ${urls}
   fs.writeFileSync(path.join(root, "sitemap.xml"), content);
 }
 
-injectIndexHtml();
+injectIndexHtml(process.argv.includes("--debug"));
 writeRobotsTxt();
 writeSitemap();
 

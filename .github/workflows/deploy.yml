@@ -32,7 +32,14 @@ jobs:
         run: npm run build
 
       - name: Remove files that shouldn't be published
-        run: rm -rf node_modules .git
+        # Keep only what the live site actually serves. Everything below is
+        # either build tooling, source that got rendered to HTML, or repo meta.
+        # generated/resume.md is kept — it's linked from index.html.
+        run: |
+          rm -rf node_modules .git .github util scratchpad/drafts
+          rm -f assets/css/tailwind-source.css
+          rm -f generated/noscript.html generated/schema.jsonld
+          rm -f package.json package-lock.json README.md profile_preview.gif .gitignore
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
