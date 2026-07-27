@@ -4,7 +4,7 @@ const path = require("path");
 const root = path.join(__dirname, "..");
 const SITE_URL = "https://matthewclaw.github.io/profile/";
 
-function replaceBetweenMarkers(content, marker, replacement) {
+function replaceBetweenMarkers(content, marker, replacement, { keepMarkers = true } = {}) {
   const startMarker = `<!-- ${marker}:START -->`;
   const endMarker = `<!-- ${marker}:END -->`;
   const start = content.indexOf(startMarker);
@@ -12,10 +12,27 @@ function replaceBetweenMarkers(content, marker, replacement) {
   if (start === -1 || end === -1 || end < start) {
     throw new Error(`Could not find ${marker} markers in index.html`);
   }
+
+  if (keepMarkers) {
+    return (
+      content.slice(0, start + startMarker.length) +
+      "\n" + replacement.trim() + "\n" +
+      content.slice(end)
+    );
+  }
+
+  // The marker comments themselves must not survive into the built output
+  // here: this replaces the entire content of a <script type="application/ld+json">
+  // tag, whose text must be strictly parseable JSON. HTML comments inside it
+  // are invalid and break structured-data parsing (Google Rich Results flags
+  // this as "Incorrect value type" since the parser chokes on the comment
+  // text). The markers stay in the *source* index.html so the next build can
+  // still find the injection point -- only this generated, never-committed
+  // build output has them stripped.
   return (
-    content.slice(0, start + startMarker.length) +
-    "\n" + replacement.trim() + "\n" +
-    content.slice(end)
+    content.slice(0, start) +
+    replacement.trim() +
+    content.slice(end + endMarker.length)
   );
 }
 
@@ -30,7 +47,7 @@ function injectIndexHtml() {
   const schema = fs.readFileSync(path.join(root, "generated", "schema.jsonld"), "utf8");
   const noscript = fs.readFileSync(path.join(root, "generated", "noscript.html"), "utf8");
 
-  html = replaceBetweenMarkers(html, "JSONLD", schema);
+  html = replaceBetweenMarkers(html, "JSONLD", schema, { keepMarkers: false });
   html = replaceBetweenMarkers(html, "NOSCRIPT", noscript);
 
   fs.writeFileSync(indexPath, html);
