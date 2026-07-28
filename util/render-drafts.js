@@ -92,7 +92,7 @@ function renderArticleHtml({ title, tagline, date, url }, bodyHtml) {
         <div class="article-body space-y-6 text-sm md:text-base leading-relaxed">
             ${bodyHtml}
         </div>
-        <a href="/.index.html" class="inline-block mt-16 text-xs token-comment hover:underline">&larr;
+        <a href="./index.html" class="inline-block mt-16 text-xs token-comment hover:underline">&larr;
             back to scratchpad</a>
     </main>
 </body>
