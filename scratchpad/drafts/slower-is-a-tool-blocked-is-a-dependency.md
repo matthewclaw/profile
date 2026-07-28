@@ -4,130 +4,66 @@ tagline: "A friend ran out of AI credits and development stopped. The live site 
 date: "2026-07-27"
 ---
 
-A friend of mine built an entire e-commerce site using an agentic coding harness. A side project, in their own time. Catalogue, checkout, payments, the whole thing. They put it live.
+A friend of mine built an e-commerce site using agentic AI. It was a side project in his own time that had a catalogue, it had checkout, and it had payments. He got it up and live, and it worked, and it was stable.
 
-It worked.
+He showed it to me. I was concerned, not with the site, but with the language the agent chose. Don't get me wrong, what the agent had written would have taken a solo dev multiple months. But the thing was the agent had chosen Python as the language. However, my mate was a Java dev. I did mention to him while he still had credits to rather get it to rewrite it in Java.
 
-It kept working, which is the part that stayed with me.
+He shrugged it off and said, "Don't worry, the agent will handle it."
 
-They showed it to me. The part that made me pay attention was that they weren't a Python developer. They were a junior Java developer, but the agent chose Python.
-
-Something that would have been a multi-month project for someone at that stage existed, and it ran. I'm not building to a punchline about it being secretly rubbish. It wasn't.
-
-I did say something at the time, in the slightly careful way you do when you don't want to be the person raining on someone's weekend project. Generating the code isn't the risky part, depending on code you don't understand is. I got a shrug back.
-
-"The agent will handle it."
-
-Which, honestly, was a completely reasonable answer at that moment. It was handling it.
+And in all fairness, it was handling it... for the time being.
 
 ## Then it wasn't
 
-Some time later they wanted to add another feature. Nothing exotic. They couldn't.
+A few thousand tokens later. He wanted to add a feature, but he couldn't, because he had hit his budget limit.
 
-What they said, more or less, was: "I've already spent so many credits, and now I need to spend more just to add something."
+He complained, "I've already spent so many on credits, and now I need to spend more just to add something."
 
-That sentence stuck with me, mostly for what it takes as given. Adding a feature had stopped being something you do and become something you buy.
+And that's when I realised that depending on how you use AI, adding a feature stops being something you do and becomes something you have to buy.
 
-Not because the feature was hard. Not because Python is impossible to learn. Four things were in the way:
+It wasn't that the feature was difficult or hard, or that Python is an impossible language. But the fact that he knew Java, not Python, meant that the code was unreadable to him. And that he didn't have an idea of the system architecture.
 
-They'd exhausted their credits. They didn't know the environment variables. They weren't sure about the credentials. And they didn't really understand how the application fit together.
+And so because he hit his budget, development didn't slow down, it stopped. 
 
-Development stopped.
+Eventually, he did just end up buying more credits and continued.
 
-The site didn't. It carried on taking orders the entire time, which is the detail I find hardest to put down. Nothing was down. Nothing alerted. Not one customer noticed anything. The only thing that had failed was the ability to change any of it.
+## The bit that stuck
 
-They bought more credits, and it started again.
+What I realised was this wasn't a case of a tool or multiplier being unavailable, it was as if the lead engineer had packed up for lunch and left. No technical limitation, no architectural mistake. And since credits were the currency of choice, buying more got him looking at code again.
 
-## My first explanation didn't hold up
+People often say, when it comes to generative code, "garbage in, garbage out". But sometimes people don't understand the weight of what happens when the output is alien, because something as simple as changing a button from rounded and blue to square and red or adding another adapter for a third-party becomes something you have to use credits for.
 
-I assumed this was a Python problem. They'd built something in a language they didn't know, and now they couldn't maintain it.
+## Dependency vs. blocker
 
-That explanation didn't last very long.
+I've spent a lot of my career looking at fail states. Retries, fallbacks, circuit breakers, all the boring stuff on the wiki diagrams that no one wants to read. What happens when a third party stops responding? And how do we ensure that downstream services handle it gracefully? And then there's this.
 
-Python wasn't what blocked them. The feature wasn't difficult. And three of those four blockers have nothing to do with the language at all. Environment variables, credentials, and a billing limit are operations problems. You could hand that exact list to a fluent Python developer and they'd still be stuck for a while.
+At the core of it, it's not new. I've inherited systems where the understanding has simply left the building. It's got nothing to do with someone being careless or anyone to blame. It was just a case of the people that knew the system had left. When it comes to people, the expression is hit-by-bus syndrome. If one person holds all the knowledge, does it make the system unmaintainable if they quit or go on holiday?
 
-So not knowing Python explains one of the four things. That isn't enough to carry the point.
+I think this being a side project is part of why it showed up the way it did. On a team there'd be someone that understood this weird service, there would be someone that knew how the environment was set up, there would have been an outdated wiki page with at least some relevant information on it. But because it was one individual and one LLM, there was none of that cushioning. Then when the budget was hit, the prompt engineer was left waiting.
 
-Which also means the thing I'd said to them at the start was only about a quarter right. I'd warned about depending on code you don't understand, because that's the part that looks dangerous from the outside. What actually stopped them was mostly around the code rather than in it. Credentials, environment, billing. The boring perimeter I hadn't thought to mention.
+Nowadays with AI and agents, you can get to an MVP state very quickly on your own without anyone's help. So I don't think it's a case of "AI bad". I mean, it's the biggest productivity multiplier I've come across. Gone are the days of searching Stack Overflow for a question that someone answered four years ago, regarding this obscure package you're trying to get working. So the "line" isn't "Stop using AI", I think the line sits further along, somewhere around the point where it isn't speeding up your work, it's doing it for you.
 
-## The bit I kept coming back to
+So like with any tool, I ask myself: if this had to disappear, would I be slower or would I be blocked? Because there lies whether you're using it as a multiplier or you're depending on it.
 
-The credits. Because that's such an unremarkable way for work to stop.
-
-It isn't a technical limitation. Nobody made an architectural mistake. A billing limit was reached on an ordinary day, and that was sufficient to halt development on a working application.
-
-And because that was the thing that stopped it, buying more credits started it again. Which is a completely rational response. It's the fastest route back to working, and I'd probably have done the same.
-
-It just didn't change anything underneath. Development restarted from exactly the same position it had been in before, with the same four things still true, waiting for the next time one of them came up.
-
-That's when it clicked, and it clicked into a shape I recognised.
-
-The credits running out was the incident. Not understanding the system was why there was no failover.
-
-Every postmortem I've ever sat in works this way. The trigger is almost never the interesting part. A disk fills up, a certificate expires, a rate limit gets hit. Nobody spends the meeting on that. The meeting is about why nothing caught it, why there was no degraded mode, why the whole thing went from fine to stopped with nothing in between.
-
-Which is a question engineers are quite good at asking about systems, and apparently much worse at asking about ourselves.
-
-## The awkward version of this
-
-I've spent a lot of my career on this. Retries, fallbacks, timeouts, circuit breakers, the boring uncomfortable questions nobody enjoys sitting with. What happens when this third party stops responding. What happens when the cache is cold. What happens when this one thing is unavailable and everything downstream still has to do something sensible about it.
-
-Then a lot of us have quietly introduced one of these into our own thinking, and it doesn't register as the same category of problem because it doesn't appear on any diagram.
-
-And it isn't new, which is the part I have to keep reminding myself. I've inherited systems where the understanding had simply left the building. Nobody careless, nobody to blame, just enough turnover that the people who knew why a thing was built that way weren't there any more. What was left behind was code that worked and nobody could safely change. Same failure, no AI anywhere near it.
-
-We have a name for that when it's people. Bus factor. How many of them need to disappear before a system becomes unmaintainable. I've asked that question about teams plenty of times. I don't think I'd ever asked it about a tool.
-
-Being a side project is part of why this showed up so cleanly. On a team there would have been someone else with the credentials, someone who had stood the environment up before, a wiki page nobody trusts that happens to have the env vars on it. Redundancy nobody designed and nobody notices until it turns out to be the thing that saves them. Working alone, none of that existed to cushion it. One person, one live site taking real orders, and a fair amount of the understanding sitting somewhere that wasn't the person.
-
-What's different now is the speed you can get there, and that you can do it to yourself without needing anyone else's help.
-
-I don't think the line is "using AI." I use it every day and I think it's one of the largest productivity multipliers I've seen. The line is somewhere further along, at the point where it stops amplifying your thinking and starts doing it instead.
-
-The test I've landed on is the same one I'd apply to anything else I depend on. If it goes away, what actually happens? If the answer is that I'm slower, it's a tool. If the answer is that I've stopped, it's a dependency, and I should probably be treating it like one.
-
-It isn't a clean binary in practice. There's a lot of ground between slower and stopped, and most of it is occupied by "technically I could work this out, but not today and not without help." I'd count most of that ground as stopped, personally, but that's a judgment rather than a measurement.
-
-That distinction isn't really about how much you use it. My friend and I might use these things a comparable amount. It only shows up on the day it isn't there, which is a bit late to be finding out.
+Don't get me wrong. It's not as clean-cut as "don't have dependencies". We depend on things like NuGet and npm packages. It boils down to, if a package you're using had to be taken down, would you at least know what to Google for a replacement?
 
 ## It doesn't need to be dramatic
 
-The version of this I hear most often is "well, it's not going to disappear," which is fair, and also not what happened here.
+When I talk about AI and the dependency on it, the responses I usually get are... "well, it's not going to disappear", or "I can just use a different model". Which is fair. Nothing disappeared, and it's not what happened here. It was simply a budget that was reached, and that was enough.
 
-Nothing disappeared. A billing limit was reached. That was enough.
+Rate limits, congested providers, a client's network that's blocked, or a flight without Wi-Fi. None of those are catastrophes. No. That's just another Tuesday. And if a random Tuesday is enough to take you from productive to stopped, then that dependency was load-bearing, and no one noticed until it was too late.
 
-Rate limits, a provider outage, a client whose network won't allow it, an air-gapped environment, a flight without wifi. None of these are catastrophes. They're Tuesday. If a normal Tuesday can take you from productive to stopped, the dependency was already load-bearing and you just hadn't been told yet.
+## What he did next
 
-## What they did next
+The site kept running, the live environment stayed green. He didn't go and learn Python. He didn't give up on the agent, but what he took away from this experience was... "let me just specify the tech stack before we go too far."
 
-The site is still up, still taking orders, and from what I hear doing alright.
+And that's the whole fix. Pick something you can read, you can understand. Because if you lose signal or you run out of tokens, you'll be slower, yes, but at least you'll still be moving.
 
-They didn't stop using the harness. They didn't go away and learn Python out of penance either, which I think would have been the wrong lesson anyway.
+Slower is fine. It was never the problem.
 
-On the next thing they built, they specified the tech stack up front.
+## Where it leaves me
 
-That's the whole fix. Tell the agent what to build it in, and pick something you can actually read.
+I don't have a version of the story about myself. I've never had a day where a rate limit stopped me from shipping something. It would be easy to read that as evidence I'm in the all clear. But I think that's more of a case where I've been burned by hit-by-bus syndrome, or the package I needed disappeared. Everything looks okay while it's up.
 
-It sounds far too small to count, and I think it's exactly right. It doesn't make them any less dependent on the harness in a way you could measure. They're still generating most of it, and they're not using it less than they were before. What changes is only what happens on the bad day. When the credits run out, or the provider has a rough afternoon, or they're somewhere with no signal, they open the code, and it's Java, and they're slower.
+And that's the whole problem with it. My friend wasn't confused when it happened to him. He was annoyed by the cost. And that's what it looks like from that side: it's not a dependency, it's an invoice. And when I raised my concerns at the time, there was no observable problem. The system was working, so a warning about resilience sounded theoretical.
 
-Slower is fine. Slower was never the problem.
-
-## The part I'm least comfortable with
-
-The uncomfortable part is that I don't have a version of this story about myself. I've never hit the day where a rate limit or an empty balance stopped me shipping something.
-
-It would be easy to read that as evidence I'm fine. I think it's more likely that the dependency just hasn't been tested yet.
-
-Everything looks fine while it's up. That's the entire shape of the problem, and it makes checking yourself from the inside close to worthless.
-
-My friend wasn't confused when this happened to them. They were annoyed about the cost. That's what it looks like from in there. Not a dependency, just an invoice.
-
-What I keep coming back to is that I said roughly this to them, out loud, in advance, and it changed nothing. One billing limit sorted it in an afternoon.
-
-I don't think that's because they weren't listening. I think it's because at the time there was no observable problem. The system was working. A warning about resilience always sounds theoretical while everything is still up, which is unfortunately the only window in which saying it is any use at all.
-
-So I've stopped thinking of this as something to warn people about and started treating it as something to check. Not a discipline, and not a rule about how much AI is too much. Just an occasional question about where the understanding is actually sitting, and whether any of it exists outside the tool.
-
-They came out of this with a fix. Specify the stack, pick something you can read, end up slower instead of stopped. I don't have anything that tidy. I'm still working out which of my own dependencies I've simply never had to test.
-
-It's still the biggest multiplier I've got, and I'm not planning to use it less. I'd just rather it wasn't the only thing that knows how my own work fits together.
+So this isn't a warning to stop using AI. This is more of a checkpoint. A checkpoint to ask yourself: am I using it? Or am I relying on it? And as I mentioned, it's one of the biggest multipliers I've got. So I'm not planning on using it less. I just make sure that it isn't the only thing that knows how my own work fits together.
