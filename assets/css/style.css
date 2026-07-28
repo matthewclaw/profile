@@ -153,6 +153,18 @@
             display: block;
         }
 
+        .avatar-light {
+            display: none;
+        }
+
+        .light-mode .avatar-dark {
+            display: none;
+        }
+
+        .light-mode .avatar-light {
+            display: block;
+        }
+
         .border-y {
             border-color: var(--border-color);
         }
