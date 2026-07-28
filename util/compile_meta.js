@@ -66,6 +66,7 @@ function generateJsonLd() {
     "@type": "Person",
     name,
     jobTitle: title,
+    image: "https://matthewclaw.github.io/profile/assets/img/matthew-law.jpg",
     email,
     telephone: phone,
     sameAs: links,
