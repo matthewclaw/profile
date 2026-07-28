@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-mode')}catch(e){}</script>
     <title>The Column That Looked Like Nothing | Matthew Law</title>
     <meta name="description" content="A TenantId column on every table, filtered on every query, and never once indexed, until scale finally noticed.">
     <link rel="canonical" href="https://matthewclaw.github.io/profile/scratchpad/the-column-that-looked-like-nothing.html">
@@ -55,13 +56,13 @@
 </head>
 
 <body class="antialiased">
-    <main class="max-w-3xl mx-auto px-6 py-16">
-        <a href="../index.html#scratchpad" class="text-xs token-comment hover:underline">&larr; back to matthew_law</a>
+    <main class="max-w-4xl mx-auto px-6 py-16">
+        <a href="./index.html" class="text-xs token-comment hover:underline">&larr; back to scratchpad</a>
 
         <p class="token-comment text-xs mt-8 mb-2">// July 26, 2026</p>
         <h1 class="text-2xl md:text-4xl font-bold mb-8 token-type">The Column That Looked Like Nothing</h1>
 
-        <div class="article-body space-y-6 text-sm md:text-base leading-relaxed text-slate-300">
+        <div class="article-body space-y-6 text-sm md:text-base leading-relaxed">
             <p>I inherited this one rather than built it. Standard shared-database multi-tenancy: one schema, every table carries a TenantId column, every query filters on it. Nothing clever. Which is probably exactly why nobody had looked closely at it in years.</p>
 <h2>Queries that timed out, but not consistently</h2>
 <p>The first sign was queries timing out. Not all of them, and not consistently, which made it worse to chase than a clean failure would have been. I assumed it was the query logic, maybe a join that had gotten heavier over time as the schema grew. That&#39;s normally where I&#39;d start looking, and it&#39;s usually a reasonable place to start.</p>
@@ -78,8 +79,8 @@
 <p>I check the tenant column&#39;s indexing early now, whenever I inherit a shared-schema multi-tenant codebase. Not because I think it&#39;ll always be missing, but because it&#39;s exactly the kind of thing that looks fine in review and only announces itself once scale makes it expensive. Nothing about the column looks urgent. It just sits there, doing more work than any other column in the system, until one day it can&#39;t keep up quietly anymore.</p>
 
         </div>
-        <a href="../index.html#scratchpad" class="inline-block mt-16 text-xs token-comment hover:underline">&larr;
-            back to matthew_law</a>
+        <a href="/.index.html" class="inline-block mt-16 text-xs token-comment hover:underline">&larr;
+            back to scratchpad</a>
     </main>
 </body>
 

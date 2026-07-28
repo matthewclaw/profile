@@ -136,13 +136,11 @@ function renderScratchpadGroup(wrapper, entries, { label, iconClass, external },
 
 export function renderContactLinks(container, portfolioData, animate = true) {
     container.innerHTML = portfolioData.contact_links
-        .filter(item => item.type !== 'profile')
+        .filter(item => item.type !== 'profile' && item.type !== 'phone')
         .map(item => {
             let link = item.link;
             if (item.type === 'email') {
                 link = `mailto:${link}`;
-            } else if (item.type === 'phone') {
-                link = `tel:${link.replace(/\s/g, '')}`;
             }
             return `
                 <a href="${link}" target="_blank" style="width:140px" class="${animate ? 'section-fade' : ''} flex items-center gap-3 px-6 py-3 ide-card border rounded hover:border-blue-500 transition-all group">

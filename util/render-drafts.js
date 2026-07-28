@@ -48,6 +48,7 @@ function renderArticleHtml({ title, tagline, date, url }, bodyHtml) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-mode')}catch(e){}</script>
     <title>${title} | Matthew Law</title>
     <meta name="description" content="${tagline}">
     <link rel="canonical" href="${canonicalUrl}">
@@ -82,17 +83,17 @@ function renderArticleHtml({ title, tagline, date, url }, bodyHtml) {
 </head>
 
 <body class="antialiased">
-    <main class="max-w-3xl mx-auto px-6 py-16">
-        <a href="../index.html#scratchpad" class="text-xs token-comment hover:underline">&larr; back to matthew_law</a>
+    <main class="max-w-4xl mx-auto px-6 py-16">
+        <a href="./index.html" class="text-xs token-comment hover:underline">&larr; back to scratchpad</a>
 
         <p class="token-comment text-xs mt-8 mb-2">// ${formatDateLong(date)}</p>
         <h1 class="text-2xl md:text-4xl font-bold mb-8 token-type">${title}</h1>
 
-        <div class="article-body space-y-6 text-sm md:text-base leading-relaxed text-slate-300">
+        <div class="article-body space-y-6 text-sm md:text-base leading-relaxed">
             ${bodyHtml}
         </div>
-        <a href="../index.html#scratchpad" class="inline-block mt-16 text-xs token-comment hover:underline">&larr;
-            back to matthew_law</a>
+        <a href="/.index.html" class="inline-block mt-16 text-xs token-comment hover:underline">&larr;
+            back to scratchpad</a>
     </main>
 </body>
 

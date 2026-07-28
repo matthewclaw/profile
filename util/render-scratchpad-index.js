@@ -22,7 +22,7 @@ function renderCard({ title, tagline, date, url }, { iconClass, external }) {
                         <span class="text-[10px] opacity-50 uppercase">${date}</span>
                     </div>
                     <h3 class="font-bold mb-2">${title}<i class="fas fa-external-link-alt text-blue-400 text-xs ml-2"></i></h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">${tagline}</p>
+                    <p class="text-xs opacity-70 leading-relaxed">${tagline}</p>
                 </a>`;
 }
 
@@ -54,6 +54,7 @@ function renderPage(data) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-mode')}catch(e){}</script>
     <title>${TITLE}</title>
     <meta name="description" content="${DESCRIPTION}">
     <link rel="canonical" href="${PAGE_URL}">
@@ -89,7 +90,7 @@ function renderPage(data) {
         <a href="../index.html#scratchpad" class="text-xs token-comment hover:underline">&larr; back to matthew_law</a>
 
         <h1 class="text-2xl md:text-4xl font-bold mt-8 mb-3 token-type">Scratchpad</h1>
-        <p class="text-sm text-slate-400 mb-10">Notes from ~10 years of building things, breaking things, and figuring out why after the fact</p>
+        <p class="text-sm opacity-70 mb-10">Notes from ~10 years of building things, breaking things, and figuring out why after the fact</p>
 ${blogSection}${linkedinSection}
     </main>
 </body>

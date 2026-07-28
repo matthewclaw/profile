@@ -234,7 +234,7 @@
             font-weight: 700;
             margin-top: 2.5rem;
             margin-bottom: 0.5rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-main);
         }
 
         .article-body p {
@@ -248,7 +248,7 @@
 
         .article-body code {
             color: var(--syntax-string);
-            background: rgba(255, 255, 255, 0.06);
+            background: var(--header-bg);
             padding: 0 4px;
             border-radius: 3px;
         }
