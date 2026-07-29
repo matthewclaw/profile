@@ -1,7 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 const matter = require("gray-matter");
-const { marked } = require("marked");
 
 const root = path.join(__dirname, "..");
 const draftsDir = path.join(root, "scratchpad", "drafts");
@@ -23,6 +22,8 @@ function formatDateLong(dateStr) {
 
 function renderArticleHtml({ title, tagline, date, url }, bodyHtml) {
   const canonicalUrl = `${SITE_URL}${url}`;
+  const slug = url.replace(/^scratchpad\//, "").replace(/\.html$/, "");
+  const fileName = `${slug}`;
   const jsonLd = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -48,7 +49,7 @@ function renderArticleHtml({ title, tagline, date, url }, bodyHtml) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-mode')}catch(e){}</script>
+    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-mode')}catch(e){}function toggleTheme(){var l=document.documentElement.classList.toggle('light-mode');try{localStorage.setItem('theme',l?'light':'dark')}catch(e){}}</script>
     <title>${title} | Matthew Law</title>
     <meta name="author" content="Matthew Law">
     <meta name="description" content="${tagline}">
@@ -76,6 +77,7 @@ function renderArticleHtml({ title, tagline, date, url }, bodyHtml) {
     <link rel="stylesheet" href="../assets/css/tailwind.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="../assets/css/style.css" rel="stylesheet">
 
     <script type="application/ld+json">
@@ -84,10 +86,23 @@ function renderArticleHtml({ title, tagline, date, url }, bodyHtml) {
 </head>
 
 <body class="antialiased">
+    <div class="editor-tabbar">
+        <button type="button" onclick="toggleTheme()" title="Toggle Theme" aria-label="Toggle theme" class="editor-tab inactive no-print">
+            <i class="fas fa-sun text-yellow-400" aria-hidden="true"></i><i class="fas fa-moon text-blue-700"
+                aria-hidden="true"></i> 
+        </button>
+        <span class="editor-tab"><i class="fas fa-file-lines token-type"></i> ${fileName} <a
+                href="./index.html" title="Close — back to scratchpad" class="close">&times;</a></span>
+    </div>
+    <nav class="editor-breadcrumb">
+        <a href="../index.html" class="token-type hover:underline">matthew_law</a>
+        <span class="sep">/</span>
+        <a href="./index.html" class="hover:underline">scratchpad</a>
+        <span class="sep">/</span>
+        <span class="token-comment">${fileName}</span>
+    </nav>
     <main class="max-w-4xl mx-auto px-6 py-16">
-        <a href="./index.html" class="text-xs token-comment hover:underline">&larr; back to scratchpad</a>
-
-        <p class="token-comment text-xs mt-8 mb-2">// ${formatDateLong(date)}</p>
+        <p class="token-comment text-xs mb-2">// ${formatDateLong(date)}</p>
         <h1 class="text-2xl md:text-4xl font-bold mb-8 token-type">${title}</h1>
 
         <div class="article-body space-y-6 text-sm md:text-base leading-relaxed">
@@ -98,17 +113,31 @@ function renderArticleHtml({ title, tagline, date, url }, bodyHtml) {
         <a href="./index.html" class="inline-block mt-6 text-xs token-comment hover:underline">&larr;
             back to scratchpad</a>
     </main>
+    <footer
+        class="no-print fixed bottom-0 w-full h-6 bg-blue-600 text-white text-[10px] flex items-center justify-between px-3 z-50">
+        <div class="flex items-center gap-4"><span><i class="fas fa-code-branch"></i> writing/${slug}</span></div>
+        <div class="flex items-center gap-4"><span>UTF-8</span><span>markdown</span></div>
+    </footer>
+    <a href="./index.html" title="Back to scratchpad" aria-label="Back to scratchpad" class="editor-fab left no-print">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    <button type="button" onclick="toggleTheme()" title="Toggle Theme" aria-label="Toggle theme"
+        class="editor-fab right no-print">
+        <i class="fas fa-sun text-yellow-400" aria-hidden="true"></i><i class="fas fa-moon text-blue-700"
+            aria-hidden="true"></i>
+    </button>
 </body>
 
 </html>
 `;
 }
 
-function renderDrafts() {
+async function renderDrafts() {
   if (!fs.existsSync(draftsDir)) {
     return [];
   }
 
+  const { marked } = await import("marked"); // marked v18 is ESM-only
   const files = fs.readdirSync(draftsDir).filter(f => f.endsWith(".md") && f.toLowerCase() !== "readme.md");
   const posts = files.map(file => {
     const raw = fs.readFileSync(path.join(draftsDir, file), "utf8");
@@ -142,6 +171,7 @@ function updateDataJson(blogPosts) {
   fs.writeFileSync(dataPath, JSON.stringify(data, null, 4) + "\n");
 }
 
-const posts = renderDrafts();
-updateDataJson(posts);
-console.log(`Rendered ${posts.length} draft(s) from scratchpad/drafts/`);
+renderDrafts().then(posts => {
+  updateDataJson(posts);
+  console.log(`Rendered ${posts.length} draft(s) from scratchpad/drafts/`);
+});
