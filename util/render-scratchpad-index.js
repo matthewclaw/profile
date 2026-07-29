@@ -56,6 +56,7 @@ function renderPage(data) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-mode')}catch(e){}</script>
     <title>${TITLE}</title>
+    <meta name="author" content="Matthew Law">
     <meta name="description" content="${DESCRIPTION}">
     <link rel="canonical" href="${PAGE_URL}">
     <link rel="icon" href="../assets/img/favicon.png">

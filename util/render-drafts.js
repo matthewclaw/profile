@@ -50,6 +50,7 @@ function renderArticleHtml({ title, tagline, date, url }, bodyHtml) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-mode')}catch(e){}</script>
     <title>${title} | Matthew Law</title>
+    <meta name="author" content="Matthew Law">
     <meta name="description" content="${tagline}">
     <link rel="canonical" href="${canonicalUrl}">
     <link rel="icon" href="../assets/img/favicon.png">
@@ -92,7 +93,9 @@ function renderArticleHtml({ title, tagline, date, url }, bodyHtml) {
         <div class="article-body space-y-6 text-sm md:text-base leading-relaxed">
             ${bodyHtml}
         </div>
-        <a href="./index.html" class="inline-block mt-16 text-xs token-comment hover:underline">&larr;
+        <p class="mt-16 pt-6 border-t text-sm" style="border-color: var(--border-color)">&mdash; <a
+                href="${SITE_URL}" class="token-type hover:underline">Matthew Law</a></p>
+        <a href="./index.html" class="inline-block mt-6 text-xs token-comment hover:underline">&larr;
             back to scratchpad</a>
     </main>
 </body>
