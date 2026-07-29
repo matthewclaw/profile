@@ -1,7 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 const matter = require("gray-matter");
-const { marked } = require("marked");
 
 const root = path.join(__dirname, "..");
 const draftsDir = path.join(root, "scratchpad", "drafts");
@@ -23,6 +22,7 @@ function formatDateLong(dateStr) {
 
 function renderArticleHtml({ title, tagline, date, url }, bodyHtml) {
   const canonicalUrl = `${SITE_URL}${url}`;
+  const fileName = `${url.replace(/^scratchpad\//, "").replace(/\.html$/, "")}.md`;
   const jsonLd = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -48,7 +48,7 @@ function renderArticleHtml({ title, tagline, date, url }, bodyHtml) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-mode')}catch(e){}</script>
+    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-mode')}catch(e){}function toggleTheme(){var l=document.documentElement.classList.toggle('light-mode');try{localStorage.setItem('theme',l?'light':'dark')}catch(e){}}</script>
     <title>${title} | Matthew Law</title>
     <meta name="author" content="Matthew Law">
     <meta name="description" content="${tagline}">
@@ -84,10 +84,28 @@ function renderArticleHtml({ title, tagline, date, url }, bodyHtml) {
 </head>
 
 <body class="antialiased">
+    <div class="editor-tabbar">
+        <div class="editor-traffic">
+            <span style="background:#ff5f56"></span>
+            <span style="background:#ffbd2e"></span>
+            <span style="background:#27c93f"></span>
+        </div>
+        <span class="editor-tab"><i class="fas fa-file-lines token-type"></i> ${fileName} <span
+                class="close">&times;</span></span>
+        <button onclick="toggleTheme()" aria-label="Toggle theme" class="editor-toggle no-print">
+            <i class="fas fa-sun text-yellow-400" aria-hidden="true"></i><i class="fas fa-moon text-blue-700"
+                aria-hidden="true"></i>
+        </button>
+    </div>
+    <nav class="editor-breadcrumb">
+        <a href="../index.html" class="token-type hover:underline">matthew_law</a>
+        <span class="sep">/</span>
+        <a href="./index.html" class="hover:underline">scratchpad</a>
+        <span class="sep">/</span>
+        <span class="token-comment">${fileName}</span>
+    </nav>
     <main class="max-w-4xl mx-auto px-6 py-16">
-        <a href="./index.html" class="text-xs token-comment hover:underline">&larr; back to scratchpad</a>
-
-        <p class="token-comment text-xs mt-8 mb-2">// ${formatDateLong(date)}</p>
+        <p class="token-comment text-xs mb-2">// ${formatDateLong(date)}</p>
         <h1 class="text-2xl md:text-4xl font-bold mb-8 token-type">${title}</h1>
 
         <div class="article-body space-y-6 text-sm md:text-base leading-relaxed">
@@ -104,11 +122,12 @@ function renderArticleHtml({ title, tagline, date, url }, bodyHtml) {
 `;
 }
 
-function renderDrafts() {
+async function renderDrafts() {
   if (!fs.existsSync(draftsDir)) {
     return [];
   }
 
+  const { marked } = await import("marked"); // marked v18 is ESM-only
   const files = fs.readdirSync(draftsDir).filter(f => f.endsWith(".md") && f.toLowerCase() !== "readme.md");
   const posts = files.map(file => {
     const raw = fs.readFileSync(path.join(draftsDir, file), "utf8");
@@ -142,6 +161,7 @@ function updateDataJson(blogPosts) {
   fs.writeFileSync(dataPath, JSON.stringify(data, null, 4) + "\n");
 }
 
-const posts = renderDrafts();
-updateDataJson(posts);
-console.log(`Rendered ${posts.length} draft(s) from scratchpad/drafts/`);
+renderDrafts().then(posts => {
+  updateDataJson(posts);
+  console.log(`Rendered ${posts.length} draft(s) from scratchpad/drafts/`);
+});

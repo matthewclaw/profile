@@ -54,7 +54,7 @@ function renderPage(data) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-mode')}catch(e){}</script>
+    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-mode')}catch(e){}function toggleTheme(){var l=document.documentElement.classList.toggle('light-mode');try{localStorage.setItem('theme',l?'light':'dark')}catch(e){}}</script>
     <title>${TITLE}</title>
     <meta name="author" content="Matthew Law">
     <meta name="description" content="${DESCRIPTION}">
@@ -87,10 +87,26 @@ function renderPage(data) {
 </head>
 
 <body class="antialiased">
+    <div class="editor-tabbar">
+        <div class="editor-traffic">
+            <span style="background:#ff5f56"></span>
+            <span style="background:#ffbd2e"></span>
+            <span style="background:#27c93f"></span>
+        </div>
+        <span class="editor-tab"><i class="fas fa-folder-open token-func"></i> scratchpad <span
+                class="close">&times;</span></span>
+        <button onclick="toggleTheme()" aria-label="Toggle theme" class="editor-toggle no-print">
+            <i class="fas fa-sun text-yellow-400" aria-hidden="true"></i><i class="fas fa-moon text-blue-700"
+                aria-hidden="true"></i>
+        </button>
+    </div>
+    <nav class="editor-breadcrumb">
+        <a href="../index.html#scratchpad" class="token-type hover:underline">matthew_law</a>
+        <span class="sep">/</span>
+        <span class="token-comment">scratchpad</span>
+    </nav>
     <main class="px-6 py-16">
-        <a href="../index.html#scratchpad" class="text-xs token-comment hover:underline">&larr; back to matthew_law</a>
-
-        <h1 class="text-2xl md:text-4xl font-bold mt-8 mb-3 token-type">Scratchpad</h1>
+        <h1 class="text-2xl md:text-4xl font-bold mb-3 token-type">Scratchpad</h1>
         <p class="text-sm opacity-70 mb-10">Notes from ~10 years of building things, breaking things, and figuring out why after the fact</p>
 ${blogSection}${linkedinSection}
     </main>

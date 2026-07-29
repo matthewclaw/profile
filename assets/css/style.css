@@ -241,6 +241,83 @@
             }
         }
 
+        /* Editor chrome — ties scratchpad + blog pages to the IDE home page */
+        .editor-tabbar {
+            display: flex;
+            align-items: center;
+            height: 40px;
+            padding-left: 14px;
+            gap: 16px;
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .editor-traffic {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .editor-traffic span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .editor-tab {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            align-self: stretch;
+            padding: 0 16px;
+            font-size: 13px;
+            color: var(--text-main);
+            background-color: var(--tab-active);
+            border-right: 1px solid var(--border-color);
+            border-top: 1px solid var(--accent-blue);
+        }
+
+        .editor-tab .close {
+            opacity: 0.45;
+            font-size: 11px;
+        }
+
+        .editor-toggle {
+            margin-left: auto;
+            padding: 0 16px;
+            align-self: stretch;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        .editor-toggle:hover {
+            opacity: 1;
+        }
+
+        .editor-breadcrumb {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 8px 16px;
+            font-size: 12px;
+            opacity: 0.7;
+            background-color: var(--sidebar-dark);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .editor-breadcrumb .sep {
+            opacity: 0.5;
+        }
+
+        .editor-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
         .article-body h2 {
             font-size: 1.25rem;
             font-weight: 700;

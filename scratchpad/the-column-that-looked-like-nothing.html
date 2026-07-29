@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-mode')}catch(e){}</script>
+    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-mode')}catch(e){}function toggleTheme(){var l=document.documentElement.classList.toggle('light-mode');try{localStorage.setItem('theme',l?'light':'dark')}catch(e){}}</script>
     <title>The Column That Looked Like Nothing | Matthew Law</title>
     <meta name="author" content="Matthew Law">
     <meta name="description" content="A TenantId column on every table, filtered on every query, and never once indexed, until scale finally noticed.">
@@ -57,10 +57,28 @@
 </head>
 
 <body class="antialiased">
+    <div class="editor-tabbar">
+        <div class="editor-traffic">
+            <span style="background:#ff5f56"></span>
+            <span style="background:#ffbd2e"></span>
+            <span style="background:#27c93f"></span>
+        </div>
+        <span class="editor-tab"><i class="fas fa-file-lines token-type"></i> the-column-that-looked-like-nothing.md <span
+                class="close">&times;</span></span>
+        <button onclick="toggleTheme()" aria-label="Toggle theme" class="editor-toggle no-print">
+            <i class="fas fa-sun text-yellow-400" aria-hidden="true"></i><i class="fas fa-moon text-blue-700"
+                aria-hidden="true"></i>
+        </button>
+    </div>
+    <nav class="editor-breadcrumb">
+        <a href="../index.html" class="token-type hover:underline">matthew_law</a>
+        <span class="sep">/</span>
+        <a href="./index.html" class="hover:underline">scratchpad</a>
+        <span class="sep">/</span>
+        <span class="token-comment">the-column-that-looked-like-nothing.md</span>
+    </nav>
     <main class="max-w-4xl mx-auto px-6 py-16">
-        <a href="./index.html" class="text-xs token-comment hover:underline">&larr; back to scratchpad</a>
-
-        <p class="token-comment text-xs mt-8 mb-2">// July 26, 2026</p>
+        <p class="token-comment text-xs mb-2">// July 26, 2026</p>
         <h1 class="text-2xl md:text-4xl font-bold mb-8 token-type">The Column That Looked Like Nothing</h1>
 
         <div class="article-body space-y-6 text-sm md:text-base leading-relaxed">
