@@ -73,7 +73,7 @@ function writeSitemap() {
   const latestScratchpadDate = scratchpadDates.sort().pop() || today;
 
   const pages = [
-    { path: "", lastmod: today, priority: "1.0" },
+    { path: "index.html", lastmod: today, priority: "1.0" },
     { path: "scratchpad/index.html", lastmod: latestScratchpadDate, priority: "0.7" },
     ...(data.scratchpad?.blog || []).map(post => ({
       path: post.url,
