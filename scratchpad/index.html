@@ -38,17 +38,12 @@
 
 <body class="antialiased">
     <div class="editor-tabbar">
-        <div class="editor-traffic">
-            <span style="background:#ff5f56"></span>
-            <span style="background:#ffbd2e"></span>
-            <span style="background:#27c93f"></span>
-        </div>
-        <span class="editor-tab"><i class="fas fa-folder-open token-func"></i> scratchpad <span
-                class="close">&times;</span></span>
-        <button onclick="toggleTheme()" aria-label="Toggle theme" class="editor-toggle no-print">
+        <button type="button" onclick="toggleTheme()" title="Toggle Theme" aria-label="Toggle theme" class="editor-tab inactive no-print">
             <i class="fas fa-sun text-yellow-400" aria-hidden="true"></i><i class="fas fa-moon text-blue-700"
-                aria-hidden="true"></i>
+                aria-hidden="true"></i> 
         </button>
+        <span class="editor-tab"><i class="fas fa-folder-open token-func"></i> scratchpad <a
+                href="../index.html" title="Close — back to matthew_law" class="close">&times;</a></span>
     </div>
     <nav class="editor-breadcrumb">
         <a href="../index.html#scratchpad" class="token-type hover:underline">matthew_law</a>
@@ -132,6 +127,19 @@
             </div>
         </details>
     </main>
+    <footer
+        class="no-print fixed bottom-0 w-full h-6 bg-blue-600 text-white text-[10px] flex items-center justify-between px-3 z-50">
+        <div class="flex items-center gap-4"><span><i class="fas fa-code-branch"></i> main</span></div>
+        <div class="flex items-center gap-4"><span>UTF-8</span><span>markdown</span></div>
+    </footer>
+    <a href="../index.html" title="Back to matthew_law" aria-label="Back to matthew_law" class="editor-fab left no-print">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    <button type="button" onclick="toggleTheme()" title="Toggle Theme" aria-label="Toggle theme"
+        class="editor-fab right no-print">
+        <i class="fas fa-sun text-yellow-400" aria-hidden="true"></i><i class="fas fa-moon text-blue-700"
+            aria-hidden="true"></i>
+    </button>
 </body>
 
 </html>
