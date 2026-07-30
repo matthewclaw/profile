@@ -102,7 +102,8 @@ function renderPage(data) {
     </nav>
     <main class="px-6 py-16">
         <h1 class="text-2xl md:text-4xl font-bold mb-3 token-type">Scratchpad</h1>
-        <p class="text-sm opacity-70 mb-10">Notes from ~10 years of building things, breaking things, and figuring out why after the fact</p>
+        <p class="text-sm opacity-70 mb-10">A decade of git commits and perspective shifts.</p>
+        <p class="text-sm opacity-70 mb-10">Not every note changed my thinking.<br>These did.</p>
 ${blogSection}${linkedinSection}
     </main>
     <footer
