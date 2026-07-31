@@ -1,7 +1,43 @@
 export function renderExperience(container, portfolioData, animate = true) {
-    renderTimeline(container, portfolioData.experience.map(item => {
-        return { ...item, description: item.details, at: item.company, what: item.role }
-    }), false, animate);
+    // Consecutive roles at the same company collapse into one branch, so six
+    // roles read as three companies instead of six jobs.
+    const branches = [];
+    portfolioData.experience.forEach(item => {
+        const current = branches[branches.length - 1];
+        if (current && current.company === item.company) current.roles.push(item);
+        else branches.push({ company: item.company, roles: [item] });
+    });
+
+    // Entries are newest-first, so the branch spans the last role's start to
+    // the first role's end.
+    const start = period => period.split('–')[0].trim();
+    const end = period => period.split('–').pop().trim();
+
+    // Left the company => the branch merges back into main. Still there => it
+    // stays open.
+    const merged = branch => end(branch.roles[0].period) !== 'Present';
+
+    container.innerHTML = branches.map((branch, bi) => `
+                <div class="git-branch ${merged(branch) ? 'git-branch-merged' : ''} ${animate ? 'section-fade' : ''}">
+                    ${merged(branch) ? '<div class="git-join git-join-merge"></div>' : ''}
+                    <div class="git-branch-head">
+                        <h3 class="font-bold text-lg">${branch.company}</h3>
+                        <span class="token-comment text-xs">// ${start(branch.roles[branch.roles.length - 1].period)} – ${end(branch.roles[0].period)} · ${branch.roles.length} role${branch.roles.length > 1 ? 's' : ''}</span>
+                    </div>
+                    ${branch.roles.map((role, ri) => `
+                    <div class="git-commit no-break">
+                        <span class="token-comment text-xs">// ${role.period}</span>
+                        <h4 class="font-bold mt-1">${role.role}</h4>
+                        <ul class="mt-3 space-y-2 text-sm text-slate-400">
+                            ${role.details.map(line => `<li>- ${line}</li>`).join('')}
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            ${role.tech.map(t => `<span class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">${t}</span>`).join('')}
+                        </div>
+                    </div>`).join('')}
+                    <div class="git-join git-join-fork"></div>
+                </div>
+            `).join('');
 }
 
 export function renderEducation(container, portfolioData, animate = true) {
