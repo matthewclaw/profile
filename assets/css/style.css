@@ -346,6 +346,152 @@
             }
         }
 
+        /* Experience as a git graph: main line = career, branch = company,
+           commit = role. Lane colours cycle through the syntax palette. */
+        .git-graph {
+            position: relative;
+            padding-left: 1rem;
+            padding-top: 1.25rem;
+        }
+
+        .git-graph::before {
+            content: "";
+            position: absolute;
+            left: 3px;
+            top: 0;
+            /* stops dead on the first fork -- the root commit of the career */
+            bottom: calc(3rem + 4px);
+            width: 2px;
+            background: var(--text-main);
+            opacity: 0.3;
+        }
+
+        .git-branch {
+            position: relative;
+            padding-bottom: 4.5rem;
+            --branch: var(--syntax-type);
+        }
+
+        .git-branch:nth-child(3n+2) {
+            --branch: var(--syntax-keyword);
+        }
+
+        .git-branch:nth-child(3n+3) {
+            --branch: var(--syntax-string);
+        }
+
+        /* Text is indented past the lane so the line never crosses it. */
+        .git-branch-head {
+            padding-left: 1.75rem;
+        }
+
+        /* The branch lane itself, running down past every role on it. Roles are
+           newest-first, so the lane starts at the bottom (joined) and an open
+           branch runs off the top (still there). */
+        .git-branch::after {
+            content: "";
+            position: absolute;
+            left: 4px;
+            /* an open branch runs to the top of the graph, flush with main */
+            top: -1.25rem;
+            bottom: calc(3rem + 23px);
+            width: 2px;
+            background: var(--branch);
+        }
+
+        .git-branch-merged::after {
+            top: 5px;
+        }
+
+        /* A junction is the dot sitting on the main line; its two pseudo
+           elements are quarter arcs -- each a full quarter of its own box, so
+           the stroke is all curve and meets both lines tangentially. */
+        .git-join {
+            position: absolute;
+            left: -16px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--branch);
+        }
+
+        /* Bottom: forked off main the day I joined. Sits well clear of the
+           block boundary -- the branch below merges back just under it. */
+        .git-join-fork {
+            bottom: 3rem;
+        }
+
+        .git-join-fork::before {
+            content: "";
+            position: absolute;
+            left: 11px;
+            top: -15px;
+            width: 11px;
+            height: 11px;
+            border-right: 2px solid var(--branch);
+            border-bottom: 2px solid var(--branch);
+            border-bottom-right-radius: 11px;
+        }
+
+        .git-join-fork::after {
+            content: "";
+            position: absolute;
+            left: 3px;
+            top: -6px;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid var(--branch);
+            border-left: 2px solid var(--branch);
+            border-top-left-radius: 10px;
+        }
+
+        /* Top: merged back into main the day I left. */
+        .git-join-merge {
+            top: -18px;
+        }
+
+        .git-join-merge::before {
+            content: "";
+            position: absolute;
+            left: 3px;
+            top: 4px;
+            width: 10px;
+            height: 10px;
+            border-left: 2px solid var(--branch);
+            border-bottom: 2px solid var(--branch);
+            border-bottom-left-radius: 10px;
+        }
+
+        .git-join-merge::after {
+            content: "";
+            position: absolute;
+            left: 11px;
+            top: 12px;
+            width: 11px;
+            height: 11px;
+            border-top: 2px solid var(--branch);
+            border-right: 2px solid var(--branch);
+            border-top-right-radius: 11px;
+        }
+
+        .git-commit {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-top: 1.75rem;
+        }
+
+        .git-commit::before {
+            content: "";
+            position: absolute;
+            left: 1px;
+            top: 0.2rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--branch);
+            border: 2px solid var(--branch);
+        }
+
         .article-body h2 {
             font-size: 1.25rem;
             font-weight: 700;
