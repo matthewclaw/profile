@@ -286,6 +286,12 @@
     "scratchpad": {
         "blog": [
             {
+                "title": "We Were Waiting for Green. Green Was Never Coming.",
+                "tagline": "We lost days to a container that was failing exactly as intended. Nobody had written down what working looked like.",
+                "date": "2026-08-02",
+                "url": "scratchpad/we-were-waiting-for-green.html"
+            },
+            {
                 "title": "Slower Is a Tool. Blocked Is a Dependency.",
                 "tagline": "A friend ran out of AI credits and development stopped. The live site carried on serving customers. The only thing that had failed was the ability to change it.",
                 "date": "2026-07-27",
