@@ -16,14 +16,14 @@ function toRelativeUrl(entryUrl) {
 function renderCard({ title, tagline, lesson, date, url }, { iconClass, external }) {
   const href = external ? url : toRelativeUrl(url);
   return `
-                <a href="${href}"${external ? ' target="_blank" rel="noopener"' : ''} class="p-6 ide-card border hover:border-blue-500/50 transition-all duration-300 block">
+                <a href="${href}"${external ? ' target="_blank" rel="noopener"' : ''} class="h-full flex flex-col p-6 ide-card border hover:border-blue-500/50 transition-all duration-300">
                     <div class="flex justify-between items-start mb-3">
                         <i class="${iconClass} text-blue-400"></i>
                         <span class="text-[10px] opacity-50 uppercase">${date}</span>
                     </div>
                     <h3 class="font-bold mb-2">${title}<i class="fas fa-external-link-alt text-blue-400 text-xs ml-2"></i></h3>
                     <p class="text-xs opacity-70 leading-relaxed">${tagline}</p>
-                    ${lesson ? `<p class="text-xs token-comment mt-4">// ${lesson}</p>` : ''}
+                    ${lesson ? `<p class="text-xs token-comment mt-auto pt-4"><span class="font-bold">// LESSON:</span> ${lesson}</p>` : ''}
                 </a>`;
 }
 

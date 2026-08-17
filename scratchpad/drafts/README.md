@@ -28,9 +28,11 @@ card.
 
 ## `lesson`
 
-The habit or question the post left behind. It renders as a `// comment` on the
-card, under the tagline: the title hooks, the tagline says what happened, the
-lesson says what it changed.
+The habit or question the post left behind. It renders pinned to the bottom of the
+card as `// LESSON: <your text>`, styled like a `// TODO:` token: the title hooks,
+the tagline says what happened, the lesson says what it changed.
+
+Write it lowercase and without the prefix — the card adds `// LESSON:` itself.
 
 **It has to be transferable, and written for the reader rather than about you.**
 Two rules, and a lesson has to pass both:

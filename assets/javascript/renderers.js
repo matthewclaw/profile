@@ -135,40 +135,22 @@ export function renderHobbies(container, portfolioData, animate = true) {
             `).join('');
 }
 
-export function renderScratchpad(blogWrapper, linkedinWrapper, portfolioData, animate = true, { limit } = {}) {
-    const blogTitle = limit? "Latest Blog Post" : "Blog";
-    const linkedinTitle = limit? "Latest LinkedIn Post" : "LinkedIn";
-    renderScratchpadGroup(blogWrapper, portfolioData.scratchpad?.blog || [],
-        { label: blogTitle, iconClass: 'fas fa-file-lines', external: false }, animate, limit);
-    renderScratchpadGroup(linkedinWrapper, portfolioData.scratchpad?.linkedin || [],
-        { label: linkedinTitle, iconClass: 'fab fa-linkedin', external: true }, animate, limit);
-}
-
-function renderScratchpadGroup(wrapper, entries, { label, iconClass, external }, animate, limit) {
-    if (!entries.length) {
-        wrapper.innerHTML = '';
-        return;
-    }
+// Homepage shows the latest few posts only. The LinkedIn entries and the full
+// archive live on /scratchpad, so this renders blog posts and nothing else.
+export function renderScratchpad(container, portfolioData, animate = true, { limit } = {}) {
+    const entries = portfolioData.scratchpad?.blog || [];
     const shown = typeof limit === 'number' ? entries.slice(0, limit) : entries;
-    const gridCols = shown.length > 1 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1';
-    wrapper.innerHTML = `
-        <div class="h-full flex flex-col">
-            <h3 class="text-sm uppercase tracking-widest opacity-60 mb-4">${label}</h3>
-            <div class="grid ${gridCols} gap-6 flex-1">
-                ${shown.map(entry => `
-                    <a href="${entry.url}"${external ? ' target="_blank" rel="noopener"' : ''} class="${animate ? 'section-fade' : ''} h-full flex flex-col p-6 ide-card border hover:border-blue-500/50 transition-all duration-300 block">
-                        <div class="flex justify-between items-start mb-3">
-                            <i class="${iconClass} text-blue-400"></i>
-                            <span class="text-[10px] opacity-50 uppercase">${entry.date}</span>
-                        </div>
-                        <h4 class="font-bold mb-2">${entry.title}<i class="fas fa-external-link-alt text-blue-400 text-xs ml-2"></i></h4>
-                        <p class="text-xs text-slate-400 leading-relaxed">${entry.tagline}</p>
-                        ${entry.lesson ? `<p class="text-xs token-comment mt-4">// ${entry.lesson}</p>` : ''}
-                    </a>
-                `).join('')}
-            </div>
-        </div>
-    `;
+    container.innerHTML = shown.map(entry => `
+                <a href="${entry.url}" class="${animate ? 'section-fade' : ''} h-full flex flex-col p-6 ide-card border hover:border-blue-500/50 transition-all duration-300">
+                    <div class="flex justify-between items-start mb-3">
+                        <i class="fas fa-file-lines text-blue-400"></i>
+                        <span class="text-[10px] opacity-50 uppercase">${entry.date}</span>
+                    </div>
+                    <h4 class="font-bold mb-2">${entry.title}</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">${entry.tagline}</p>
+                    ${entry.lesson ? `<p class="text-xs token-comment mt-auto pt-4"><span class="font-bold">// LESSON:</span> ${entry.lesson}</p>` : ''}
+                </a>
+            `).join('');
 }
 
 export function renderContactLinks(container, portfolioData, animate = true) {

@@ -146,6 +146,8 @@
                 </button>
                 <a href="#about" class="sidebar-active px-4 py-2 flex items-center gap-2"><i
                         class="fas fa-user-circle text-blue-400"></i> About</a>
+                <a href="#scratchpad" class="px-4 py-2 flex items-center gap-2"><i
+                        class="fas fa-note-sticky text-lime-400"></i> Scratchpad</a>
                 <a href="#experience" class="px-4 py-2 flex items-center gap-2"><i
                         class="fas fa-history text-orange-400"></i> Experience</a>
                 <a href="#education" class="px-4 py-2 flex items-center gap-2"><i
@@ -158,8 +160,6 @@
                         class="fas fa-gamepad text-cyan-400"></i> Hobbies</a>
                 <a href="#projects" class="px-4 py-2 flex items-center gap-2"><i
                         class="fas fa-project-diagram text-purple-400"></i>Side_Projects</a>
-                <a href="#scratchpad" class="px-4 py-2 flex items-center gap-2"><i
-                        class="fas fa-note-sticky text-lime-400"></i> Scratchpad</a>
                 <a href="#contact" class="px-4 py-2 flex items-center gap-2"><i
                         class="fas fa-envelope text-yellow-400"></i> Contact</a>
             </div>
@@ -188,11 +188,11 @@
                         </div>
                     </div>
                     <div class="space-y-4 text-base md:text-lg">
-                        <p class="text-slate-400">I've spent the last ten years building software and learning
+                        <p class="text-slate-400">I've spent over ten years building software and learning
                             that making something work is only the beginning. The harder questions tend to show
                             up afterwards: what happens when it changes, scales, breaks, or lands with someone
                             who wasn't there when it was designed?</p>
-                        <p class="text-slate-400">Mostly C# and .NET, across fintech, banking and stock
+                        <p class="text-slate-400">Mostly .NET and TypeScript, across fintech, banking and stock
                             exchanges. I usually end up in the cross-cutting problems: the decisions and
                             trade-offs that don't belong neatly to a single ticket, system, or person. And
                             mentoring the people around me through them, whether or not that's my title.</p>
@@ -208,6 +208,20 @@
                     </div>
                 </div>
             </header>
+
+            <!-- Scratchpad Section -->
+            <section id="scratchpad" class="py-16 px-8 border-y">
+                <div class="max-w-6xl">
+                    <div class="mb-10">
+                        <h2 class="text-xl font-bold text-white/60"><span class="token-keyword"><span
+                                    class="token-func">Scratchpad</span>()</h2>
+                        <p class="text-sm opacity-70 mt-5">A decade of git commits and perspective shifts.</p>
+                        <a href="scratchpad" class="text-xs token-comment hover:underline mt-2 inline-block">view_all()
+                            &rarr;</a>
+                    </div>
+                    <div id="scratchpad-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+                </div>
+            </section>
 
             <!-- Experience Section -->
             <section id="experience" class="py-16 px-8 border-y">
@@ -263,22 +277,6 @@
                 </div>
             </section>
 
-            <!-- Scratchpad Section -->
-            <section id="scratchpad" class="py-16 px-8 border-y">
-                <div class="max-w-6xl">
-                    <div class="mb-10">
-                        <h2 class="text-xl font-bold text-white/60"><span class="token-keyword"><span
-                                    class="token-func">Scratchpad</span>()</h2>
-                                    <p class="text-sm opacity-70 mt-5">A decade of git commits and perspective shifts.</p>
-                                    <a href="scratchpad" class="text-xs token-comment hover:underline mt-2 inline-block">view_all()
-                                        &rarr;</a>
-                                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <div id="scratchpad-blog-wrapper"></div>
-                        <div id="scratchpad-linkedin-wrapper"></div>
-                    </div>
-                </div>
-            </section>
             <!-- Contact Section -->
             <footer id="contact" class="py-16 px-8 border-y">
                 <h2 class="token-func text-xl font-bold mb-8">Contact()</h2>
