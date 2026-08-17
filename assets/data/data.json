@@ -23,37 +23,37 @@
         {
             "name": "JSE",
             "logoUrl": "./assets/img/clientele/jse_limited_logo.jpg",
-            "workDescription": "Improved and maintained integrations with custodial and broker back-office systems, supporting reliable and secure market operations.",
+            "workDescription": "Built and maintained the integrations between custodial and broker back-office systems.",
             "url": "https://www.jse.co.za/"
         },
         {
             "name": "Absa",
             "logoUrl": "./assets/img/clientele/absa_logo.jpg",
-            "workDescription": "Worked within Corporate and Investment Banking to build and enhance integrations, with a strong focus on corporate client experience.",
+            "workDescription": "Integration work inside Corporate and Investment Banking, mostly on the parts corporate clients actually touch.",
             "url": "https://www.absa.co.za/"
         },
         {
             "name": "Computicket",
             "logoUrl": "./assets/img/clientele/computicket_logo.jpg",
-            "workDescription": "Collaborated with internal teams to introduce and guide adoption of a microservices architecture, improving scalability and delivery.",
+            "workDescription": "Helped introduce a microservices architecture, and worked with the internal teams through adopting it.",
             "url": "https://computicket.com/page/home"
         },
         {
             "name": "Standard Bank",
             "logoUrl": "./assets/img/clientele/standard_bank_group_logo.jpg",
-            "workDescription": "Delivered high-performance, scalable integrations within the CIB space, supporting complex financial workflows.",
+            "workDescription": "Built integrations in the CIB space, against financial workflows with a lot of moving parts.",
             "url": "https://www.standardbank.co.za/"
         },
         {
             "name": "LibFin/Liberty",
             "logoUrl": "./assets/img/clientele/liberty_logo.jpg",
-            "workDescription": "Part of a modernisation team improving system performance, security posture, and CI/CD pipelines across core platforms.",
+            "workDescription": "On the modernisation team for core platforms: performance, security posture, and the CI/CD pipelines.",
             "url": "https://www.liberty.co.za/"
         },
         {
             "name": "Motus",
             "logoUrl": "./assets/img/clientele/motus_sa_logo.jpg",
-            "workDescription": "Contributed to enterprise platform evolution through system integration, performance improvements, and close collaboration with business teams.",
+            "workDescription": "Integration and performance work on the enterprise platform, alongside the business teams using it.",
             "url": "https://www.motus.co.za/"
         }
     ],
@@ -92,19 +92,20 @@
             "role": "Senior Software Engineer",
             "period": "Jan 2024 – Present",
             "summary": [
-                "Own backend systems and APIs for client-facing and internal platforms.",
-                "Lead multi-tenant, plugin-based architecture design and legacy modernisation.",
-                "Implement secure auth patterns (OAuth2/JWT) and reusable libraries.",
-                "Mentor engineers and guide architectural decisions in client engagements."
+                "Led a team of four on a platform modernisation, delivering an Angular 11 to 20 upgrade and improved unit test coverage.",
+                "Own the multi-tenant, plugin-based platform architecture, including per-tenant plugin authorisation.",
+                "Design and maintain backend systems and APIs in C#, .NET and ASP.NET Core across client-facing and internal platforms.",
+                "Define secure authentication and authorisation patterns (OAuth2, JWT), and maintain shared NuGet and npm libraries.",
+                "Identified and delivered CI/CD pipeline improvements outside assigned project scope.",
+                "Mentor engineers through code review, and act as the technical decision point on cross-cutting concerns in client engagements."
             ],
             "details": [
-                "Design and implement backend systems and APIs using C#, .NET, and ASP.NET Core.",
-                "Make architectural decisions with a focus on multi-tenant and plugin-based systems that enable extensibility without tight coupling or frequent rewrites.",
-                "Lead and contribute to the modernisation of legacy platforms, improving structure, test coverage, and long-term sustainability while reducing technical debt.",
-                "Define and implement secure authentication and authorisation patterns, including OAuth2 and JWT.",
-                "Build reusable shared libraries (NuGet and npm) to promote consistency and reduce duplication across teams.",
-                "Collaborate across the stack using TypeScript and Angular when required.",
-                "Mentor engineers through code reviews and technical guidance, and act as a senior technical contributor in client engagements."
+                "Own the multi-tenant plugin architecture. Each tenant has an explicit registered list of what it is allowed to load, rather than the loader accepting anything that implements the right interface.",
+                "Led a team of four on a platform modernisation, planning and running an Angular 11 to 20 upgrade and pushing for real unit test coverage as part of it.",
+                "Called a stop at the last LTS rather than the newest release. Several packages had no support past it, and handing the client back something stable mattered more than reaching 20.",
+                "Joined a new project and spent the wait for access and onboarding fixing pain points in the existing CI/CD pipeline.",
+                "Build and maintain shared NuGet and npm libraries so teams are not each solving the same problem a slightly different way.",
+                "Mentor engineers through code reviews and technical guidance, and hold the cross-cutting technical decisions in client engagements."
             ],
             "tech": [
                 "C#",
@@ -122,18 +123,16 @@
             "role": "Intermediate Software Engineer",
             "period": "Jun 2022 – Jan 2024",
             "summary": [
-                "Built reliable backend systems and APIs in C#/.NET.",
-                "Contributed to multi-tenant and plugin-based architecture evolution.",
-                "Refactored legacy systems to improve maintainability and reduce technical debt.",
-                "Worked across the stack using TypeScript and Angular when needed."
+                "Led a small team building a shared authentication package, since adopted by other departments at the client.",
+                "Advised delivery teams on authentication design and OWASP standards, drawing on prior fintech experience.",
+                "Built backend systems and APIs in C# and .NET, contributing to the multi-tenant, plugin-based architecture.",
+                "Refactored legacy codebases as part of ongoing modernisation, reducing technical debt."
             ],
             "details": [
-                "Designed and implemented backend services using C# and .NET.",
-                "Worked within multi-disciplinary teams to translate business requirements into well-structured technical solutions.",
-                "Contributed to multi-tenant system development and early iterations of extensible, plugin-based architectures.",
-                "Participated in modernising legacy systems by refactoring existing codebases to improve maintainability and reduce technical debt.",
-                "Worked with authentication and authorisation mechanisms, including JWT-based security.",
-                "Collaborated across the stack using TypeScript and Angular when required."
+                "Brought fintech auth and OWASP experience to teams that had not worked in heavily regulated environments.",
+                "Led a small team building a shared auth package. Other departments at the client have since adopted it.",
+                "Contributed to the multi-tenant platform and the early iterations of its plugin-based architecture.",
+                "Refactored legacy codebases as part of ongoing modernisation, focused on what would still be maintainable once the team handed it over."
             ],
             "tech": [
                 "C#",
@@ -148,16 +147,14 @@
             "role": "Mentor",
             "period": "Dec 2021 – May 2022",
             "summary": [
-                "Mentored junior engineers through code reviews and technical guidance.",
-                "Focused on improving code quality and problem-solving skills.",
-                "Helped navigate real project challenges and understand architectures.",
-                "Developed skills in constructive feedback and team leadership."
+                "Ran weekly mentoring sessions for junior engineers, voluntarily and outside working hours.",
+                "Coached on development best practices, code quality and problem-solving within production codebases.",
+                "Guided juniors through unfamiliar architectures and supported personal development projects to completion."
             ],
             "details": [
-                "Supported junior engineers through regular check-ins, code reviews, and guidance on software development best practices.",
-                "Focused on improving code quality, problem-solving skills, and confidence when working in production codebases.",
-                "Helped navigate real project challenges such as understanding existing architectures and breaking down requirements.",
-                "Developed skills in communicating complex concepts clearly and providing constructive feedback without removing ownership."
+                "Ran weekly after-hours mentoring sessions with juniors. Opted into rather than assigned.",
+                "Worked through best practices, pointed people at material, and helped a few of them finish personal projects they had wanted to build.",
+                "Learned to give feedback without taking ownership of the problem away from the person holding it."
             ],
             "tech": [
                 "C#",
@@ -174,16 +171,13 @@
             "role": "Software Developer",
             "period": "Mar 2020 – May 2022",
             "summary": [
-                "Delivered backend and full-stack solutions across multiple client projects.",
-                "Implemented APIs and integrated external systems.",
-                "Worked with REST, gRPC, cloud services, Firebase, and Apache NiFi.",
-                "Adapted quickly to new codebases and delivered maintainable solutions."
+                "Delivered backend and full-stack solutions across multiple client projects in C#, .NET, ASP.NET and Angular.",
+                "Built APIs and integrations with external systems using REST, gRPC, Azure, Firebase and Apache NiFi.",
+                "Advised stakeholders on technology selection, presenting capacity and delivery trade-offs to inform scope decisions."
             ],
             "details": [
-                "Delivered backend and full-stack solutions using C#, .NET, ASP.NET, and Angular.",
-                "Implemented APIs, integrated with external systems, and contributed to both new feature development and platform enhancements.",
-                "Worked with REST APIs, gRPC, cloud services (Azure), Firebase, and Apache NiFi.",
-                "Adapted quickly to unfamiliar codebases and delivered maintainable solutions under time constraints."
+                "Pushed back when a senior stakeholder wanted to bring in technology that cost more sprint capacity than it returned. Never a flat no: the reasoning went into the technical discussions, so everyone could see what it would push out of the release.",
+                "Built APIs and integrations against external systems across several client projects, usually joining the codebase cold and at short notice."
             ],
             "tech": [
                 "C#",
@@ -203,16 +197,15 @@
             "role": "Intermediate Software Developer",
             "period": "Jan 2019 – Feb 2020",
             "summary": [
-                "Developed and maintained production financial systems in high-reliability environments.",
-                "Implemented new features and improved internal frameworks.",
-                "Worked across backend and frontend with C#, SQL, JavaScript, and Angular.",
-                "Collaborated with stakeholders to deliver robust domain-specific solutions."
+                "Identified a SQL injection exposure in a client's dynamic reporting engine and introduced upload validation with a maker-checker approval flow.",
+                "Replaced hardcoded values such as tax rates with a centralised constant, reducing a subsequent rate change to a single-file update.",
+                "Developed and maintained market data and custodial platforms operating in live financial environments.",
+                "Worked across backend and frontend in C#, SQL, JavaScript and Angular."
             ],
             "details": [
-                "Contributed to the development and support of market data and custodial platforms used in live financial operations.",
-                "Implemented new features, maintained existing functionality, and improved internal frameworks.",
-                "Worked across backend and frontend components using C#, SQL, JavaScript, and Angular.",
-                "Collaborated with senior developers and business stakeholders to translate domain-specific requirements into technical solutions."
+                "Client's reporting engine ran user-uploaded SQL as raw text. Argued for validation on upload, with anything containing UPDATE, DELETE or INSERT forced into a maker-checker review by a second person at the client. It slowed down quick ad hoc reporting, which was the price of nobody running a destructive 'report'.",
+                "Pushed the team to replace hardcoded values (such as VAT) scattered through the codebase with a single centralised constant. It cost an extensive audit to find them all. When the rate changed, it was a one-file change.",
+                "Worked on market data and custodial platforms running in live financial operations."
             ],
             "tech": [
                 "C#",
@@ -226,14 +219,12 @@
             "role": "Junior Software Developer",
             "period": "Dec 2015 – Dec 2018",
             "summary": [
-                "Developed new financial solutions and contributed to internal frameworks.",
-                "Worked with C#, SQL, JavaScript, and Angular on financial systems.",
-                "Delivered BBO and Custodial solutions for the ZAR X environment.",
-                "Gained experience in production system delivery under live constraints."
+                "Delivered BBO and custodial solutions for the ZAR X stock exchange environment, live from February 2017.",
+                "Developed financial systems and contributed to internal frameworks in C#, SQL, JavaScript and Angular."
             ],
             "details": [
-                "Worked with C#, SQL, JavaScript, and Angular on financial systems.",
-                "Contributed to the development of BBO and Custodial solutions for the ZAR X environment, which went live in February 2017."
+                "Built BBO and custodial solutions for the ZAR X environment, which went live in February 2017.",
+                "Contributed to the internal frameworks the team's financial systems were built on."
             ],
             "tech": [
                 "C#",
@@ -246,7 +237,7 @@
     "projects": [
         {
             "title": "Simple.Interpreter",
-            "description": "A lightweight C# library providing a straightforward interpreter for a simple, custom expression language. This NuGet package enables developers to empower their customers or clients to define dynamic expressions for various purposes, such as business rules, conditional logic, and data filtering, without requiring code recompilation.",
+            "description": "A C# expression interpreter, packaged for NuGet. Lets the people using your software define their own business rules, conditional logic and filters at runtime, so changing one is not a recompile and a redeploy.",
             "tech": [
                 "C#",
                 ".NET"
@@ -256,7 +247,7 @@
         },
         {
             "title": "Query",
-            "description": "This is a simple library I wrote, before EF was 'big', that is used to run MySql Commands. It uses reflection in order to map the results to the specified Data type.",
+            "description": "A library for running MySQL commands, written before EF was 'big'. Uses reflection to map the results onto whatever type you ask for.",
             "tech": [
                 "C#",
                 "Reflection",
@@ -267,7 +258,7 @@
         },
         {
             "title": "profile",
-            "description": "The source behind matthewclaw.github.io/profile.",
+            "description": "The source behind this site, including the build pipeline that turns a Markdown file into a Scratchpad post.",
             "tech": [
                 "Node.js",
                 "HTML",

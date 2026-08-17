@@ -13,45 +13,43 @@
 ## Experience
 
 ### Entelect — Senior Software Engineer (Jan 2024 – Present)
-- Own backend systems and APIs for client-facing and internal platforms.
-- Lead multi-tenant, plugin-based architecture design and legacy modernisation.
-- Implement secure auth patterns (OAuth2/JWT) and reusable libraries.
-- Mentor engineers and guide architectural decisions in client engagements.
+- Led a team of four on a platform modernisation, delivering an Angular 11 to 20 upgrade and improved unit test coverage.
+- Own the multi-tenant, plugin-based platform architecture, including per-tenant plugin authorisation.
+- Design and maintain backend systems and APIs in C#, .NET and ASP.NET Core across client-facing and internal platforms.
+- Define secure authentication and authorisation patterns (OAuth2, JWT), and maintain shared NuGet and npm libraries.
+- Identified and delivered CI/CD pipeline improvements outside assigned project scope.
+- Mentor engineers through code review, and act as the technical decision point on cross-cutting concerns in client engagements.
 
 
 ### Entelect — Intermediate Software Engineer (Jun 2022 – Jan 2024)
-- Built reliable backend systems and APIs in C#/.NET.
-- Contributed to multi-tenant and plugin-based architecture evolution.
-- Refactored legacy systems to improve maintainability and reduce technical debt.
-- Worked across the stack using TypeScript and Angular when needed.
+- Led a small team building a shared authentication package, since adopted by other departments at the client.
+- Advised delivery teams on authentication design and OWASP standards, drawing on prior fintech experience.
+- Built backend systems and APIs in C# and .NET, contributing to the multi-tenant, plugin-based architecture.
+- Refactored legacy codebases as part of ongoing modernisation, reducing technical debt.
 
 
 ### Dariel — Mentor (Dec 2021 – May 2022)
-- Mentored junior engineers through code reviews and technical guidance.
-- Focused on improving code quality and problem-solving skills.
-- Helped navigate real project challenges and understand architectures.
-- Developed skills in constructive feedback and team leadership.
+- Ran weekly mentoring sessions for junior engineers, voluntarily and outside working hours.
+- Coached on development best practices, code quality and problem-solving within production codebases.
+- Guided juniors through unfamiliar architectures and supported personal development projects to completion.
 
 
 ### Dariel — Software Developer (Mar 2020 – May 2022)
-- Delivered backend and full-stack solutions across multiple client projects.
-- Implemented APIs and integrated external systems.
-- Worked with REST, gRPC, cloud services, Firebase, and Apache NiFi.
-- Adapted quickly to new codebases and delivered maintainable solutions.
+- Delivered backend and full-stack solutions across multiple client projects in C#, .NET, ASP.NET and Angular.
+- Built APIs and integrations with external systems using REST, gRPC, Azure, Firebase and Apache NiFi.
+- Advised stakeholders on technology selection, presenting capacity and delivery trade-offs to inform scope decisions.
 
 
 ### Securities & Trading Technology — Intermediate Software Developer (Jan 2019 – Feb 2020)
-- Developed and maintained production financial systems in high-reliability environments.
-- Implemented new features and improved internal frameworks.
-- Worked across backend and frontend with C#, SQL, JavaScript, and Angular.
-- Collaborated with stakeholders to deliver robust domain-specific solutions.
+- Identified a SQL injection exposure in a client's dynamic reporting engine and introduced upload validation with a maker-checker approval flow.
+- Replaced hardcoded values such as tax rates with a centralised constant, reducing a subsequent rate change to a single-file update.
+- Developed and maintained market data and custodial platforms operating in live financial environments.
+- Worked across backend and frontend in C#, SQL, JavaScript and Angular.
 
 
 ### Securities & Trading Technology — Junior Software Developer (Dec 2015 – Dec 2018)
-- Developed new financial solutions and contributed to internal frameworks.
-- Worked with C#, SQL, JavaScript, and Angular on financial systems.
-- Delivered BBO and Custodial solutions for the ZAR X environment.
-- Gained experience in production system delivery under live constraints.
+- Delivered BBO and custodial solutions for the ZAR X stock exchange environment, live from February 2017.
+- Developed financial systems and contributed to internal frameworks in C#, SQL, JavaScript and Angular.
 
 
 ## Education
