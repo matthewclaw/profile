@@ -1,6 +1,7 @@
 ---
 title: "The Column That Looked Like Nothing"
 tagline: "A TenantId column on every table, filtered on every query, and never once indexed, until scale finally noticed."
+lesson: "I check for proper indexing sooner rather than later"
 date: "2026-07-26"
 ---
 

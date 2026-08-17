@@ -163,6 +163,7 @@ function renderScratchpadGroup(wrapper, entries, { label, iconClass, external },
                         </div>
                         <h4 class="font-bold mb-2">${entry.title}<i class="fas fa-external-link-alt text-blue-400 text-xs ml-2"></i></h4>
                         <p class="text-xs text-slate-400 leading-relaxed">${entry.tagline}</p>
+                        ${entry.lesson ? `<p class="text-xs token-comment mt-4">// ${entry.lesson}</p>` : ''}
                     </a>
                 `).join('')}
             </div>

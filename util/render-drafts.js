@@ -143,8 +143,8 @@ async function renderDrafts() {
     const raw = fs.readFileSync(path.join(draftsDir, file), "utf8");
     const { data: frontmatter, content } = matter(raw);
 
-    if (!frontmatter.title || !frontmatter.tagline || !frontmatter.date) {
-      throw new Error(`${file}: frontmatter must include title, tagline, and date`);
+    if (!frontmatter.title || !frontmatter.tagline || !frontmatter.lesson || !frontmatter.date) {
+      throw new Error(`${file}: frontmatter must include title, tagline, lesson, and date`);
     }
 
     const slug = file.replace(/\.md$/, "");
@@ -155,7 +155,9 @@ async function renderDrafts() {
     const html = renderArticleHtml({ title: frontmatter.title, tagline: frontmatter.tagline, date, url }, bodyHtml);
     fs.writeFileSync(path.join(outDir, `${slug}.html`), html);
 
-    return { title: frontmatter.title, tagline: frontmatter.tagline, date, url };
+    // lesson is card-only: printing it above the article would give away the
+    // conclusion the piece exists to arrive at.
+    return { title: frontmatter.title, tagline: frontmatter.tagline, lesson: frontmatter.lesson, date, url };
   });
 
   posts.sort((a, b) => (a.date < b.date ? 1 : -1));

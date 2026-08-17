@@ -1,6 +1,7 @@
 ---
 title: "We Were Waiting for Green. Green Was Never Coming."
 tagline: "We lost days to a container that was failing exactly as intended. Nobody had written down what working looked like."
+lesson: "now I ask how long it would take to onboard someone new"
 date: "2026-08-02"
 ---
 
