@@ -1,7 +1,7 @@
 ---
 title: "The Question My Plugin Loader Couldn't Answer"
 tagline: "A plugin loader that would happily load anything implementing the right interface, until someone asked what was actually stopping it from loading the wrong tenant's plugin."
-lesson: "who decided this was allowed to load, and where does that decision live?"
+lesson: "don't assume an interface check covers authorisation"
 date: "2026-07-26"
 ---
 

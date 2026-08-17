@@ -288,28 +288,28 @@
             {
                 "title": "We Were Waiting for Green. Green Was Never Coming.",
                 "tagline": "We lost days to a container that was failing exactly as intended. Nobody had written down what working looked like.",
-                "lesson": "now I ask how long it would take to onboard someone new",
+                "lesson": "write things down while they're still confusing, before they look obvious",
                 "date": "2026-08-02",
                 "url": "scratchpad/we-were-waiting-for-green.html"
             },
             {
                 "title": "Slower Is a Tool. Blocked Is a Dependency.",
                 "tagline": "A friend ran out of AI credits and development stopped. The live site carried on serving customers. The only thing that had failed was the ability to change it.",
-                "lesson": "if this disappeared, would I be slower or would I be blocked?",
+                "lesson": "if something you're using disappeared, would you be slower or would you be blocked?",
                 "date": "2026-07-27",
                 "url": "scratchpad/slower-is-a-tool-blocked-is-a-dependency.html"
             },
             {
                 "title": "The Question My Plugin Loader Couldn't Answer",
                 "tagline": "A plugin loader that would happily load anything implementing the right interface, until someone asked what was actually stopping it from loading the wrong tenant's plugin.",
-                "lesson": "who decided this was allowed to load, and where does that decision live?",
+                "lesson": "don't assume an interface check covers authorisation",
                 "date": "2026-07-26",
                 "url": "scratchpad/the-question-my-plugin-loader-couldnt-answer.html"
             },
             {
                 "title": "The Column That Looked Like Nothing",
                 "tagline": "A TenantId column on every table, filtered on every query, and never once indexed, until scale finally noticed.",
-                "lesson": "I check the tenant column's indexing early now",
+                "lesson": "check for proper indexing sooner rather than later",
                 "date": "2026-07-26",
                 "url": "scratchpad/the-column-that-looked-like-nothing.html"
             }
