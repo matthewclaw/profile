@@ -74,11 +74,11 @@ function writeSitemap() {
 
   const pages = [
     { path: "index.html", lastmod: today, priority: "1.0" },
-    { path: "scratchpad/index.html", lastmod: latestScratchpadDate, priority: "0.7" },
+    { path: "scratchpad/index.html", lastmod: latestScratchpadDate, priority: "0.9" },
     ...(data.scratchpad?.blog || []).map(post => ({
       path: post.url,
       lastmod: post.date,
-      priority: "0.6",
+      priority: "0.8",
     })),
   ];
 

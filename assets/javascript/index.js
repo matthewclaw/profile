@@ -1,7 +1,6 @@
 import {
-    renderExperience, renderEducation, renderClients,
-    renderSkills, renderProjects, renderHobbies,
-    renderContactLinks, renderScratchpad
+    renderExperience, renderClients, renderProjects,
+    renderHobbies, renderContactLinks, renderScratchpad
 } from './renderers.js'
 
 async function renderPortfolio() {
@@ -9,12 +8,10 @@ async function renderPortfolio() {
     const animate = params.get('animate') !== 'false';
     let portfolioData = await fetch('./assets/data/data.json').then(res => res.json());
     renderExperience(document.getElementById('experience-container'), portfolioData, animate);
-    renderEducation(document.getElementById('education-container'), portfolioData, animate);
     renderClients(document.getElementById('clients-container'), portfolioData, animate);
-    renderSkills(document.getElementById('skills-container'), portfolioData, animate);
     renderProjects(document.getElementById('projects-container'), portfolioData, animate);
     renderHobbies(document.getElementById('hobbies-container'), portfolioData, animate);
-    renderScratchpad(document.getElementById('scratchpad-blog-wrapper'), document.getElementById('scratchpad-linkedin-wrapper'), portfolioData, animate, { limit: 1 });
+    renderScratchpad(document.getElementById('scratchpad-container'), portfolioData, animate, { limit: 2 });
     renderContactLinks(document.getElementById('contact-container'), portfolioData, animate);
     setupObserver();
 }

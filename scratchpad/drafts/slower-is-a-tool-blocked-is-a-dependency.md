@@ -1,6 +1,7 @@
 ---
 title: "Slower Is a Tool. Blocked Is a Dependency."
 tagline: "A friend ran out of AI credits and development stopped. The live site carried on serving customers. The only thing that had failed was the ability to change it."
+lesson: "if something you're using disappeared, would you be slower or would you be blocked?"
 date: "2026-07-27"
 ---
 
