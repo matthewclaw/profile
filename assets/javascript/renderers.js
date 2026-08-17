@@ -40,11 +40,6 @@ export function renderExperience(container, portfolioData, animate = true) {
             `).join('');
 }
 
-export function renderEducation(container, portfolioData, animate = true) {
-    renderTimeline(container, portfolioData.education.map(item => { return { ...item, at: item.institution, what: item.course } })
-        , false, animate);
-}
-
 export function renderTimeline(container, data, forCv, animate) {
     container.innerHTML = data.map(item => {
         let tech = '';
@@ -82,29 +77,6 @@ export function renderClients(container, portfolioData, animate = true) {
                 </a>
             `).join('');
 
-}
-
-export function renderSkills(container, portfolioData, animate = true) {
-    container.innerHTML = portfolioData.skills.map(skill => {
-        let indicator ='';
-        if(animate){
-            indicator = `<div class="progress-container">
-                        <div class="progress-fill" data-width="${skill.percentage}%"></div>
-                    </div>`;
-        }
-        else {
-            const outOfTen = skill.percentage / 10;
-            indicator = `<span class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">${outOfTen}/10</span>`;
-        }
-        return `
-                <div class="${animate ? 'section-fade' : ''}">
-                    <div class="flex justify-between text-xs mb-2">
-                        <span class="token-type">${skill.name}</span>
-                    </div>
-                    ${indicator}
-                </div>
-            `;
-    }).join('');
 }
 
 export function renderProjects(container, portfolioData, animate = true) {

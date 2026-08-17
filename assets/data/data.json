@@ -1,28 +1,22 @@
 {
     "skills": [
         {
-            "name": "C# / .NET",
-            "percentage": 100
+            "name": "C# / .NET"
         },
         {
-            "name": "System Architecture",
-            "percentage": 95
+            "name": "System Architecture"
         },
         {
-            "name": "API & Web Security",
-            "percentage": 80
+            "name": "API & Web Security"
         },
         {
-            "name": "Multi-Tenant Design",
-            "percentage": 75
+            "name": "Multi-Tenant Design"
         },
         {
-            "name": "TypeScript / Node.js",
-            "percentage": 65
+            "name": "TypeScript / Node.js"
         },
         {
-            "name": "Unit Testing",
-            "percentage": 90
+            "name": "Unit Testing"
         }
     ],
     "clients": [
