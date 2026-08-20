@@ -271,6 +271,13 @@
     "scratchpad": {
         "blog": [
             {
+                "title": "If You Skip the Reasoning, You Skip What It Teaches",
+                "tagline": "The endpoints were protected. He knew the how. He didn't know the why.",
+                "lesson": "an answer you can't defend isn't understanding, it's just something that happened to work.",
+                "date": "2026-08-20",
+                "url": "scratchpad/if-you-skip-the-reasoning-you-skip-what-it-teaches.html"
+            },
+            {
                 "title": "We Were Waiting for Green. Green Was Never Coming.",
                 "tagline": "We lost days to a container that was failing exactly as intended. Nobody had written down what working looked like.",
                 "lesson": "write things down while they're still confusing, before they look obvious",
