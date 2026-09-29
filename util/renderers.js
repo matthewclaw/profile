@@ -1,4 +1,9 @@
-export function renderExperience(container, portfolioData, animate = true) {
+// Build-time HTML renderers. Pure functions of data -> HTML string, run by
+// build.js and injected into index.html/cv.html between marker comments, so
+// the deployed page already contains real content -- no client-side fetch
+// or render pass required. Browsers no longer load this file at all.
+
+function renderExperience(portfolioData) {
     // Consecutive roles at the same company collapse into one branch, so six
     // roles read as three companies instead of six jobs.
     const branches = [];
@@ -17,14 +22,14 @@ export function renderExperience(container, portfolioData, animate = true) {
     // stays open.
     const merged = branch => end(branch.roles[0].period) !== 'Present';
 
-    container.innerHTML = branches.map((branch, bi) => `
-                <div class="git-branch ${merged(branch) ? 'git-branch-merged' : ''} ${animate ? 'section-fade' : ''}">
+    return branches.map(branch => `
+                <div class="git-branch ${merged(branch) ? 'git-branch-merged' : ''} section-fade">
                     ${merged(branch) ? '<div class="git-join git-join-merge"></div>' : ''}
                     <div class="git-branch-head">
                         <h3 class="font-bold text-lg">${branch.company}</h3>
                         <span class="token-comment text-xs">// ${start(branch.roles[branch.roles.length - 1].period)} – ${end(branch.roles[0].period)} · ${branch.roles.length} role${branch.roles.length > 1 ? 's' : ''}</span>
                     </div>
-                    ${branch.roles.map((role, ri) => `
+                    ${branch.roles.map(role => `
                     <div class="git-commit no-break">
                         <span class="token-comment text-xs">// ${role.period}</span>
                         <h4 class="font-bold mt-1">${role.role}</h4>
@@ -40,8 +45,8 @@ export function renderExperience(container, portfolioData, animate = true) {
             `).join('');
 }
 
-export function renderTimeline(container, data, forCv, animate) {
-    container.innerHTML = data.map(item => {
+function renderTimeline(data, forCv) {
+    return data.map(item => {
         let tech = '';
         if (item.tech) {
             tech = `
@@ -50,7 +55,7 @@ export function renderTimeline(container, data, forCv, animate) {
                     </div>
                     `;
         }
-        const mainClass = forCv ? 'cv-item' : animate ? 'section-fade' : '';
+        const mainClass = forCv ? 'cv-item' : 'section-fade';
         return `
                 <div class="${mainClass} border-l-2 border-gray-500/20 pl-6 relative no-break ${forCv ? 'pb-5' : ''}">
                     <div class="absolute -left-[5px] ${forCv ? 'top-[33px]' : 'top-0'} w-2 h-2 rounded-full bg-blue-600 border-blue-600 border-2"></div>
@@ -64,9 +69,9 @@ export function renderTimeline(container, data, forCv, animate) {
             `}).join('');
 }
 
-export function renderClients(container, portfolioData, animate = true) {
-    container.innerHTML = portfolioData.clients.map(client => `
-                <a href="${client.url}" target="_blank" class="${animate ? 'section-fade' : ''} p-6 ide-card border flex items-center gap-4 hover:border-blue-500/50">
+function renderClients(portfolioData) {
+    return portfolioData.clients.map(client => `
+                <a href="${client.url}" target="_blank" class="section-fade p-6 ide-card border flex items-center gap-4 hover:border-blue-500/50">
                     <div class="w-12 h-12 bg-white rounded flex items-center justify-center p-1 shrink-0">
                         <img src="${client.logoUrl}" alt="${client.name}" width="48" height="48" class="max-w-full max-h-full object-contain">
                     </div>
@@ -76,15 +81,28 @@ export function renderClients(container, portfolioData, animate = true) {
                     </div>
                 </a>
             `).join('');
-
+}
+function renderCredentials(portfolioData) {
+    return portfolioData.credentials.map(credential => `
+                <a href="${credential.url}" target="_blank" class="section-fade p-6 ide-card border flex items-center gap-4 hover:border-blue-500/50">
+                    <div class="w-12 h-12 bg-white rounded flex items-center justify-center p-1 shrink-0">
+                        <img src="${credential.badgeUrl}" alt="${credential.name}" width="48" height="48" class="max-w-full max-h-full object-contain">
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-sm">${credential.name}</h3>
+                        <p class="text-[11px] opacity-60 mt-1">Issued by ${credential.issuer}</p>
+                        <p class="text-[11px] opacity-60 mt-1">${credential.date}</p>
+                    </div>
+                </a>
+            `).join('');
 }
 
-export function renderProjects(container, portfolioData, animate = true) {
-    container.innerHTML = portfolioData.projects.map(proj => {
+function renderProjects(portfolioData) {
+    return portfolioData.projects.map(proj => {
         let isPublic = proj.status === 'public';
         let tag = isPublic ? 'a' : 'div';
         return `
-                <${tag} ${isPublic ? 'href="' + proj.url + '" target="_blank"' : ''} class="${animate ? 'section-fade' : ''} p-6 ide-card border ${isPublic ? 'hover:border-blue-500/50' : ''} transition-all duration-300">
+                <${tag} ${isPublic ? 'href="' + proj.url + '" target="_blank"' : ''} class="section-fade p-6 ide-card border ${isPublic ? 'hover:border-blue-500/50' : ''} transition-all duration-300">
                     <div class="flex justify-between items-start mb-4">
                         <i class="fas fa-folder text-yellow-500 text-2xl"></i>
                         <span class="text-[10px] bg-blue-500/10 text-blue-400 px-2 py-1 rounded">${proj.status}</span>
@@ -98,9 +116,9 @@ export function renderProjects(container, portfolioData, animate = true) {
             `}).join('');
 }
 
-export function renderHobbies(container, portfolioData, animate = true) {
-    container.innerHTML = portfolioData.hobbies.map(hobby => `
-                <div class="${animate ? 'section-fade' : ''} flex flex-col items-center justify-center p-4 ide-card border rounded hover:border-blue-500/50 transition-all group">
+function renderHobbies(portfolioData) {
+    return portfolioData.hobbies.map(hobby => `
+                <div class="section-fade flex flex-col items-center justify-center p-4 ide-card border rounded hover:border-blue-500/50 transition-all group">
                     <i class="fas ${hobby.icon} text-2xl mb-3 token-type group-hover:scale-110 transition-transform"></i>
                     <span class="text-[10px] uppercase tracking-wider opacity-60 text-center">${hobby.name}</span>
                 </div>
@@ -109,11 +127,11 @@ export function renderHobbies(container, portfolioData, animate = true) {
 
 // Homepage shows the latest few posts only. The LinkedIn entries and the full
 // archive live on /scratchpad, so this renders blog posts and nothing else.
-export function renderScratchpad(container, portfolioData, animate = true, { limit } = {}) {
+function renderScratchpad(portfolioData, { limit } = {}) {
     const entries = portfolioData.scratchpad?.blog || [];
     const shown = typeof limit === 'number' ? entries.slice(0, limit) : entries;
-    container.innerHTML = shown.map(entry => `
-                <a href="${entry.url}" class="${animate ? 'section-fade' : ''} h-full flex flex-col p-6 ide-card border hover:border-blue-500/50 transition-all duration-300">
+    return shown.map(entry => `
+                <a href="${entry.url}" class="section-fade h-full flex flex-col p-6 ide-card border hover:border-blue-500/50 transition-all duration-300">
                     <div class="flex justify-between items-start mb-3">
                         <i class="fas fa-file-lines text-blue-400"></i>
                         <span class="text-[10px] opacity-50 uppercase">${entry.date}</span>
@@ -125,54 +143,73 @@ export function renderScratchpad(container, portfolioData, animate = true, { lim
             `).join('');
 }
 
-export function renderContactLinks(container, portfolioData, animate = true) {
-    container.innerHTML = portfolioData.contact_links
+function renderContactLinks(portfolioData) {
+    const fasIcons = ['fa-at', 'fa-certificate']
+    return portfolioData.contact_links
         .filter(item => item.type !== 'profile' && item.type !== 'phone')
         .map(item => {
             let link = item.link;
             if (item.type === 'email') {
                 link = `mailto:${link}`;
             }
+            const preface = fasIcons.includes(item.icon)? 'fas' : 'fab'
             return `
-                <a href="${link}" target="_blank" style="width:140px" class="${animate ? 'section-fade' : ''} flex items-center gap-3 px-6 py-3 ide-card border rounded hover:border-blue-500 transition-all group">
-                    <i class="fab ${item.icon} text-xl text-blue-400"></i>
+                <a href="${link}" target="_blank" style="width:140px" class="section-fade flex items-center gap-3 px-6 py-3 ide-card border rounded hover:border-blue-500 transition-all group">
+                    <i class="${preface} ${item.icon} text-xl text-blue-400"></i>
                     <span class="text-sm font-medium opacity-70 group-hover:opacity-100">${item.name}</span>
                 </a>
             `}).join('');
 }
 
-export function renderExperienceCV(container, experience) {
-    renderTimeline(container, experience.map(item => { return { ...item, description: item.summary, at: item.company, what: item.role } }), true);
+function renderExperienceCV(experience) {
+    return renderTimeline(experience.map(item => { return { ...item, description: item.summary, at: item.company, what: item.role } }), true);
 }
 
-export function renderEducationCV(container, education) {
-    renderTimeline(container, education.map(item => { return { ...item, at: item.institution, what: item.course } }), true);
+function renderEducationCV(education) {
+    return renderTimeline(education.map(item => { return { ...item, at: item.institution, what: item.course } }), true);
 }
 
-export function renderSkillsCV(container, skills) {
-    container.innerHTML = skills
+function renderSkillsCV(skills) {
+    return skills
         .map(s => `<span class="inline-block text-xs px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2 mr-2 mb-1">${s.name}</span>`)
         .join('');
 }
 
-export function renderHobbiesCV(container, hobbies) {
-    container.innerHTML = hobbies
+function renderHobbiesCV(hobbies) {
+    return hobbies
         .map(h => `<span class="inline-block text-xs px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2 mr-2 mb-1">${h.name}</span>`)
         .join('');
 }
 
-export function renderContactsCV(container, contact_links) {
-    container.innerHTML = contact_links
+function renderContactsCV(contact_links) {
+    return contact_links
         .map(h => `<div class="mb-1"><p class="text-xs token-comment">// ${h.name}</p>
         <p class="text-xs">${h.link}</p></div>`)
         .join('');
 }
 
-export function renderTechnologiesCv(container, experience) {
-    container.innerHTML = getTechnologies(experience).map(t => `<span class="inline-block text-xs px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2 mr-2 mb-1">${t}</span>`).join('');
+function renderTechnologiesCv(experience) {
+    return getTechnologies(experience).map(t => `<span class="inline-block text-xs px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2 mr-2 mb-1">${t}</span>`).join('');
 }
 
 function getTechnologies(experience) {
     let techHash = new Set(experience.flatMap(item => item.tech));
     return Array.from(techHash);
 }
+
+module.exports = {
+    renderExperience,
+    renderTimeline,
+    renderClients,
+    renderProjects,
+    renderHobbies,
+    renderScratchpad,
+    renderContactLinks,
+    renderExperienceCV,
+    renderEducationCV,
+    renderSkillsCV,
+    renderHobbiesCV,
+    renderContactsCV,
+    renderTechnologiesCv,
+    renderCredentials,
+};

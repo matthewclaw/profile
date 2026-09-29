@@ -19,6 +19,22 @@
             "name": "Unit Testing"
         }
     ],
+    "credentials": [
+        {
+            "name": "Claude Certified Developer - Foundations",
+            "badgeUrl": "./assets/img/badges/claude-certified-developer-foundations.png",
+            "issuer": "Anthropic",
+            "date": "Sep 21, 2026",
+            "url": "https://www.credly.com/badges/4ca58f00-db53-4078-8182-24b8ec56bcad/public_url"
+        },
+        {
+            "name": "MCSD: App Builder",
+            "badgeUrl": "./assets/img/badges/mcsd-app-builder-certified-2016.png",
+            "issuer": "Microsoft",
+            "date": "Sep 26, 2016",
+            "url": "https://www.credly.com/badges/302e97a8-9904-4a94-b3f7-acee3124ccb0/public_url"
+        }
+    ],
     "clients": [
         {
             "name": "JSE",
@@ -380,6 +396,12 @@
             "name": "GitHub",
             "icon": "fa-github",
             "link": "https://github.com/matthewclaw",
+            "type": "url"
+        },
+        {
+            "name": "Credly",
+            "icon": "fa-certificate",
+            "link": "https://www.credly.com/users/matthew-c-law",
             "type": "url"
         }
     ]

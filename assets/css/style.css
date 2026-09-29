@@ -39,13 +39,23 @@
             padding-bottom: 24px;
         }
 
+        /* Visible by default: real content, no JS required, so crawlers and
+           no-JS visitors see the page as-is. The inline script in <head>
+           tags <html class="js"> before first paint, and only then does JS
+           opt into the scroll-reveal animation below. If JS never runs, the
+           safe state IS the default state -- nothing to fall back to. */
         .section-fade {
+            opacity: 1;
+            transform: none;
+        }
+
+        .js .section-fade {
             opacity: 0;
             transform: translateY(10px);
             transition: all 0.5s ease-out;
         }
 
-        .section-fade.visible {
+        .js .section-fade.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -120,17 +130,6 @@
         .sidebar-active {
             background-color: var(--border-color);
             border-left: 2px solid var(--accent-blue);
-        }
-
-        .section-fade {
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.5s ease-out;
-        }
-
-        .section-fade.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .theme-toggle-btn:hover {

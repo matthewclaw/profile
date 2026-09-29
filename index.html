@@ -4,6 +4,10 @@
 <head>
     <meta name="google-site-verification" content="3ROxlDBrCFcnty1gc-0ljOBz7aGRsw_Mx8k8KO2AiB0" />
     <meta charset="UTF-8">
+    <!-- Synchronous and first: runs before paint. .section-fade is visible
+         by default in CSS (see style.css); only .js opts into the
+         scroll-reveal animation. If this never runs, content stays visible. -->
+    <script>document.documentElement.classList.add('js')</script>
     <meta name="author" content="Matthew Law">
     <meta name="description"
         content="Senior software engineer, 10+ years in C# and .NET, building multi-tenant platforms and secure APIs for banks and stock exchanges.">
@@ -49,7 +53,8 @@
   "sameAs": [
     "https://matthewclaw.github.io/profile/",
     "https://www.linkedin.com/in/matthew-c-law/",
-    "https://github.com/matthewclaw"
+    "https://github.com/matthewclaw",
+    "https://www.credly.com/users/matthew-c-law"
   ],
   "knowsAbout": [
     "C# / .NET",
@@ -64,7 +69,7 @@
     "name": "Entelect"
   }
 }
-<!-- JSONLD:END -->
+    <!-- JSONLD:END -->
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
@@ -76,63 +81,139 @@
 <body class="antialiased">
     <noscript>
         <!-- NOSCRIPT:START -->
-<h1>Matthew Law</h1>
-<p>Senior Software Engineer</p>
+        <h1>Matthew Law</h1>
+        <p>Senior Software Engineer</p>
 
-<h2>Skills</h2>
-<ul><li>C# / .NET</li><li>System Architecture</li><li>API & Web Security</li><li>Multi-Tenant Design</li><li>TypeScript / Node.js</li><li>Unit Testing</li></ul>
+        <h2>Skills</h2>
+        <ul>
+            <li>C# / .NET</li>
+            <li>System Architecture</li>
+            <li>API & Web Security</li>
+            <li>Multi-Tenant Design</li>
+            <li>TypeScript / Node.js</li>
+            <li>Unit Testing</li>
+        </ul>
 
-<h2>Experience</h2>
+        <h2>Experience</h2>
 
-    <h3>Entelect — Senior Software Engineer (Jan 2024 – Present)</h3>
-    <ul>
-      <li>Led a team of four on a platform modernisation, delivering an Angular 11 to 20 upgrade and improved unit test coverage.</li><li>Own the multi-tenant, plugin-based platform architecture, including per-tenant plugin authorisation.</li><li>Design and maintain backend systems and APIs in C#, .NET and ASP.NET Core across client-facing and internal platforms.</li><li>Define secure authentication and authorisation patterns (OAuth2, JWT), and maintain shared NuGet and npm libraries.</li><li>Identified and delivered CI/CD pipeline improvements outside assigned project scope.</li><li>Mentor engineers through code review, and act as the technical decision point on cross-cutting concerns in client engagements.</li>
-    </ul>
-  
-    <h3>Entelect — Intermediate Software Engineer (Jun 2022 – Jan 2024)</h3>
-    <ul>
-      <li>Led a small team building a shared authentication package, since adopted by other departments at the client.</li><li>Advised delivery teams on authentication design and OWASP standards, drawing on prior fintech experience.</li><li>Built backend systems and APIs in C# and .NET, contributing to the multi-tenant, plugin-based architecture.</li><li>Refactored legacy codebases as part of ongoing modernisation, reducing technical debt.</li>
-    </ul>
-  
-    <h3>Dariel — Mentor (Dec 2021 – May 2022)</h3>
-    <ul>
-      <li>Ran weekly mentoring sessions for junior engineers, voluntarily and outside working hours.</li><li>Coached on development best practices, code quality and problem-solving within production codebases.</li><li>Guided juniors through unfamiliar architectures and supported personal development projects to completion.</li>
-    </ul>
-  
-    <h3>Dariel — Software Developer (Mar 2020 – May 2022)</h3>
-    <ul>
-      <li>Delivered backend and full-stack solutions across multiple client projects in C#, .NET, ASP.NET and Angular.</li><li>Built APIs and integrations with external systems using REST, gRPC, Azure, Firebase and Apache NiFi.</li><li>Advised stakeholders on technology selection, presenting capacity and delivery trade-offs to inform scope decisions.</li>
-    </ul>
-  
-    <h3>Securities & Trading Technology — Intermediate Software Developer (Jan 2019 – Feb 2020)</h3>
-    <ul>
-      <li>Identified a SQL injection exposure in a client's dynamic reporting engine and introduced upload validation with a maker-checker approval flow.</li><li>Replaced hardcoded values such as tax rates with a centralised constant, reducing a subsequent rate change to a single-file update.</li><li>Developed and maintained market data and custodial platforms operating in live financial environments.</li><li>Worked across backend and frontend in C#, SQL, JavaScript and Angular.</li>
-    </ul>
-  
-    <h3>Securities & Trading Technology — Junior Software Developer (Dec 2015 – Dec 2018)</h3>
-    <ul>
-      <li>Delivered BBO and custodial solutions for the ZAR X stock exchange environment, live from February 2017.</li><li>Developed financial systems and contributed to internal frameworks in C#, SQL, JavaScript and Angular.</li>
-    </ul>
-  
+        <h3>Entelect — Senior Software Engineer (Jan 2024 – Present)</h3>
+        <ul>
+            <li>Led a team of four on a platform modernisation, delivering an Angular 11 to 20 upgrade and improved unit
+                test coverage.</li>
+            <li>Own the multi-tenant, plugin-based platform architecture, including per-tenant plugin authorisation.
+            </li>
+            <li>Design and maintain backend systems and APIs in C#, .NET and ASP.NET Core across client-facing and
+                internal platforms.</li>
+            <li>Define secure authentication and authorisation patterns (OAuth2, JWT), and maintain shared NuGet and npm
+                libraries.</li>
+            <li>Identified and delivered CI/CD pipeline improvements outside assigned project scope.</li>
+            <li>Mentor engineers through code review, and act as the technical decision point on cross-cutting concerns
+                in client engagements.</li>
+        </ul>
 
-<h2>Education</h2>
+        <h3>Entelect — Intermediate Software Engineer (Jun 2022 – Jan 2024)</h3>
+        <ul>
+            <li>Led a small team building a shared authentication package, since adopted by other departments at the
+                client.</li>
+            <li>Advised delivery teams on authentication design and OWASP standards, drawing on prior fintech
+                experience.</li>
+            <li>Built backend systems and APIs in C# and .NET, contributing to the multi-tenant, plugin-based
+                architecture.</li>
+            <li>Refactored legacy codebases as part of ongoing modernisation, reducing technical debt.</li>
+        </ul>
 
-    <h3>Microsoft Certified Software Development Professional (MCSD) — CTU</h3>
-    <p>2015.01 - 2015.11</p>
-  
-    <h3>Computer Software Engineering — SSir Online School</h3>
-    <p>2011.01 - 2014.12</p>
-  
-    <h3>IEB National Senior Certificate — St. Dunstan's College</h3>
-    <p>2001.01 - 2014.12</p>
-  
+        <h3>Dariel — Mentor (Dec 2021 – May 2022)</h3>
+        <ul>
+            <li>Ran weekly mentoring sessions for junior engineers, voluntarily and outside working hours.</li>
+            <li>Coached on development best practices, code quality and problem-solving within production codebases.
+            </li>
+            <li>Guided juniors through unfamiliar architectures and supported personal development projects to
+                completion.</li>
+        </ul>
 
-<h2>Scratchpad</h2>
-<h3>Blog</h3>
-<ul><li><a href="scratchpad/if-you-skip-the-reasoning-you-skip-what-it-teaches.html">If You Skip the Reasoning, You Skip What It Teaches</a> — The endpoints were protected. He knew the how. He didn't know the why.</li><li><a href="scratchpad/we-were-waiting-for-green.html">We Were Waiting for Green. Green Was Never Coming.</a> — We lost days to a container that was failing exactly as intended. Nobody had written down what working looked like.</li><li><a href="scratchpad/slower-is-a-tool-blocked-is-a-dependency.html">Slower Is a Tool. Blocked Is a Dependency.</a> — A friend ran out of AI credits and development stopped. The live site carried on serving customers. The only thing that had failed was the ability to change it.</li><li><a href="scratchpad/the-question-my-plugin-loader-couldnt-answer.html">The Question My Plugin Loader Couldn't Answer</a> — A plugin loader that would happily load anything implementing the right interface, until someone asked what was actually stopping it from loading the wrong tenant's plugin.</li><li><a href="scratchpad/the-column-that-looked-like-nothing.html">The Column That Looked Like Nothing</a> — A TenantId column on every table, filtered on every query, and never once indexed, until scale finally noticed.</li></ul>
-<h3>LinkedIn</h3>
-<ul><li><a href="https://www.linkedin.com/posts/matthew-c-law_lawondev-developermindset-leadership-share-7388452070972071936-VLl0/">Leadership Doesn't Start With a Title</a> — Ownership scales faster than hierarchy — real leadership shows up in the small, unasked-for moves, not the meetings.</li><li><a href="https://www.linkedin.com/posts/matthew-c-law_developermindset-lawondev-careergrowth-share-7387369580853231616-3pTA/">Intent Outlasts Imitation</a> — 'Do not seek to follow in the footsteps of those ahead. Seek what they sought.' Growth isn't copying someone's path — it's chasing the intent behind it.</li><li><a href="https://www.linkedin.com/posts/matthew-c-law_developermindset-lawondev-share-7386307130146045952-XaO1/">Debugging Our Mindset</a> — We spend so much time debugging code — but how often do we debug our mindset? Introducing #DeveloperMindset: short reflections on the human side of the craft.</li><li><a href="https://www.linkedin.com/posts/matthew-c-law_softwareengineering-developerexperience-cleancode-share-7386021977511243776-RLMj/">How Long Would It Take to Onboard a New Dev?</a> — One simple question exposes a project's real health — code clarity, docs, tests, naming. The faster someone new gets productive, the stronger the project.</li></ul>
-<!-- NOSCRIPT:END -->
+        <h3>Dariel — Software Developer (Mar 2020 – May 2022)</h3>
+        <ul>
+            <li>Delivered backend and full-stack solutions across multiple client projects in C#, .NET, ASP.NET and
+                Angular.</li>
+            <li>Built APIs and integrations with external systems using REST, gRPC, Azure, Firebase and Apache NiFi.
+            </li>
+            <li>Advised stakeholders on technology selection, presenting capacity and delivery trade-offs to inform
+                scope decisions.</li>
+        </ul>
+
+        <h3>Securities & Trading Technology — Intermediate Software Developer (Jan 2019 – Feb 2020)</h3>
+        <ul>
+            <li>Identified a SQL injection exposure in a client's dynamic reporting engine and introduced upload
+                validation with a maker-checker approval flow.</li>
+            <li>Replaced hardcoded values such as tax rates with a centralised constant, reducing a subsequent rate
+                change to a single-file update.</li>
+            <li>Developed and maintained market data and custodial platforms operating in live financial environments.
+            </li>
+            <li>Worked across backend and frontend in C#, SQL, JavaScript and Angular.</li>
+        </ul>
+
+        <h3>Securities & Trading Technology — Junior Software Developer (Dec 2015 – Dec 2018)</h3>
+        <ul>
+            <li>Delivered BBO and custodial solutions for the ZAR X stock exchange environment, live from February 2017.
+            </li>
+            <li>Developed financial systems and contributed to internal frameworks in C#, SQL, JavaScript and Angular.
+            </li>
+        </ul>
+
+
+        <h2>Education</h2>
+
+        <h3>Microsoft Certified Software Development Professional (MCSD) — CTU</h3>
+        <p>2015.01 - 2015.11</p>
+
+        <h3>Computer Software Engineering — SSir Online School</h3>
+        <p>2011.01 - 2014.12</p>
+
+        <h3>IEB National Senior Certificate — St. Dunstan's College</h3>
+        <p>2001.01 - 2014.12</p>
+
+
+        <h2>Scratchpad</h2>
+        <h3>Blog</h3>
+        <ul>
+            <li><a href="scratchpad/if-you-skip-the-reasoning-you-skip-what-it-teaches.html">If You Skip the Reasoning,
+                    You Skip What It Teaches</a> — The endpoints were protected. He knew the how. He didn't know the
+                why.</li>
+            <li><a href="scratchpad/we-were-waiting-for-green.html">We Were Waiting for Green. Green Was Never
+                    Coming.</a> — We lost days to a container that was failing exactly as intended. Nobody had written
+                down what working looked like.</li>
+            <li><a href="scratchpad/slower-is-a-tool-blocked-is-a-dependency.html">Slower Is a Tool. Blocked Is a
+                    Dependency.</a> — A friend ran out of AI credits and development stopped. The live site carried on
+                serving customers. The only thing that had failed was the ability to change it.</li>
+            <li><a href="scratchpad/the-question-my-plugin-loader-couldnt-answer.html">The Question My Plugin Loader
+                    Couldn't Answer</a> — A plugin loader that would happily load anything implementing the right
+                interface, until someone asked what was actually stopping it from loading the wrong tenant's plugin.
+            </li>
+            <li><a href="scratchpad/the-column-that-looked-like-nothing.html">The Column That Looked Like Nothing</a> —
+                A TenantId column on every table, filtered on every query, and never once indexed, until scale finally
+                noticed.</li>
+        </ul>
+        <h3>LinkedIn</h3>
+        <ul>
+            <li><a
+                    href="https://www.linkedin.com/posts/matthew-c-law_lawondev-developermindset-leadership-share-7388452070972071936-VLl0/">Leadership
+                    Doesn't Start With a Title</a> — Ownership scales faster than hierarchy — real leadership shows up
+                in the small, unasked-for moves, not the meetings.</li>
+            <li><a
+                    href="https://www.linkedin.com/posts/matthew-c-law_developermindset-lawondev-careergrowth-share-7387369580853231616-3pTA/">Intent
+                    Outlasts Imitation</a> — 'Do not seek to follow in the footsteps of those ahead. Seek what they
+                sought.' Growth isn't copying someone's path — it's chasing the intent behind it.</li>
+            <li><a
+                    href="https://www.linkedin.com/posts/matthew-c-law_developermindset-lawondev-share-7386307130146045952-XaO1/">Debugging
+                    Our Mindset</a> — We spend so much time debugging code — but how often do we debug our mindset?
+                Introducing #DeveloperMindset: short reflections on the human side of the craft.</li>
+            <li><a
+                    href="https://www.linkedin.com/posts/matthew-c-law_softwareengineering-developerexperience-cleancode-share-7386021977511243776-RLMj/">How
+                    Long Would It Take to Onboard a New Dev?</a> — One simple question exposes a project's real health —
+                code clarity, docs, tests, naming. The faster someone new gets productive, the stronger the project.
+            </li>
+        </ul>
+        <!-- NOSCRIPT:END -->
     </noscript>
     <div class="flex min-h-screen">
         <!-- Sidebar -->
@@ -150,6 +231,8 @@
                         class="fas fa-note-sticky text-lime-400"></i> Scratchpad</a>
                 <a href="#experience" class="px-4 py-2 flex items-center gap-2"><i
                         class="fas fa-history text-orange-400"></i> Experience</a>
+                <a href="#credentials" class="px-4 py-2 flex items-center gap-2"><i
+                        class="fas fa-certificate text-emerald-400"></i> Credentials</a>
                 <a href="#clients" class="px-4 py-2 flex items-center gap-2"><i
                         class="fas fa-handshake text-pink-400"></i> Clients</a>
                 <a href="#hobbies" class="px-4 py-2 flex items-center gap-2"><i
@@ -167,16 +250,15 @@
             <header id="about" class="py-20 px-8 max-w-4xl">
                 <div class="section-fade visible">
                     <div class="flex flex-col md:flex-row md:items-start gap-6 md:gap-8 mb-8">
-                        <img src="assets/img/matthew-law.png"
-                            alt="Matthew Law, Senior Software Engineer" width="160" height="160"
-                            style="border-color: var(--border-color)"
+                        <img src="assets/img/matthew-law.png" alt="Matthew Law, Senior Software Engineer" width="160"
+                            height="160" style="border-color: var(--border-color)"
                             class="avatar-dark w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover border shadow-lg shrink-0">
-                        <img src="assets/img/matthew-law-shades.png"
-                            alt="Matthew Law, Senior Software Engineer" width="160" height="160"
-                            style="border-color: var(--border-color)"
+                        <img src="assets/img/matthew-law-shades.png" alt="Matthew Law, Senior Software Engineer"
+                            width="160" height="160" style="border-color: var(--border-color)"
                             class="avatar-light w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover border shadow-lg shrink-0">
                         <div>
-                            <p class="token-comment mb-3">// Senior Software Engineer &middot; Systems &middot; Trade-offs &middot; Developer Experience Engineer</p>
+                            <p class="token-comment mb-3">// Senior Software Engineer &middot; Systems &middot;
+                                Trade-offs &middot; Developer Experience Engineer</p>
                             <h1 class="text-4xl md:text-6xl font-bold mb-3">
                                 <span class="token-type">Matthew_Law</span>
                             </h1>
@@ -207,14 +289,46 @@
             <!-- Scratchpad Section -->
             <section id="scratchpad" class="py-16 px-8 border-y">
                 <div class="max-w-6xl">
-                    <div class="mb-10">
+                    <div class="mb-2">
                         <h2 class="text-xl font-bold text-white/60"><span class="token-keyword"><span
                                     class="token-func">Scratchpad</span>()</h2>
-                        <p class="text-sm opacity-70 mt-5">A decade of git commits and perspective shifts.</p>
-                        <a href="scratchpad" class="text-xs token-comment hover:underline mt-2 inline-block">view_all()
-                            &rarr;</a>
+                        <p class="text-sm opacity-70 mt-5 mb-2">A decade of git commits and perspective shifts.</p>
+                        <h3 class="font-bold text-white/60 mb-2"><span class="token-keyword"><span
+                                    class="token-func">Latest</span></h3>
                     </div>
-                    <div id="scratchpad-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+
+                    <div id="scratchpad-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- SCRATCHPAD:START -->
+                        <a href="scratchpad/if-you-skip-the-reasoning-you-skip-what-it-teaches.html"
+                            class="section-fade h-full flex flex-col p-6 ide-card border hover:border-blue-500/50 transition-all duration-300">
+                            <div class="flex justify-between items-start mb-3">
+                                <i class="fas fa-file-lines text-blue-400"></i>
+                                <span class="text-[10px] opacity-50 uppercase">2026-08-20</span>
+                            </div>
+                            <h4 class="font-bold mb-2">If You Skip the Reasoning, You Skip What It Teaches</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">The endpoints were protected. He knew the
+                                how. He didn't know the why.</p>
+                            <p class="text-xs token-comment mt-auto pt-4"><span class="font-bold">// LESSON:</span> an
+                                answer you can't defend isn't understanding, it's just something that happened to work.
+                            </p>
+                        </a>
+
+                        <a href="scratchpad/we-were-waiting-for-green.html"
+                            class="section-fade h-full flex flex-col p-6 ide-card border hover:border-blue-500/50 transition-all duration-300">
+                            <div class="flex justify-between items-start mb-3">
+                                <i class="fas fa-file-lines text-blue-400"></i>
+                                <span class="text-[10px] opacity-50 uppercase">2026-08-02</span>
+                            </div>
+                            <h4 class="font-bold mb-2">We Were Waiting for Green. Green Was Never Coming.</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">We lost days to a container that was
+                                failing exactly as intended. Nobody had written down what working looked like.</p>
+                            <p class="text-xs token-comment mt-auto pt-4"><span class="font-bold">// LESSON:</span>
+                                write things down while they're still confusing, before they look obvious</p>
+                        </a>
+                        <!-- SCRATCHPAD:END -->
+                    </div>
+                    <a href="scratchpad" class="text-xs token-comment hover:underline mt-2 block text-right">view_all()
+                        &rarr;</a>
                 </div>
             </section>
 
@@ -223,7 +337,232 @@
                 <div class="max-w-4xl">
                     <h2 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
                                 class="token-func">Experience</span>()</h2>
-                    <div id="experience-container" class="git-graph ml-4"></div>
+                    <div id="experience-container" class="git-graph ml-4"><!-- EXPERIENCE:START -->
+                        <div class="git-branch  section-fade">
+
+                            <div class="git-branch-head">
+                                <h3 class="font-bold text-lg">Entelect</h3>
+                                <span class="token-comment text-xs">// Jun 2022 – Present · 2 roles</span>
+                            </div>
+
+                            <div class="git-commit no-break">
+                                <span class="token-comment text-xs">// Jan 2024 – Present</span>
+                                <h4 class="font-bold mt-1">Senior Software Engineer</h4>
+                                <ul class="mt-3 space-y-2 text-sm text-slate-400">
+                                    <li>- Own the multi-tenant plugin architecture. Each tenant has an explicit
+                                        registered list of what it is allowed to load, rather than the loader accepting
+                                        anything that implements the right interface.</li>
+                                    <li>- Led a team of four on a platform modernisation, planning and running an
+                                        Angular 11 to 20 upgrade and pushing for real unit test coverage as part of it.
+                                    </li>
+                                    <li>- Called a stop at the last LTS rather than the newest release. Several packages
+                                        had no support past it, and handing the client back something stable mattered
+                                        more than reaching 20.</li>
+                                    <li>- Joined a new project and spent the wait for access and onboarding fixing pain
+                                        points in the existing CI/CD pipeline.</li>
+                                    <li>- Build and maintain shared NuGet and npm libraries so teams are not each
+                                        solving the same problem a slightly different way.</li>
+                                    <li>- Mentor engineers through code reviews and technical guidance, and hold the
+                                        cross-cutting technical decisions in client engagements.</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">C#</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">.NET</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">ASP.NET
+                                        Core</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">OAuth2</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">JWT</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">Entity
+                                        Framework</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">TypeScript</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">Angular</span>
+                                </div>
+                            </div>
+                            <div class="git-commit no-break">
+                                <span class="token-comment text-xs">// Jun 2022 – Jan 2024</span>
+                                <h4 class="font-bold mt-1">Intermediate Software Engineer</h4>
+                                <ul class="mt-3 space-y-2 text-sm text-slate-400">
+                                    <li>- Brought fintech auth and OWASP experience to teams that had not worked in
+                                        heavily regulated environments.</li>
+                                    <li>- Led a small team building a shared auth package. Other departments at the
+                                        client have since adopted it.</li>
+                                    <li>- Contributed to the multi-tenant platform and the early iterations of its
+                                        plugin-based architecture.</li>
+                                    <li>- Refactored legacy codebases as part of ongoing modernisation, focused on what
+                                        would still be maintainable once the team handed it over.</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">C#</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">.NET</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">JWT</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">TypeScript</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">Angular</span>
+                                </div>
+                            </div>
+                            <div class="git-join git-join-fork"></div>
+                        </div>
+
+                        <div class="git-branch git-branch-merged section-fade">
+                            <div class="git-join git-join-merge"></div>
+                            <div class="git-branch-head">
+                                <h3 class="font-bold text-lg">Dariel</h3>
+                                <span class="token-comment text-xs">// Mar 2020 – May 2022 · 2 roles</span>
+                            </div>
+
+                            <div class="git-commit no-break">
+                                <span class="token-comment text-xs">// Dec 2021 – May 2022</span>
+                                <h4 class="font-bold mt-1">Mentor</h4>
+                                <ul class="mt-3 space-y-2 text-sm text-slate-400">
+                                    <li>- Ran weekly after-hours mentoring sessions with juniors. Opted into rather than
+                                        assigned.</li>
+                                    <li>- Worked through best practices, pointed people at material, and helped a few of
+                                        them finish personal projects they had wanted to build.</li>
+                                    <li>- Learned to give feedback without taking ownership of the problem away from the
+                                        person holding it.</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">C#</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">ASP.NET</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">MVC</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">Angular</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">Azure</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">Apache
+                                        NiFi</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">gRPC</span>
+                                </div>
+                            </div>
+                            <div class="git-commit no-break">
+                                <span class="token-comment text-xs">// Mar 2020 – May 2022</span>
+                                <h4 class="font-bold mt-1">Software Developer</h4>
+                                <ul class="mt-3 space-y-2 text-sm text-slate-400">
+                                    <li>- Pushed back when a senior stakeholder wanted to bring in technology that cost
+                                        more sprint capacity than it returned. Never a flat no: the reasoning went into
+                                        the technical discussions, so everyone could see what it would push out of the
+                                        release.</li>
+                                    <li>- Built APIs and integrations against external systems across several client
+                                        projects, usually joining the codebase cold and at short notice.</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">C#</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">.NET</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">ASP.NET</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">JavaScript</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">SQL</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">Angular</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">Azure</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">Firebase</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">Apache
+                                        NiFi</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">gRPC</span>
+                                </div>
+                            </div>
+                            <div class="git-join git-join-fork"></div>
+                        </div>
+
+                        <div class="git-branch git-branch-merged section-fade">
+                            <div class="git-join git-join-merge"></div>
+                            <div class="git-branch-head">
+                                <h3 class="font-bold text-lg">Securities & Trading Technology</h3>
+                                <span class="token-comment text-xs">// Dec 2015 – Feb 2020 · 2 roles</span>
+                            </div>
+
+                            <div class="git-commit no-break">
+                                <span class="token-comment text-xs">// Jan 2019 – Feb 2020</span>
+                                <h4 class="font-bold mt-1">Intermediate Software Developer</h4>
+                                <ul class="mt-3 space-y-2 text-sm text-slate-400">
+                                    <li>- Client's reporting engine ran user-uploaded SQL as raw text. Argued for
+                                        validation on upload, with anything containing UPDATE, DELETE or INSERT forced
+                                        into a maker-checker review by a second person at the client. It slowed down
+                                        quick ad hoc reporting, which was the price of nobody running a destructive
+                                        'report'.</li>
+                                    <li>- Pushed the team to replace hardcoded values (such as VAT) scattered through
+                                        the codebase with a single centralised constant. It cost an extensive audit to
+                                        find them all. When the rate changed, it was a one-file change.</li>
+                                    <li>- Worked on market data and custodial platforms running in live financial
+                                        operations.</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">C#</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">SQL</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">JavaScript</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">Angular</span>
+                                </div>
+                            </div>
+                            <div class="git-commit no-break">
+                                <span class="token-comment text-xs">// Dec 2015 – Dec 2018</span>
+                                <h4 class="font-bold mt-1">Junior Software Developer</h4>
+                                <ul class="mt-3 space-y-2 text-sm text-slate-400">
+                                    <li>- Built BBO and custodial solutions for the ZAR X environment, which went live
+                                        in February 2017.</li>
+                                    <li>- Contributed to the internal frameworks the team's financial systems were built
+                                        on.</li>
+                                </ul>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">C#</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">SQL</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">JavaScript</span><span
+                                        class="text-[10px] px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2">Angular</span>
+                                </div>
+                            </div>
+                            <div class="git-join git-join-fork"></div>
+                        </div>
+                        <!-- EXPERIENCE:END -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- CREDENTIALS Section -->
+            <section id="credentials" class="py-16 px-8 border-y">
+                <div class="max-w-6xl">
+                    <div class="mb-10">
+                        <h2 class="text-xl font-bold text-white/60"><span class="token-keyword"><span
+                                    class="token-func">Credentials</span>()</h2>
+                        <p class="text-sm opacity-70 mt-5">Curated selection of certifications and professional
+                            credentials.</p>
+                    </div>
+                    <!-- CREDENTIALS:START -->
+                    <div id="credential-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- CREDENTIALS:START -->
+                        <a href="https://www.credly.com/badges/4ca58f00-db53-4078-8182-24b8ec56bcad/public_url"
+                            target="_blank"
+                            class="section-fade p-6 ide-card border flex items-center gap-4 hover:border-blue-500/50">
+                            <div class="w-12 h-12 bg-white rounded flex items-center justify-center p-1 shrink-0">
+                                <img src="./assets/img/badges/claude-certified-developer-foundations.png"
+                                    alt="Claude Certified Developer - Foundations" width="48" height="48"
+                                    class="max-w-full max-h-full object-contain">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-sm">Claude Certified Developer - Foundations</h3>
+                                <p class="text-[11px] opacity-60 mt-1">Issued by Anthropic</p>
+                                <p class="text-[11px] opacity-60 mt-1">Sep 21, 2026</p>
+                            </div>
+                        </a>
+
+                        <a href="https://www.credly.com/badges/302e97a8-9904-4a94-b3f7-acee3124ccb0/public_url"
+                            target="_blank"
+                            class="section-fade p-6 ide-card border flex items-center gap-4 hover:border-blue-500/50">
+                            <div class="w-12 h-12 bg-white rounded flex items-center justify-center p-1 shrink-0">
+                                <img src="./assets/img/badges/mcsd-app-builder-certified-2016.png"
+                                    alt="MCSD: App Builder" width="48" height="48"
+                                    class="max-w-full max-h-full object-contain">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-sm">MCSD: App Builder</h3>
+                                <p class="text-[11px] opacity-60 mt-1">Issued by Microsoft</p>
+                                <p class="text-[11px] opacity-60 mt-1">Sep 26, 2016</p>
+                            </div>
+                        </a>
+                        <!-- CREDENTIALS:END -->
+                    </div>
+                    <a href="https://www.credly.com/users/matthew-c-law" target="_blank"
+                        class="text-xs token-comment hover:underline mt-2 block text-right">view all on Credly.com
+                        &rarr;</a>
                 </div>
             </section>
 
@@ -232,7 +571,86 @@
                 <div class="max-w-6xl">
                     <h2 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
                                 class="token-func">Clientele</span>()</h2>
-                    <div id="clients-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+                    <div id="clients-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"><!-- CLIENTS:START -->
+                        <a href="https://www.jse.co.za/" target="_blank"
+                            class="section-fade p-6 ide-card border flex items-center gap-4 hover:border-blue-500/50">
+                            <div class="w-12 h-12 bg-white rounded flex items-center justify-center p-1 shrink-0">
+                                <img src="./assets/img/clientele/jse_limited_logo.jpg" alt="JSE" width="48" height="48"
+                                    class="max-w-full max-h-full object-contain">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-sm">JSE</h3>
+                                <p class="text-[11px] opacity-60 mt-1">Built and maintained the integrations between
+                                    custodial and broker back-office systems.</p>
+                            </div>
+                        </a>
+
+                        <a href="https://www.absa.co.za/" target="_blank"
+                            class="section-fade p-6 ide-card border flex items-center gap-4 hover:border-blue-500/50">
+                            <div class="w-12 h-12 bg-white rounded flex items-center justify-center p-1 shrink-0">
+                                <img src="./assets/img/clientele/absa_logo.jpg" alt="Absa" width="48" height="48"
+                                    class="max-w-full max-h-full object-contain">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-sm">Absa</h3>
+                                <p class="text-[11px] opacity-60 mt-1">Integration work inside Corporate and Investment
+                                    Banking, mostly on the parts corporate clients actually touch.</p>
+                            </div>
+                        </a>
+
+                        <a href="https://computicket.com/page/home" target="_blank"
+                            class="section-fade p-6 ide-card border flex items-center gap-4 hover:border-blue-500/50">
+                            <div class="w-12 h-12 bg-white rounded flex items-center justify-center p-1 shrink-0">
+                                <img src="./assets/img/clientele/computicket_logo.jpg" alt="Computicket" width="48"
+                                    height="48" class="max-w-full max-h-full object-contain">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-sm">Computicket</h3>
+                                <p class="text-[11px] opacity-60 mt-1">Helped introduce a microservices architecture,
+                                    and worked with the internal teams through adopting it.</p>
+                            </div>
+                        </a>
+
+                        <a href="https://www.standardbank.co.za/" target="_blank"
+                            class="section-fade p-6 ide-card border flex items-center gap-4 hover:border-blue-500/50">
+                            <div class="w-12 h-12 bg-white rounded flex items-center justify-center p-1 shrink-0">
+                                <img src="./assets/img/clientele/standard_bank_group_logo.jpg" alt="Standard Bank"
+                                    width="48" height="48" class="max-w-full max-h-full object-contain">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-sm">Standard Bank</h3>
+                                <p class="text-[11px] opacity-60 mt-1">Built integrations in the CIB space, against
+                                    financial workflows with a lot of moving parts.</p>
+                            </div>
+                        </a>
+
+                        <a href="https://www.liberty.co.za/" target="_blank"
+                            class="section-fade p-6 ide-card border flex items-center gap-4 hover:border-blue-500/50">
+                            <div class="w-12 h-12 bg-white rounded flex items-center justify-center p-1 shrink-0">
+                                <img src="./assets/img/clientele/liberty_logo.jpg" alt="LibFin/Liberty" width="48"
+                                    height="48" class="max-w-full max-h-full object-contain">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-sm">LibFin/Liberty</h3>
+                                <p class="text-[11px] opacity-60 mt-1">On the modernisation team for core platforms:
+                                    performance, security posture, and the CI/CD pipelines.</p>
+                            </div>
+                        </a>
+
+                        <a href="https://www.motus.co.za/" target="_blank"
+                            class="section-fade p-6 ide-card border flex items-center gap-4 hover:border-blue-500/50">
+                            <div class="w-12 h-12 bg-white rounded flex items-center justify-center p-1 shrink-0">
+                                <img src="./assets/img/clientele/motus_sa_logo.jpg" alt="Motus" width="48" height="48"
+                                    class="max-w-full max-h-full object-contain">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-sm">Motus</h3>
+                                <p class="text-[11px] opacity-60 mt-1">Integration and performance work on the
+                                    enterprise platform, alongside the business teams using it.</p>
+                            </div>
+                        </a>
+                        <!-- CLIENTS:END -->
+                    </div>
                 </div>
             </section>
 
@@ -241,7 +659,38 @@
                 <div class="max-w-6xl">
                     <h2 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
                                 class="token-func">Hobbies</span>()</h2>
-                    <div id="hobbies-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+                    <div id="hobbies-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"><!-- HOBBIES:START -->
+                        <div
+                            class="section-fade flex flex-col items-center justify-center p-4 ide-card border rounded hover:border-blue-500/50 transition-all group">
+                            <i
+                                class="fas fa-dice-d20 text-2xl mb-3 token-type group-hover:scale-110 transition-transform"></i>
+                            <span class="text-[10px] uppercase tracking-wider opacity-60 text-center">Dungeons &
+                                Dragons</span>
+                        </div>
+
+                        <div
+                            class="section-fade flex flex-col items-center justify-center p-4 ide-card border rounded hover:border-blue-500/50 transition-all group">
+                            <i
+                                class="fas fa-code text-2xl mb-3 token-type group-hover:scale-110 transition-transform"></i>
+                            <span class="text-[10px] uppercase tracking-wider opacity-60 text-center">Side
+                                Projects</span>
+                        </div>
+
+                        <div
+                            class="section-fade flex flex-col items-center justify-center p-4 ide-card border rounded hover:border-blue-500/50 transition-all group">
+                            <i
+                                class="fas fa-gamepad text-2xl mb-3 token-type group-hover:scale-110 transition-transform"></i>
+                            <span class="text-[10px] uppercase tracking-wider opacity-60 text-center">Video Games</span>
+                        </div>
+
+                        <div
+                            class="section-fade flex flex-col items-center justify-center p-4 ide-card border rounded hover:border-blue-500/50 transition-all group">
+                            <i
+                                class="fas fa-book-open text-2xl mb-3 token-type group-hover:scale-110 transition-transform"></i>
+                            <span class="text-[10px] uppercase tracking-wider opacity-60 text-center">Reading</span>
+                        </div>
+                        <!-- HOBBIES:END -->
+                    </div>
                 </div>
             </section>
 
@@ -250,14 +699,88 @@
                 <div class="max-w-6xl">
                     <h2 class="text-xl font-bold mb-10 text-white/60"><span class="token-keyword"><span
                                 class="token-func">Side_Projects</span>()</h2>
-                    <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+                    <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"><!-- PROJECTS:START -->
+                        <a href="https://github.com/matthewclaw/Simple.Interpreter" target="_blank"
+                            class="section-fade p-6 ide-card border hover:border-blue-500/50 transition-all duration-300">
+                            <div class="flex justify-between items-start mb-4">
+                                <i class="fas fa-folder text-yellow-500 text-2xl"></i>
+                                <span class="text-[10px] bg-blue-500/10 text-blue-400 px-2 py-1 rounded">public</span>
+                            </div>
+                            <h3 class="font-bold mb-2">Simple.Interpreter<i
+                                    class="fas fa-external-link-alt text-blue-400 ml-2"></i></h3>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">A C# expression interpreter, packaged
+                                for NuGet. Lets the people using your software define their own business rules,
+                                conditional logic and filters at runtime, so changing one is not a recompile and a
+                                redeploy.</p>
+                            <div class="text-[10px] opacity-60 flex gap-4">
+                                <span>C#</span><span>.NET</span>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/matthewclaw/Query" target="_blank"
+                            class="section-fade p-6 ide-card border hover:border-blue-500/50 transition-all duration-300">
+                            <div class="flex justify-between items-start mb-4">
+                                <i class="fas fa-folder text-yellow-500 text-2xl"></i>
+                                <span class="text-[10px] bg-blue-500/10 text-blue-400 px-2 py-1 rounded">public</span>
+                            </div>
+                            <h3 class="font-bold mb-2">Query<i class="fas fa-external-link-alt text-blue-400 ml-2"></i>
+                            </h3>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">A library for running MySQL commands,
+                                written before EF was 'big'. Uses reflection to map the results onto whatever type you
+                                ask for.</p>
+                            <div class="text-[10px] opacity-60 flex gap-4">
+                                <span>C#</span><span>Reflection</span><span>SQL</span>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/matthewclaw/profile" target="_blank"
+                            class="section-fade p-6 ide-card border hover:border-blue-500/50 transition-all duration-300">
+                            <div class="flex justify-between items-start mb-4">
+                                <i class="fas fa-folder text-yellow-500 text-2xl"></i>
+                                <span class="text-[10px] bg-blue-500/10 text-blue-400 px-2 py-1 rounded">public</span>
+                            </div>
+                            <h3 class="font-bold mb-2">profile<i
+                                    class="fas fa-external-link-alt text-blue-400 ml-2"></i></h3>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">The source behind this site,
+                                including the build pipeline that turns a Markdown file into a Scratchpad post.</p>
+                            <div class="text-[10px] opacity-60 flex gap-4">
+                                <span>Node.js</span><span>HTML</span><span>css</span>
+                            </div>
+                        </a>
+                        <!-- PROJECTS:END -->
+                    </div>
                 </div>
             </section>
 
             <!-- Contact Section -->
             <footer id="contact" class="py-16 px-8 border-y">
                 <h2 class="token-func text-xl font-bold mb-8">Contact()</h2>
-                <div id="contact-container" class="flex flex-wrap gap-8 max-w-2xl"></div>
+                <div id="contact-container" class="flex flex-wrap gap-8 max-w-2xl"><!-- CONTACT:START -->
+                    <a href="mailto:Matthew.mcsd@gmail.com" target="_blank" style="width:140px"
+                        class="section-fade flex items-center gap-3 px-6 py-3 ide-card border rounded hover:border-blue-500 transition-all group">
+                        <i class="fas fa-at text-xl text-blue-400"></i>
+                        <span class="text-sm font-medium opacity-70 group-hover:opacity-100">Email</span>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/matthew-c-law/" target="_blank" style="width:140px"
+                        class="section-fade flex items-center gap-3 px-6 py-3 ide-card border rounded hover:border-blue-500 transition-all group">
+                        <i class="fab fa-linkedin text-xl text-blue-400"></i>
+                        <span class="text-sm font-medium opacity-70 group-hover:opacity-100">LinkedIn</span>
+                    </a>
+
+                    <a href="https://github.com/matthewclaw" target="_blank" style="width:140px"
+                        class="section-fade flex items-center gap-3 px-6 py-3 ide-card border rounded hover:border-blue-500 transition-all group">
+                        <i class="fab fa-github text-xl text-blue-400"></i>
+                        <span class="text-sm font-medium opacity-70 group-hover:opacity-100">GitHub</span>
+                    </a>
+
+                    <a href="https://www.credly.com/users/matthew-c-law" target="_blank" style="width:140px"
+                        class="section-fade flex items-center gap-3 px-6 py-3 ide-card border rounded hover:border-blue-500 transition-all group">
+                        <i class="fas fa-certificate text-xl text-blue-400"></i>
+                        <span class="text-sm font-medium opacity-70 group-hover:opacity-100">Credly</span>
+                    </a>
+                    <!-- CONTACT:END -->
+                </div>
             </footer>
         </main>
     </div>
