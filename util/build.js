@@ -70,6 +70,7 @@ function renderPages() {
   let indexHtml = fs.readFileSync(indexPath, "utf8");
   indexHtml = replaceBetweenMarkers(indexHtml, "EXPERIENCE", renderers.renderExperience(data));
   indexHtml = replaceBetweenMarkers(indexHtml, "CLIENTS", renderers.renderClients(data));
+  indexHtml = replaceBetweenMarkers(indexHtml, "CREDENTIALS", renderers.renderCredentials(data));
   indexHtml = replaceBetweenMarkers(indexHtml, "HOBBIES", renderers.renderHobbies(data));
   indexHtml = replaceBetweenMarkers(indexHtml, "PROJECTS", renderers.renderProjects(data));
   indexHtml = replaceBetweenMarkers(indexHtml, "SCRATCHPAD", renderers.renderScratchpad(data, { limit: 2 }));

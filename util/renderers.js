@@ -82,6 +82,20 @@ function renderClients(portfolioData) {
                 </a>
             `).join('');
 }
+function renderCredentials(portfolioData) {
+    return portfolioData.credentials.map(credential => `
+                <a href="${credential.url}" target="_blank" class="section-fade p-6 ide-card border flex items-center gap-4 hover:border-blue-500/50">
+                    <div class="w-12 h-12 bg-white rounded flex items-center justify-center p-1 shrink-0">
+                        <img src="${credential.badgeUrl}" alt="${credential.name}" width="48" height="48" class="max-w-full max-h-full object-contain">
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-sm">${credential.name}</h3>
+                        <p class="text-[11px] opacity-60 mt-1">Issued by ${credential.issuer}</p>
+                        <p class="text-[11px] opacity-60 mt-1">${credential.date}</p>
+                    </div>
+                </a>
+            `).join('');
+}
 
 function renderProjects(portfolioData) {
     return portfolioData.projects.map(proj => {
@@ -197,4 +211,5 @@ module.exports = {
     renderHobbiesCV,
     renderContactsCV,
     renderTechnologiesCv,
+    renderCredentials,
 };
