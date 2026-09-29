@@ -381,6 +381,12 @@
             "icon": "fa-github",
             "link": "https://github.com/matthewclaw",
             "type": "url"
+        },
+        {
+            "name": "Credly",
+            "icon": "fa-certificate",
+            "link": "https://www.credly.com/users/matthew-c-law",
+            "type": "url"
         }
     ]
 }

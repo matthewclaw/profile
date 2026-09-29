@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const renderers = require("./renderers.js");
 
 const root = path.join(__dirname, "..");
 const SITE_URL = "https://matthewclaw.github.io/profile/";
@@ -54,6 +55,39 @@ function injectIndexHtml(keepJsonLdMarkers) {
 }
 
 // ------------------------
+// RENDER DYNAMIC SECTIONS INTO index.html AND cv.html
+// ------------------------
+// Same renderers the browser used to run on page load, now baked in here so
+// the deployed page already has real content -- no client fetch/render pass,
+// so crawlers and no-JS visitors see the page as it actually reads.
+// index.js keeps only progressive enhancement (theme, nav, scroll-reveal);
+// cv.js is gone, since cv.html has nothing left for it to do.
+
+function renderPages() {
+  const data = JSON.parse(fs.readFileSync(path.join(root, "assets", "data", "data.json"), "utf8"));
+
+  const indexPath = path.join(root, "index.html");
+  let indexHtml = fs.readFileSync(indexPath, "utf8");
+  indexHtml = replaceBetweenMarkers(indexHtml, "EXPERIENCE", renderers.renderExperience(data));
+  indexHtml = replaceBetweenMarkers(indexHtml, "CLIENTS", renderers.renderClients(data));
+  indexHtml = replaceBetweenMarkers(indexHtml, "HOBBIES", renderers.renderHobbies(data));
+  indexHtml = replaceBetweenMarkers(indexHtml, "PROJECTS", renderers.renderProjects(data));
+  indexHtml = replaceBetweenMarkers(indexHtml, "SCRATCHPAD", renderers.renderScratchpad(data, { limit: 2 }));
+  indexHtml = replaceBetweenMarkers(indexHtml, "CONTACT", renderers.renderContactLinks(data));
+  fs.writeFileSync(indexPath, indexHtml);
+
+  const cvPath = path.join(root, "cv.html");
+  let cvHtml = fs.readFileSync(cvPath, "utf8");
+  cvHtml = replaceBetweenMarkers(cvHtml, "CV_EXPERIENCE", renderers.renderExperienceCV(data.experience));
+  cvHtml = replaceBetweenMarkers(cvHtml, "CV_EDUCATION", renderers.renderEducationCV(data.education));
+  cvHtml = replaceBetweenMarkers(cvHtml, "CV_SKILLS", renderers.renderSkillsCV(data.skills));
+  cvHtml = replaceBetweenMarkers(cvHtml, "CV_TECH", renderers.renderTechnologiesCv(data.experience));
+  cvHtml = replaceBetweenMarkers(cvHtml, "CV_HOBBIES", renderers.renderHobbiesCV(data.hobbies));
+  cvHtml = replaceBetweenMarkers(cvHtml, "CV_CONTACTS", renderers.renderContactsCV(data.contact_links));
+  fs.writeFileSync(cvPath, cvHtml);
+}
+
+// ------------------------
 // ROBOTS.TXT / SITEMAP.XML
 // ------------------------
 
@@ -97,8 +131,9 @@ ${urls}
   fs.writeFileSync(path.join(root, "sitemap.xml"), content);
 }
 
+renderPages();
 injectIndexHtml(process.argv.includes("--debug"));
 writeRobotsTxt();
 writeSitemap();
 
-console.log("Build complete: injected metadata into index.html, wrote robots.txt and sitemap.xml");
+console.log("Build complete: rendered dynamic sections, injected metadata into index.html, wrote robots.txt and sitemap.xml");

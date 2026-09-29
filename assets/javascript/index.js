@@ -1,39 +1,19 @@
-import {
-    renderExperience, renderClients, renderProjects,
-    renderHobbies, renderContactLinks, renderScratchpad
-} from './renderers.js'
-
-async function renderPortfolio() {
-    const params = new URLSearchParams(window.location.search);
-    const animate = params.get('animate') !== 'false';
-    let portfolioData = await fetch('./assets/data/data.json').then(res => res.json());
-    renderExperience(document.getElementById('experience-container'), portfolioData, animate);
-    renderClients(document.getElementById('clients-container'), portfolioData, animate);
-    renderProjects(document.getElementById('projects-container'), portfolioData, animate);
-    renderHobbies(document.getElementById('hobbies-container'), portfolioData, animate);
-    renderScratchpad(document.getElementById('scratchpad-container'), portfolioData, animate, { limit: 2 });
-    renderContactLinks(document.getElementById('contact-container'), portfolioData, animate);
-    setupObserver();
-}
+// Content is baked into index.html at build time (see util/build.js). This
+// file is progressive enhancement only: theme toggle, sidebar nav, and the
+// scroll-reveal animation -- none of it is required to read the page.
 
 function setupObserver() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                const bars = entry.target.querySelectorAll('.progress-fill');
-                bars.forEach(bar => {
-                    setTimeout(() => {
-                        bar.style.width = bar.getAttribute('data-width');
-                    }, 100);
-                });
-            }
+            if (entry.isIntersecting) entry.target.classList.add('visible');
         });
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.section-fade').forEach(el => observer.observe(el));
 }
+
 document.addEventListener('DOMContentLoaded', () => {
+    setupObserver();
     document.querySelectorAll('aside a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -50,7 +30,6 @@ export function toggleTheme() {
     const isLight = document.documentElement.classList.contains('light-mode');
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
 };
-window.onload = renderPortfolio;
 window.toggleTheme = toggleTheme
 if (localStorage.getItem('theme') === 'light') {
     document.documentElement.classList.add('light-mode');
