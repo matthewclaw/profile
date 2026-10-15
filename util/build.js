@@ -46,10 +46,8 @@ function injectIndexHtml(keepJsonLdMarkers) {
   let html = fs.readFileSync(indexPath, "utf8");
 
   const schema = fs.readFileSync(path.join(root, "generated", "schema.jsonld"), "utf8");
-  const noscript = fs.readFileSync(path.join(root, "generated", "noscript.html"), "utf8");
 
   html = replaceBetweenMarkers(html, "JSONLD", schema, { keepMarkers: keepJsonLdMarkers });
-  html = replaceBetweenMarkers(html, "NOSCRIPT", noscript);
 
   fs.writeFileSync(indexPath, html);
 }

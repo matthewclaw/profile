@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build (Tailwind CSS, blog drafts, JSON-LD, noscript fallback, resume.md, robots.txt, sitemap.xml)
+      - name: Build (Tailwind CSS, blog drafts, JSON-LD, resume.md, robots.txt, sitemap.xml)
         run: npm run build
 
       - name: Remove files that shouldn't be published
@@ -38,7 +38,7 @@ jobs:
         run: |
           rm -rf node_modules .git .github util scratchpad/drafts
           rm -f assets/css/tailwind-source.css
-          rm -f generated/noscript.html generated/schema.jsonld
+          rm -f generated/schema.jsonld
           rm -f package.json package-lock.json README.md profile_preview.gif .gitignore
 
       - name: Configure Pages

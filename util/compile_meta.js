@@ -5,51 +5,6 @@ const name = "Matthew Law";
 const title = "Senior Software Engineer";
 
 // ------------------------
-// NOSCRIPT GENERATION
-// ------------------------
-
-function generateNoScript() {
-  const skills = data.skills.map(s => `<li>${s.name}</li>`).join("");
-
-  const experience = data.experience.map(exp => `
-    <h3>${exp.company} — ${exp.role} (${exp.period})</h3>
-    <ul>
-      ${exp.summary.map(s => `<li>${s}</li>`).join("")}
-    </ul>
-  `).join("");
-
-  const education = data.education.map(edu => `
-    <h3>${edu.course} — ${edu.institution}</h3>
-    <p>${edu.period}</p>
-  `).join("");
-
-  const blogPosts = data.scratchpad?.blog || [];
-  const linkedinPosts = data.scratchpad?.linkedin || [];
-  const scratchpad = (blogPosts.length || linkedinPosts.length) ? `
-<h2>Scratchpad</h2>
-${blogPosts.length ? `<h3>Blog</h3>
-<ul>${blogPosts.map(p => `<li><a href="${p.url}">${p.title}</a> — ${p.tagline}</li>`).join("")}</ul>` : ""}
-${linkedinPosts.length ? `<h3>LinkedIn</h3>
-<ul>${linkedinPosts.map(p => `<li><a href="${p.url}">${p.title}</a> — ${p.tagline}</li>`).join("")}</ul>` : ""}
-` : "";
-
-  return `
-<h1>${name}</h1>
-<p>${title}</p>
-
-<h2>Skills</h2>
-<ul>${skills}</ul>
-
-<h2>Experience</h2>
-${experience}
-
-<h2>Education</h2>
-${education}
-${scratchpad}
-`;
-}
-
-// ------------------------
 // JSON-LD GENERATION
 // ------------------------
 
@@ -110,7 +65,6 @@ ${edu.period}
 
 fs.mkdirSync("./generated", { recursive: true });
 
-fs.writeFileSync("./generated/noscript.html", generateNoScript());
 fs.writeFileSync(
   "./generated/schema.jsonld",
   JSON.stringify(generateJsonLd(), null, 2)
