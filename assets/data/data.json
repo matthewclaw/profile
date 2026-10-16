@@ -258,17 +258,6 @@
             "url": "https://github.com/matthewclaw/Simple.Interpreter"
         },
         {
-            "title": "Query",
-            "description": "A library for running MySQL commands, written before EF was 'big'. Uses reflection to map the results onto whatever type you ask for.",
-            "tech": [
-                "C#",
-                "Reflection",
-                "SQL"
-            ],
-            "status": "public",
-            "url": "https://github.com/matthewclaw/Query"
-        },
-        {
             "title": "profile",
             "description": "The source behind this site, including the build pipeline that turns a Markdown file into a Scratchpad post.",
             "tech": [
