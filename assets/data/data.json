@@ -326,18 +326,22 @@
     "hobbies": [
         {
             "name": "Dungeons & Dragons",
+            "description": "From an Eldritch Knight who couldn't use magic to one character with two personalities, thanks to a mind flayer tadpole.",
             "icon": "fa-dice-d20"
         },
         {
             "name": "Side Projects",
+            "description": "From public repos to console_app_1 through console_app_20.",
             "icon": "fa-code"
         },
         {
             "name": "Video Games",
+            "description": "From missing shots in Apex Legends to theorycrafting RPG characters.",
             "icon": "fa-gamepad"
         },
         {
             "name": "Reading",
+            "description": "The Hitchhiker's Guide to the Galaxy omnibus, at least once a year. Currently working through the essential works of H.P. Lovecraft.",
             "icon": "fa-book-open"
         }
     ],
