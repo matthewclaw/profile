@@ -55,7 +55,7 @@ function renderPage(data) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-mode')}catch(e){}function toggleTheme(){var l=document.documentElement.classList.toggle('light-mode');try{localStorage.setItem('theme',l?'light':'dark')}catch(e){}}</script>
+    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-mode')}catch(e){}function toggleTheme(){var l=document.documentElement.classList.toggle('light-mode');try{localStorage.setItem('theme',l?'light':'dark')}catch(e){}}document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('[onclick="toggleTheme()"]').forEach(function(b){b.hidden=false})})</script>
     <title>${TITLE}</title>
     <meta name="author" content="Matthew Law">
     <meta name="description" content="${DESCRIPTION}">
@@ -89,7 +89,7 @@ function renderPage(data) {
 
 <body class="antialiased">
     <div class="editor-tabbar">
-        <button type="button" onclick="toggleTheme()" title="Toggle Theme" aria-label="Toggle theme" class="editor-tab inactive no-print">
+        <button type="button" hidden onclick="toggleTheme()" title="Toggle Theme" aria-label="Toggle theme" class="editor-tab inactive no-print">
             <i class="fas fa-sun text-yellow-400" aria-hidden="true"></i><i class="fas fa-moon text-blue-700"
                 aria-hidden="true"></i> 
         </button>
@@ -115,7 +115,7 @@ ${blogSection}${linkedinSection}
     <a href="../index.html" title="Back to matthew_law" aria-label="Back to matthew_law" class="editor-fab left no-print">
         <i class="fas fa-arrow-left"></i>
     </a>
-    <button type="button" onclick="toggleTheme()" title="Toggle Theme" aria-label="Toggle theme"
+    <button type="button" hidden onclick="toggleTheme()" title="Toggle Theme" aria-label="Toggle theme"
         class="editor-fab right no-print">
         <i class="fas fa-sun text-yellow-400" aria-hidden="true"></i><i class="fas fa-moon text-blue-700"
             aria-hidden="true"></i>
