@@ -54,7 +54,7 @@
 
 ## Education
 
-### Microsoft Certified Software Development Professional (MCSD) — CTU
+### Microsoft Certified Solutions Developer (MCSD) — CTU
 2015.01 - 2015.11
 
 
