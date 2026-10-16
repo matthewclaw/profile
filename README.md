@@ -1,27 +1,34 @@
 # Matthew Law | Senior Software Engineer
 
-
-Hello there! I'm Matthew, a senior software engineer with a passion for building robust and scalable backend systems. With over 10 years of experience, I specialize in C# and .NET, and I have a strong focus on system architecture, extensibility, and code quality.
-
-This repository is the home of my interactive online portfolio. It's a creative take on a developer portfolio, designed to look and feel like a code editor. I believe it's a fun and unique way to learn more about my skills and experience.
-
-## 🚀 [Explore my Interactive Portfolio](https://matthewclaw.github.io/profile/)
-
-The live site is the main attraction, but feel free to browse the code in this repository. You'll see how I've used Vanilla JavaScript to create a data-driven site that's easy to update.
+The source behind [my portfolio](https://matthewclaw.github.io/profile/). It's built to look like VS Code, mostly because that's where I spend my day.
 
 ![Sad_404_Noises](profile_preview.gif)
 
-### Other options
-
-- [Explore the Interactive Portfolio without animations](https://matthewclaw.github.io/profile/?animate=false)
 - [Jump straight to my downloadable CV](https://matthewclaw.github.io/profile/assets/docs/cv.pdf)
 
-## 💬 Let's Connect
+## How it's built
 
-I'm always open to connecting with other professionals in the tech industry. You can find me on the following platforms:
+There's no framework and nothing renders in the browser. The pages are plain HTML that a small Node build fills in ahead of time, so the site reads fine with JavaScript turned off. The JS that does ship only handles the theme toggle, the sidebar and the fade-in.
+
+- **`assets/data/data.json`** is the single source for experience, clients, credentials, hobbies, projects and contact details. The homepage, `cv.html`, `generated/resume.md` and the JSON-LD all come from it.
+- **`scratchpad/drafts/*.md`** are the Scratchpad posts. Each one is rendered to its own page and its card is synced back into `data.json`. The format is in [the drafts README](scratchpad/drafts/README.md).
+- **`util/*.js`** is the build. It compiles Tailwind, renders the drafts and the Scratchpad index, generates the JSON-LD and `resume.md`, then injects everything between the `<!-- NAME:START -->` / `<!-- NAME:END -->` markers in `index.html` and `cv.html`. It also writes `robots.txt` and `sitemap.xml`.
+
+```
+npm ci
+npm run debug
+```
+
+Use `npm run debug` locally. `npm run build` is the production build: it strips the JSON-LD markers out of `index.html`, which breaks the next build if that output gets committed.
+
+## Deploying
+
+Every push to `main` runs a GitHub Actions workflow. It does a production build, removes the tooling and source files, and publishes what's left to GitHub Pages.
+
+`cv.pdf` isn't built. I export it from `cv.html` in Chrome by hand.
+
+## Let's Connect
 
 - **[Email](mailto:Matthew.mcsd@gmail.com)**
 - **[LinkedIn](https://www.linkedin.com/in/matthew-c-law/)**
 - **[GitHub](https://github.com/matthewclaw)**
-
-Thanks for stopping by!
