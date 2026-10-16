@@ -39,6 +39,7 @@ jobs:
           rm -rf node_modules .git .github util scratchpad/drafts
           rm -f assets/css/tailwind-source.css
           rm -f generated/schema.jsonld
+          rm -f assets/docs/cv_bkup.pdf
           rm -f package.json package-lock.json README.md profile_preview.gif .gitignore
 
       - name: Configure Pages
