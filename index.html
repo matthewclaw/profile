@@ -84,7 +84,7 @@
         <aside class="hidden md:flex flex-col w-48 ide-sidebar border-r fixed top-0 h-full z-40">
             <div class="p-3 uppercase text-[10px] font-bold tracking-widest opacity-70 mb-2">Explorer</div>
             <div class="flex flex-col text-xs" id="sidebar-nav">
-                <button onclick="toggleTheme()" aria-label="Toggle theme"
+                <button hidden onclick="toggleTheme()" aria-label="Toggle theme"
                     class="theme-toggle-btn font-bold px-4 py-2 flex items-center gap-2 transition">
                     <i class="fas fa-sun text-yellow-400" aria-hidden="true"></i><i class="fas text-blue-700 fa-moon"
                         aria-hidden="true"></i> Change Theme
@@ -510,7 +510,7 @@
 
     <footer
         class="no-print fixed bottom-0 w-full h-6 bg-blue-600 text-white text-[10px] flex items-center justify-between px-3 z-50">
-        <button onclick="toggleTheme()" aria-label="Toggle theme"
+        <button hidden onclick="toggleTheme()" aria-label="Toggle theme"
             class="z-60 fixed bottom-10 right-2 text-2xl font-m rounded-full ide-sidebar border-2 w-10 h-10 flex justify-center items-center theme-toggle-btn-lower transition">
             <i class="fas fa-sun text-yellow-400" aria-hidden="true"></i><i class="fas text-blue-700 fa-moon"
                 aria-hidden="true"></i>

@@ -34,3 +34,5 @@ window.toggleTheme = toggleTheme
 if (localStorage.getItem('theme') === 'light') {
     document.documentElement.classList.add('light-mode');
 }
+// Theme buttons ship hidden so no-JS visitors never see a dead control.
+document.querySelectorAll('[onclick="toggleTheme()"]').forEach(b => b.hidden = false);
