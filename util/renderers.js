@@ -186,10 +186,18 @@ function renderHobbiesCV(hobbies) {
         .join('');
 }
 
+function contactHref({ type, link }) {
+    if (type === 'email') return `mailto:${link}`;
+    if (type === 'phone') return `tel:${link.replace(/\s/g, '')}`;
+    return link;
+}
+
+// Plain <a> on purpose: Tailwind's preflight makes links inherit colour and
+// decoration, so the CV looks the same but the exported PDF gets clickable links.
 function renderContactsCV(contact_links) {
     return contact_links
         .map(h => `<div class="mb-1"><p class="text-xs token-comment">// ${h.name}</p>
-        <p class="text-xs">${h.link}</p></div>`)
+        <p class="text-xs"><a href="${contactHref(h)}">${h.link}</a></p></div>`)
         .join('');
 }
 
