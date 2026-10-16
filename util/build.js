@@ -99,10 +99,7 @@ function writeSitemap() {
   const today = new Date().toISOString().slice(0, 10);
   const data = JSON.parse(fs.readFileSync(path.join(root, "assets", "data", "data.json"), "utf8"));
 
-  const scratchpadDates = [
-    ...(data.scratchpad?.blog || []).map(post => post.date),
-    ...(data.scratchpad?.linkedin || []).map(post => post.date),
-  ];
+  const scratchpadDates = (data.scratchpad?.blog || []).map(post => post.date);
   const latestScratchpadDate = scratchpadDates.sort().pop() || today;
 
   const pages = [

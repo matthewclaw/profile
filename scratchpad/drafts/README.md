@@ -56,9 +56,6 @@ The failed versions summarise the story or narrate the author. The working ones
 hand the reader something to use. If it only makes sense after reading the post,
 it's a tagline, not a lesson.
 
-Also check it doesn't restate something already published as a LinkedIn entry in
-`data.json` — both show on `/scratchpad`, so an overlap reads as repetition.
-
 It appears on cards only, never on the article page. Printing the conclusion above
 a piece whose value is watching you arrive at it would spoil the thing the post is
 for.

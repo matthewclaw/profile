@@ -44,10 +44,9 @@ function renderGroup(label, entries, opts) {
 
 function renderPage(data) {
   const blogPosts = data.scratchpad?.blog || [];
-  const linkedinPosts = data.scratchpad?.linkedin || [];
+  const linkedinUrl = data.contact_links.find(link => link.name === "LinkedIn").link;
 
   const blogSection = renderGroup("Blog", blogPosts, { iconClass: "fas fa-file-lines", external: false });
-  const linkedinSection = renderGroup("LinkedIn", linkedinPosts, { iconClass: "fab fa-linkedin", external: true });
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -105,7 +104,8 @@ function renderPage(data) {
         <h1 class="text-2xl md:text-4xl font-bold mb-3 token-type">Scratchpad</h1>
         <p class="text-sm opacity-70 mb-10">A decade of git commits and perspective shifts.</p>
         <p class="text-sm opacity-70 mb-10">Not every note changed my thinking.<br>These did.</p>
-${blogSection}${linkedinSection}
+${blogSection}
+        <p class="text-sm opacity-70">I share these on <a href="${linkedinUrl}" target="_blank" rel="noopener" class="token-type hover:underline">LinkedIn</a> too, under #LawOnDev</p>
     </main>
     <footer
         class="no-print fixed bottom-0 w-full h-6 bg-blue-600 text-white text-[10px] flex items-center justify-between px-3 z-50">
