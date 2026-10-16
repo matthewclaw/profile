@@ -210,7 +210,7 @@
             "role": "Intermediate Software Developer",
             "period": "Jan 2019 – Feb 2020",
             "summary": [
-                "Identified a SQL injection exposure in a client's dynamic reporting engine and introduced upload validation with a maker-checker approval flow.",
+                "Identified that a client's reporting engine ran user-uploaded SQL as raw text, and argued for upload validation with a maker-checker approval flow.",
                 "Replaced hardcoded values such as tax rates with a centralised constant, reducing a subsequent rate change to a single-file update.",
                 "Developed and maintained market data and custodial platforms operating in live financial environments.",
                 "Worked across backend and frontend in C#, SQL, JavaScript and Angular."
