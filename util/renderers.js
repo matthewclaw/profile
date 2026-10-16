@@ -61,9 +61,9 @@ function renderTimeline(data, forCv) {
                     <div class="absolute -left-[5px] ${forCv ? 'top-[33px]' : 'top-0'} w-2 h-2 rounded-full bg-blue-600 border-blue-600 border-2"></div>
                     <span class="token-comment text-xs">// ${item.period}</span>
                     <h3 class="${forCv ? '' : 'text-lg mt-1'} font-bold">${item.what} <span class="opacity-30">@</span> ${item.at}</h3>
-                    <ul class="mt-4 space-y-2 tl-desc text-sm text-slate-400">
+                    ${item.description.length ? `<ul class="mt-4 space-y-2 tl-desc text-sm text-slate-400">
                         ${item.description.map(line => `<li>- ${line}</li>`).join('')}
-                    </ul>
+                    </ul>` : ''}
                     ${tech}
                 </div>
             `}).join('');
@@ -170,6 +170,10 @@ function renderEducationCV(education) {
     return renderTimeline(education.map(item => { return { ...item, at: item.institution, what: item.course } }), true);
 }
 
+function renderCredentialsCV(credentials) {
+    return renderTimeline(credentials.map(c => ({ period: c.date, what: c.name, at: c.issuer, description: [] })), true);
+}
+
 function renderSkillsCV(skills) {
     return skills
         .map(s => `<span class="inline-block text-xs px-2 py-0.5 bg-gray-500/10 rounded token-type border-gray-500/10 border-2 mr-2 mb-1">${s.name}</span>`)
@@ -208,6 +212,7 @@ module.exports = {
     renderContactLinks,
     renderExperienceCV,
     renderEducationCV,
+    renderCredentialsCV,
     renderSkillsCV,
     renderHobbiesCV,
     renderContactsCV,

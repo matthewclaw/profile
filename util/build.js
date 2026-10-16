@@ -78,6 +78,7 @@ function renderPages() {
   const cvPath = path.join(root, "cv.html");
   let cvHtml = fs.readFileSync(cvPath, "utf8");
   cvHtml = replaceBetweenMarkers(cvHtml, "CV_EXPERIENCE", renderers.renderExperienceCV(data.experience));
+  cvHtml = replaceBetweenMarkers(cvHtml, "CV_CREDENTIALS", renderers.renderCredentialsCV(data.credentials));
   cvHtml = replaceBetweenMarkers(cvHtml, "CV_EDUCATION", renderers.renderEducationCV(data.education));
   cvHtml = replaceBetweenMarkers(cvHtml, "CV_SKILLS", renderers.renderSkillsCV(data.skills));
   cvHtml = replaceBetweenMarkers(cvHtml, "CV_TECH", renderers.renderTechnologiesCv(data.experience));
