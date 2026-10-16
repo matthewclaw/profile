@@ -108,7 +108,7 @@
             "role": "Senior Software Engineer",
             "period": "Jan 2024 – Present",
             "summary": [
-                "Led a team of four on a platform modernisation, delivering an Angular 11 to 20 upgrade and improved unit test coverage.",
+                "Led a team of four on a platform modernisation, delivering an Angular 11 to 19 upgrade and improved unit test coverage.",
                 "Own the multi-tenant, plugin-based platform architecture, including per-tenant plugin authorisation.",
                 "Design and maintain backend systems and APIs in C#, .NET and ASP.NET Core across client-facing and internal platforms.",
                 "Define secure authentication and authorisation patterns (OAuth2, JWT), and maintain shared NuGet and npm libraries.",
