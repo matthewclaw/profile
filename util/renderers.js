@@ -120,7 +120,7 @@ function renderHobbies(portfolioData) {
     return portfolioData.hobbies.map(hobby => `
                 <div class="section-fade flex flex-col items-center justify-center p-4 ide-card border rounded hover:border-blue-500/50 transition-all group">
                     <i class="fas ${hobby.icon} text-2xl mb-3 token-type group-hover:scale-110 transition-transform"></i>
-                    <span class="text-[10px] uppercase tracking-wider opacity-60 text-center">${hobby.name}</span>
+                    <span class="text-[10px] uppercase tracking-wider opacity-80 text-center">${hobby.name}</span>
                     <p class="text-xs token-comment text-center leading-relaxed mt-2">${hobby.description}</p>
                 </div>
             `).join('');
