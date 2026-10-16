@@ -78,6 +78,7 @@ function renderPages() {
   const cvPath = path.join(root, "cv.html");
   let cvHtml = fs.readFileSync(cvPath, "utf8");
   cvHtml = replaceBetweenMarkers(cvHtml, "CV_EXPERIENCE", renderers.renderExperienceCV(data.experience));
+  cvHtml = replaceBetweenMarkers(cvHtml, "CV_CREDENTIALS", renderers.renderCredentialsCV(data.credentials));
   cvHtml = replaceBetweenMarkers(cvHtml, "CV_EDUCATION", renderers.renderEducationCV(data.education));
   cvHtml = replaceBetweenMarkers(cvHtml, "CV_SKILLS", renderers.renderSkillsCV(data.skills));
   cvHtml = replaceBetweenMarkers(cvHtml, "CV_TECH", renderers.renderTechnologiesCv(data.experience));
@@ -99,10 +100,7 @@ function writeSitemap() {
   const today = new Date().toISOString().slice(0, 10);
   const data = JSON.parse(fs.readFileSync(path.join(root, "assets", "data", "data.json"), "utf8"));
 
-  const scratchpadDates = [
-    ...(data.scratchpad?.blog || []).map(post => post.date),
-    ...(data.scratchpad?.linkedin || []).map(post => post.date),
-  ];
+  const scratchpadDates = (data.scratchpad?.blog || []).map(post => post.date);
   const latestScratchpadDate = scratchpadDates.sort().pop() || today;
 
   const pages = [

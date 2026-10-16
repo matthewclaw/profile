@@ -69,14 +69,14 @@
         {
             "name": "BSP Financial Group Limited",
             "logoUrl": "./assets/img/clientele/bsp_logo.jpg",
-            "workDescription": "Worked the the Digital Assist employee platform, improved pipelines and helped standardise deployment processes.",
+            "workDescription": "Worked on the Digital Assist employee platform, improved pipelines and helped standardise deployment processes.",
             "url": "https://www.bsp.com.pg/"
         }
     ],
     "education": [
         {
             "period": "2015.01 - 2015.11",
-            "course": "Microsoft Certified Software Development Professional (MCSD)",
+            "course": "Microsoft Certified Solutions Developer (MCSD)",
             "institution": "CTU",
             "description": [
                 "Software development using C#, SQL Server.",
@@ -108,7 +108,7 @@
             "role": "Senior Software Engineer",
             "period": "Jan 2024 – Present",
             "summary": [
-                "Led a team of four on a platform modernisation, delivering an Angular 11 to 20 upgrade and improved unit test coverage.",
+                "Led a team of four on a platform modernisation, delivering an Angular 11 to 19 upgrade and improved unit test coverage.",
                 "Own the multi-tenant, plugin-based platform architecture, including per-tenant plugin authorisation.",
                 "Design and maintain backend systems and APIs in C#, .NET and ASP.NET Core across client-facing and internal platforms.",
                 "Define secure authentication and authorisation patterns (OAuth2, JWT), and maintain shared NuGet and npm libraries.",
@@ -116,12 +116,11 @@
                 "Mentor engineers through code review, and act as the technical decision point on cross-cutting concerns in client engagements."
             ],
             "details": [
-                "Own the multi-tenant plugin architecture. Each tenant has an explicit registered list of what it is allowed to load, rather than the loader accepting anything that implements the right interface.",
-                "Led a team of four on a platform modernisation, planning and running an Angular 11 to 20 upgrade and pushing for real unit test coverage as part of it.",
-                "Called a stop at the last LTS rather than the newest release. Several packages had no support past it, and handing the client back something stable mattered more than reaching 20.",
+                "Own the multi-tenant plugin architecture. Each tenant has an explicit registered list of what it is allowed to load, rather than the loader accepting anything that implements the right interface.<br><a href=\"scratchpad/the-question-my-plugin-loader-couldnt-answer.html\" class=\"token-comment hover:underline break-all\">// scratchpad/the-question-my-plugin-loader-couldnt-answer</a>",
+                "Led a team of four on a platform modernisation, pushing for real unit test coverage along the way. Took Angular from 11 to 19 and called a stop at the last LTS rather than the newest release: several packages had no support past it, and handing the client back something stable mattered more than reaching 20.",
                 "Joined a new project and spent the wait for access and onboarding fixing pain points in the existing CI/CD pipeline.",
                 "Build and maintain shared NuGet and npm libraries so teams are not each solving the same problem a slightly different way.",
-                "Mentor engineers through code reviews and technical guidance, and hold the cross-cutting technical decisions in client engagements."
+                "Hold the cross-cutting technical decisions in client engagements, and mentor through code review."
             ],
             "tech": [
                 "C#",
@@ -147,8 +146,7 @@
             "details": [
                 "Brought fintech auth and OWASP experience to teams that had not worked in heavily regulated environments.",
                 "Led a small team building a shared auth package. Other departments at the client have since adopted it.",
-                "Contributed to the multi-tenant platform and the early iterations of its plugin-based architecture.",
-                "Refactored legacy codebases as part of ongoing modernisation, focused on what would still be maintainable once the team handed it over."
+                "Contributed to the multi-tenant platform and the early iterations of its plugin architecture, and refactored legacy code with an eye on what would still be maintainable once the team handed it over.<br><a href=\"scratchpad/the-column-that-looked-like-nothing.html\" class=\"token-comment hover:underline break-all\">// scratchpad/the-column-that-looked-like-nothing</a>"
             ],
             "tech": [
                 "C#",
@@ -165,11 +163,10 @@
             "summary": [
                 "Ran weekly mentoring sessions for junior engineers, voluntarily and outside working hours.",
                 "Coached on development best practices, code quality and problem-solving within production codebases.",
-                "Guided juniors through unfamiliar architectures and supported personal development projects to completion."
+                "Guided juniors through unfamiliar architectures, and helped a few finish personal projects they had wanted to build."
             ],
             "details": [
-                "Ran weekly after-hours mentoring sessions with juniors. Opted into rather than assigned.",
-                "Worked through best practices, pointed people at material, and helped a few of them finish personal projects they had wanted to build.",
+                "Ran weekly after-hours mentoring sessions with juniors, opted into rather than assigned. Worked through best practices, pointed people at material, and helped a few finish personal projects they had wanted to build.",
                 "Learned to give feedback without taking ownership of the problem away from the person holding it."
             ],
             "tech": [
@@ -213,7 +210,7 @@
             "role": "Intermediate Software Developer",
             "period": "Jan 2019 – Feb 2020",
             "summary": [
-                "Identified a SQL injection exposure in a client's dynamic reporting engine and introduced upload validation with a maker-checker approval flow.",
+                "Identified that a client's reporting engine ran user-uploaded SQL as raw text, and argued for upload validation with a maker-checker approval flow.",
                 "Replaced hardcoded values such as tax rates with a centralised constant, reducing a subsequent rate change to a single-file update.",
                 "Developed and maintained market data and custodial platforms operating in live financial environments.",
                 "Worked across backend and frontend in C#, SQL, JavaScript and Angular."
@@ -239,8 +236,7 @@
                 "Developed financial systems and contributed to internal frameworks in C#, SQL, JavaScript and Angular."
             ],
             "details": [
-                "Built BBO and custodial solutions for the ZAR X environment, which went live in February 2017.",
-                "Contributed to the internal frameworks the team's financial systems were built on."
+                "Built BBO and custodial solutions for the ZAR X environment, which went live in February 2017, and contributed to the internal frameworks they ran on."
             ],
             "tech": [
                 "C#",
@@ -260,17 +256,6 @@
             ],
             "status": "public",
             "url": "https://github.com/matthewclaw/Simple.Interpreter"
-        },
-        {
-            "title": "Query",
-            "description": "A library for running MySQL commands, written before EF was 'big'. Uses reflection to map the results onto whatever type you ask for.",
-            "tech": [
-                "C#",
-                "Reflection",
-                "SQL"
-            ],
-            "status": "public",
-            "url": "https://github.com/matthewclaw/Query"
         },
         {
             "title": "profile",
@@ -321,49 +306,27 @@
                 "date": "2026-07-26",
                 "url": "scratchpad/the-column-that-looked-like-nothing.html"
             }
-        ],
-        "linkedin": [
-            {
-                "title": "Leadership Doesn't Start With a Title",
-                "tagline": "Ownership scales faster than hierarchy — real leadership shows up in the small, unasked-for moves, not the meetings.",
-                "date": "2025-10-27",
-                "url": "https://www.linkedin.com/posts/matthew-c-law_lawondev-developermindset-leadership-share-7388452070972071936-VLl0/"
-            },
-            {
-                "title": "Intent Outlasts Imitation",
-                "tagline": "'Do not seek to follow in the footsteps of those ahead. Seek what they sought.' Growth isn't copying someone's path — it's chasing the intent behind it.",
-                "date": "2025-10-24",
-                "url": "https://www.linkedin.com/posts/matthew-c-law_developermindset-lawondev-careergrowth-share-7387369580853231616-3pTA/"
-            },
-            {
-                "title": "Debugging Our Mindset",
-                "tagline": "We spend so much time debugging code — but how often do we debug our mindset? Introducing #DeveloperMindset: short reflections on the human side of the craft.",
-                "date": "2025-10-21",
-                "url": "https://www.linkedin.com/posts/matthew-c-law_developermindset-lawondev-share-7386307130146045952-XaO1/"
-            },
-            {
-                "title": "How Long Would It Take to Onboard a New Dev?",
-                "tagline": "One simple question exposes a project's real health — code clarity, docs, tests, naming. The faster someone new gets productive, the stronger the project.",
-                "date": "2025-10-20",
-                "url": "https://www.linkedin.com/posts/matthew-c-law_softwareengineering-developerexperience-cleancode-share-7386021977511243776-RLMj/"
-            }
         ]
     },
     "hobbies": [
         {
             "name": "Dungeons & Dragons",
+            "description": "From an Eldritch Knight who couldn't use magic to one character with two personalities, thanks to a mind flayer tadpole.",
             "icon": "fa-dice-d20"
         },
         {
             "name": "Side Projects",
+            "description": "From public repos to console_app_1 through console_app_20.",
             "icon": "fa-code"
         },
         {
             "name": "Video Games",
+            "description": "Mostly theorycrafting RPG characters. Occasionally missing shots in Apex Legends.",
             "icon": "fa-gamepad"
         },
         {
             "name": "Reading",
+            "description": "The Hitchhiker's Guide to the Galaxy omnibus, at least once a year. Currently working through the essential works of H.P. Lovecraft.",
             "icon": "fa-book-open"
         }
     ],

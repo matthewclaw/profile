@@ -13,7 +13,7 @@
 ## Experience
 
 ### Entelect — Senior Software Engineer (Jan 2024 – Present)
-- Led a team of four on a platform modernisation, delivering an Angular 11 to 20 upgrade and improved unit test coverage.
+- Led a team of four on a platform modernisation, delivering an Angular 11 to 19 upgrade and improved unit test coverage.
 - Own the multi-tenant, plugin-based platform architecture, including per-tenant plugin authorisation.
 - Design and maintain backend systems and APIs in C#, .NET and ASP.NET Core across client-facing and internal platforms.
 - Define secure authentication and authorisation patterns (OAuth2, JWT), and maintain shared NuGet and npm libraries.
@@ -31,7 +31,7 @@
 ### Dariel — Mentor (Dec 2021 – May 2022)
 - Ran weekly mentoring sessions for junior engineers, voluntarily and outside working hours.
 - Coached on development best practices, code quality and problem-solving within production codebases.
-- Guided juniors through unfamiliar architectures and supported personal development projects to completion.
+- Guided juniors through unfamiliar architectures, and helped a few finish personal projects they had wanted to build.
 
 
 ### Dariel — Software Developer (Mar 2020 – May 2022)
@@ -41,7 +41,7 @@
 
 
 ### Securities & Trading Technology — Intermediate Software Developer (Jan 2019 – Feb 2020)
-- Identified a SQL injection exposure in a client's dynamic reporting engine and introduced upload validation with a maker-checker approval flow.
+- Identified that a client's reporting engine ran user-uploaded SQL as raw text, and argued for upload validation with a maker-checker approval flow.
 - Replaced hardcoded values such as tax rates with a centralised constant, reducing a subsequent rate change to a single-file update.
 - Developed and maintained market data and custodial platforms operating in live financial environments.
 - Worked across backend and frontend in C#, SQL, JavaScript and Angular.
@@ -54,7 +54,7 @@
 
 ## Education
 
-### Microsoft Certified Software Development Professional (MCSD) — CTU
+### Microsoft Certified Solutions Developer (MCSD) — CTU
 2015.01 - 2015.11
 
 

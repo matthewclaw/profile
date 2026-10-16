@@ -167,7 +167,7 @@ async function renderDrafts() {
 function updateDataJson(blogPosts) {
   const data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
   if (!data.scratchpad) {
-    data.scratchpad = { blog: [], linkedin: [] };
+    data.scratchpad = { blog: [] };
   }
   data.scratchpad.blog = blogPosts;
   fs.writeFileSync(dataPath, JSON.stringify(data, null, 4) + "\n");
