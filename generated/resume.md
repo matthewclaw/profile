@@ -31,7 +31,7 @@
 ### Dariel — Mentor (Dec 2021 – May 2022)
 - Ran weekly mentoring sessions for junior engineers, voluntarily and outside working hours.
 - Coached on development best practices, code quality and problem-solving within production codebases.
-- Guided juniors through unfamiliar architectures and supported personal development projects to completion.
+- Guided juniors through unfamiliar architectures, and helped a few finish personal projects they had wanted to build.
 
 
 ### Dariel — Software Developer (Mar 2020 – May 2022)
